@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>ExerHealth - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>ExerHealth - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team ExerHealth</code>      Since: <code>Sep 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -33,7 +33,16 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#uc01-statistics-bar-chart">UC01: Statistics (bar chart)</a></li>
+<li><a href="#uc02-schedule">UC02: Schedule</a></li>
+<li><a href="#uc03-suggest">UC03: Suggest</a></li>
+<li><a href="#uc04-configure-command">UC04: Configure Command</a></li>
+<li><a href="#uc05-undo">UC05: Undo</a></li>
+<li><a href="#uc06-redo">UC06: Redo</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
@@ -76,14 +85,14 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/">diagrams</a> folder.
+The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/docs/diagrams/">diagrams</a> folder.
 Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -170,13 +179,13 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -202,7 +211,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -254,7 +263,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -299,7 +308,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -628,10 +637,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>exercises on a regular basis</p>
 </li>
 <li>
-<p>prefer desktop apps over other types</p>
+<p>actively monitors exercise records</p>
+</li>
+<li>
+<p>develops exercise regimes for the future</p>
+</li>
+<li>
+<p>prefers desktop apps over other types</p>
 </li>
 <li>
 <p>can type fast</p>
@@ -645,7 +660,23 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>provides an integrated platform to track and access past exercise records</p>
+</li>
+<li>
+<p>shows more complex data analytics than the statistics a standard tracking app provides</p>
+</li>
+<li>
+<p>allows flexible and conflict-free scheduling of planned exercises</p>
+</li>
+<li>
+<p>provides exercise suggestions based on past activities</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -655,12 +686,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
-<col style="width: 25%;">
-<col style="width: 30%;">
+<col style="width: 3.6144%;">
+<col style="width: 12.0481%;">
+<col style="width: 36.1445%;">
+<col style="width: 48.193%;">
 </colgroup>
 <thead>
 <tr>
@@ -673,70 +704,278 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who exercises</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monitors the types and quantity of the exercises I have completed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remember and have different variations to my exercises</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">athletic student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a way to store all my exercises and their relative intensities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make reference to past exercises while scheduling future exercises</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">frequent gym-goer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my rep counts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know how hard I have pushed and how far I am from my target reps</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants to get stronger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my the muscles my gym exercise works on</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plan what kind of muscle groups I should target to get stronger</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">amateur at exercising</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the app come up with exercises for me based on my user profile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">better plan future regimes based on my previous attempt</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who just got into exercising</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have some sample training plans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a starting point for my exercise regime</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">frequent gym-goer with targets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see my progression for every exercise and the date I completed them</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see how much I have improved</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Student who loves visual data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visualise my exercise statistics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">understand all my relevant data immediately</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who is very busy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the app detect clashes in my exercising schedules</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reschedule some of my exercises somewhere else</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">person who likes customization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add in new attributes for exercises</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tailor the app for my personal use</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless athletic student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to have a way to undo my actions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily undo my command when I accidentally delete one of my training plans</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless athletic student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to have a way to redo my actions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">simply redo my undone command when I realize I undid an important exercise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">athletic student who has a fixed training plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a way to store this training plan permanently</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save some trouble of constantly updating the app whenever I want to begin on that training plan</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who is impatient</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have simple commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input new entries quickly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">health-conscious student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my daily calories burnt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monitor my calorie count over a specific duration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants to get stronger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Know what kind of muscles I have been training for the past month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">take note of which muscles I have been focusing for training</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants to track exercises quickly and efficiently</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to add exercises from history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add the same thing without having to type it all out</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants a balanced exercise regime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the app auto suggest some forms of exercise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily find new exercises to do</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">athletic student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to modify my current training schedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily adapt my previous training plans into better plans that can help improve my physique</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">athlete who wants to improves</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save notes from my previous session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reflect and modify my training regime accordingly to suit my pace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">athletic student who loves to do things my way</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to define my own command syntax</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type the commands for the various features much easily and quickly</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">athletic student who uses the app often</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have an auto-complete or input suggestion feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily add in reused exercises conveniently without having to type them out fully again</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who likes to keep things neat</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to archive my older exercises</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be more focused on recent exercises</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who just got into gyming</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive some tips on good gym practices</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">avoid injuring myself during training</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who just got into sports</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Understand the most important tips on good exercise habits</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximise the benefits of my exercises</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who wants to get stronger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be advised on how much increment I should make for each exercise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">train progressively</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">athletic student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to keep track of my recovery period</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">avoid doing harm to my body from excessive training</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be reminded of when i have to exercise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set aside time for exercising</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">frequent gym-goer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be reminded of my exercise schedules</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remember to go for my sessions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">athletic student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monitor the list of equipment I need for each session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remember what I need for subsequent exercise sessions of the same kind</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">frequent gym-goer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">store my workout music playlist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access my favourite gym workout playlist conveniently when gyming</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student with a busy schedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to export my files</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to resolve conflicts between my exercise and work schedule</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who is very lazy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to mass import all my exercises data from other platforms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save the trouble of inputting an entire list of existing entries one by one</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student who uses mobile running apps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">import data from other application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">avoid the time-consuming process of adding all exercises manually</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>ExerHealth</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<div class="sect2">
+<h3 id="uc01-statistics-bar-chart"><a class="link" href="#uc01-statistics-bar-chart">UC01: Statistics (bar chart)</a></h3>
+<div class="paragraph">
+<p><strong>System:</strong> ExerHealth</p>
+</div>
+<div class="paragraph">
+<p><strong>Actor:</strong> user</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User adds multiple exercises to the ExerHealth tracker</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>User requests to see a bar chart of the most frequently
+done exercises within a range of date</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>ExerHealth shows user the breakdown of exercises and
+their respective frequency for the date range</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="uc02-schedule"><a class="link" href="#uc02-schedule">UC02: Schedule</a></h3>
+<div class="paragraph">
+<p><strong>System:</strong> ExerHealth</p>
+</div>
+<div class="paragraph">
+<p><strong>Actor:</strong> user</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests for the list of exercises.</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>ExerHealth displays the list of exercises it is tracking.</p>
+</li>
+<li>
+<p>User adds 1 or more exercises to a <a href="#regime">regime</a></p>
+</li>
+<li>
+<p>ExerHealth adds the regime to the user&#8217;s list of regime and display successful addition</p>
+</li>
+<li>
+<p>User <a href="#schedule">schedules</a> a regime at a date</p>
+</li>
+<li>
+<p>ExerHealth schedules regime at the date and displays successful scheduling</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -746,22 +985,70 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="ulist None">
+<ul class="None">
 <li>
-<p>2a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
+<p>5a. ExerHealth detects more than one regime at the date</p>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>5a1. ExerHealth displays resolve window to user</p>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>5a2. User enters which exercises they wish to schedule at the date from the conflicting regimes</p>
+</li>
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>5a3. ExerHealth schedules the newly made regime at the date and closes resolve window</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="uc03-suggest"><a class="link" href="#uc03-suggest">UC03: Suggest</a></h3>
+<div class="paragraph">
+<p><strong>System:</strong> Exerhealth</p>
+</div>
+<div class="paragraph">
+<p><strong>Actor:</strong> user</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User asks for suggestions</p>
+</li>
+<li>
+<p>System searches database for previous exercises done</p>
+</li>
+<li>
+<p>System creates a suggestion based on search and request type</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extension</strong></p>
+</div>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>1a. User does not have history</p>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>1a1. System provides user with preset suggestions</p>
+<div class="paragraph">
+<p>Use case ends</p>
 </div>
 </li>
 </ul>
@@ -769,8 +1056,167 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="uc04-configure-command"><a class="link" href="#uc04-configure-command">UC04: Configure Command</a></h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>System:</strong> ExerHealth</p>
+</div>
+<div class="paragraph">
+<p><strong>Actor:</strong> user</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add in a new user-defined <a href="#property">property</a> for exercises</p>
+</li>
+<li>
+<p>ExerHealth adds in the user-defined property for all exercises</p>
+</li>
+<li>
+<p>User adds a new exercise with the newly specified prefix and argument
+for the property</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>1a. ExerHealth detects that the user-defined property is a duplicate
+of another property for exercises</p>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>1a1. ExerHealth informs the user that his/her new property is a
+duplicate of a current property.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="uc05-undo"><a class="link" href="#uc05-undo">UC05: Undo</a></h3>
+<div class="paragraph">
+<p><strong>System:</strong> ExerHealth</p>
+</div>
+<div class="paragraph">
+<p><strong>Actor:</strong> user</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes an undoable command</p>
+</li>
+<li>
+<p>ExerHealth performs the change</p>
+</li>
+<li>
+<p>User undoes the latest command</p>
+</li>
+<li>
+<p>ExerHealth undoes the latest change</p>
+<div class="paragraph">
+<p>Steps 3-4 can be repeated for as many times as required until there is
+no undoable command left to undo</p>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>3a. The undo history is empty</p>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>3a1. ExerHealth informs user that undo is not allowed at this point</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="uc06-redo"><a class="link" href="#uc06-redo">UC06: Redo</a></h3>
+<div class="paragraph">
+<p><strong>System:</strong> ExerHealth</p>
+</div>
+<div class="paragraph">
+<p><strong>Actor:</strong> user</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User undoes the latest command</p>
+</li>
+<li>
+<p>ExerHealth undoes the latest change</p>
+</li>
+<li>
+<p>User redoes the latest undoable command that was undone</p>
+</li>
+<li>
+<p>ExerHealth redoes the command again</p>
+<div class="paragraph">
+<p>Steps 3-4 can be repeated for as many times as required until there are no more
+undoable command left to redo</p>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>3a. There is no action to redo as the user has not executed undo before</p>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>3a1. ExerHealth informs user that redo is not allowed at this point</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -783,15 +1229,21 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+<p>Should be able to hold up to 1000 exercises without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
+<li>
+<p>Should work without requiring an installer.</p>
+</li>
+<li>
+<p>Should not depend on a remote server.</p>
+</li>
+<li>
+<p>Should be for a single user i.e. (not a multi-user product).</p>
+</li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -802,11 +1254,22 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <dl>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
-<p>Windows, Linux, Unix, OS-X</p>
+<p>Windows, Linux, Unix, OS-X.</p>
 </dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
+<dt class="hdlist1"><a id="regime"></a> Regime</dt>
 <dd>
-<p>A contact detail that is not meant to be shared with others</p>
+<p>A specific set of exercises that are to be done together. For example,
+a <strong>Legs</strong> regime at the gym can include mutliple exercises such as
+squats, hamstring curl and calf raises.</p>
+</dd>
+<dt class="hdlist1"><a id="schedule"></a> Schedule</dt>
+<dd>
+<p>Planning of an exercise on a later day.</p>
+</dd>
+<dt class="hdlist1"><a id="property"></a> Property</dt>
+<dd>
+<p>An attribute of an exercise item. Pre-defined attributes include name,
+quantity, units and calories.</p>
 </dd>
 </dl>
 </div>
@@ -958,4 +1421,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-28 04:02:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-29 09:31:43 UTC</div></div></div></body></html>
