@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>ExerHealth - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>ExerHealth - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team ExerHealth</code>      Since: <code>Sep 2016</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -19,16 +19,18 @@
 <li><a href="#edit-exercise-information-code-edit-code">3.4. Edit exercise information: <code>edit</code></a></li>
 <li><a href="#locating-exercises-by-name-code-find-code">3.5. Locating exercises by name: <code>find</code></a></li>
 <li><a href="#delete-health-information-code-delete-code">3.6. Delete health information : <code>delete</code></a></li>
-<li><a href="#display-statistics-code-stats-code">3.7. Display statistics : <code>stats</code></a></li>
-<li><a href="#custom-properties-code-custom-code">3.8. Custom properties: <code>custom</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.9. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#scheduling-exercises-code-schedule-code">3.10. Scheduling exercises: <code>schedule</code></a></li>
-<li><a href="#resolve">3.11. Resolving scheduling conflicts: <code>resolve</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.13. Remind to do exercises <code>[coming in v2.0]</code></a></li>
-<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.14. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">3.15. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#display-statistics-code-stats-code">3.8. Display statistics : <code>stats</code></a></li>
+<li><a href="#undo-previous-command-code-undo-code">3.9. Undo previous command: <code>undo</code></a></li>
+<li><a href="#redo-undo-ed-command-code-redo-code">3.10. Redo undo-ed command: <code>redo</code></a></li>
+<li><a href="#custom-properties-code-custom-code">3.11. Custom properties: <code>custom</code></a></li>
+<li><a href="#scheduling-exercises-code-schedule-code">3.12. Scheduling exercises: <code>schedule</code></a></li>
+<li><a href="#resolve">3.13. Resolving scheduling conflicts: <code>resolve</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
+<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.15. Remind to do exercises <code>[coming in v2.0]</code></a></li>
+<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.16. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-the-data">3.17. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -40,7 +42,20 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Wish to get the summer body that the contestants in your school’s
+beauty pageant has? Want to shed some weight that you have gained
+from stress-eating?</p>
+</div>
+<div class="paragraph">
+<p>Well wait no more! ExerHealth is a one-stop platform for students
+who wish to embark on a journey of health and fitness. This application
+is optimised for students who prefer to work with a Command Line
+Interface (CLI) while still having the benefits of a Graphical User
+Interface (GUI). If you can type fast and wish to maintain a healthy
+lifestyle, ExerHealth is that one app for you!</p>
+</div>
+<div class="paragraph">
+<p>Interested? Jump to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started! Enjoy!</p>
 </div>
 </div>
 </div>
@@ -53,10 +68,10 @@
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/releases">here</a>.</p>
+<p>Download the latest <code>exerhealth.jar</code> <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for ExerHealth.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -75,13 +90,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><strong><code>get t/exercise</code></strong> : gets all the exercises ExerHealth is tracking.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
-</li>
-<li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>add</code></strong><code>t/exercise n/Push ups d/1/10/2019 c/123</code> : adds a exercise named <code>Push ups</code> to ExerHealth.</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -107,16 +119,24 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>stats t/CAT_NAME</code>,
+<code>CAT_NAME</code> is a parameter which can be used as <code>stats t/exercise</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Words in <code>lower_case</code> are the compulsory keywords that inform ExerHealth about the category of
+information being added. e.g. <code>add t/exercise n/EXERCISE_NAME</code>, <code>t/exercise</code> is a keyword that informs ExerHealth about adding to the exercise tracker.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items in square brackets are optional e.g <code>d/date [c/CALORIES]</code> can be used as <code>d/1/10/2019 c/123</code>
+or as <code>d/1/10/2019</code>.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[m/MUSCLE]&#8230;&#8203;</code>
+can be used as <code>&#160;</code> (i.e. 0 times), <code>m/glutes</code>, <code>m/glutes m/chest</code> etc.</p>
+</li>
+<li>
+<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME d/DATE c/CALORIES</code>,
+<code>d/DATE c/CALORIES n/NAME</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -449,7 +469,14 @@ Deletes the entire regime named legs</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-statistics-code-stats-code"><a class="link" href="#display-statistics-code-stats-code">3.7. Display statistics : <code>stats</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the exercise tracker.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-statistics-code-stats-code"><a class="link" href="#display-statistics-code-stats-code">3.8. Display statistics : <code>stats</code></a></h3>
 <div class="paragraph">
 <p>Display the statistics of exercises.</p>
 </div>
@@ -491,9 +518,51 @@ Deletes the entire regime named legs</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="custom-properties-code-custom-code"><a class="link" href="#custom-properties-code-custom-code">3.8. Custom properties: <code>custom</code></a></h3>
+<h3 id="undo-previous-command-code-undo-code"><a class="link" href="#undo-previous-command-code-undo-code">3.9. Undo previous command: <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Undo the previous command entered.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If there is no previous command, undo will do nothing.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redo-undo-ed-command-code-redo-code"><a class="link" href="#redo-undo-ed-command-code-redo-code">3.10. Redo undo-ed command: <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Redo the previous command that was undo-ed by user.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If there is no undo history, redo command will do nothing.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>redo</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="custom-properties-code-custom-code"><a class="link" href="#custom-properties-code-custom-code">3.11. Custom properties: <code>custom</code></a></h3>
 <div class="sect3">
-<h4 id="adding-custom-properties"><a class="link" href="#adding-custom-properties">3.8.1. Adding custom properties</a></h4>
+<h4 id="adding-custom-properties"><a class="link" href="#adding-custom-properties">3.11.1. Adding custom properties</a></h4>
 <div class="paragraph">
 <p>Adds in a custom property which you can define for the exercises.</p>
 </div>
@@ -590,7 +659,7 @@ Information for this property can be updated for each exercise by using <code>s/
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-custom-properties"><a class="link" href="#removing-custom-properties">3.8.2. Removing custom properties</a></h4>
+<h4 id="removing-custom-properties"><a class="link" href="#removing-custom-properties">3.11.2. Removing custom properties</a></h4>
 <div class="paragraph">
 <p>Removes a custom property which you have previously defined.
 This removes the custom property from all exercises.</p>
@@ -626,18 +695,11 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.9. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">3.10. Scheduling exercises: <code>schedule</code></a></h3>
+<h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">3.12. Scheduling exercises: <code>schedule</code></a></h3>
 <div class="sect3">
-<h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">3.10.1. Schedules a regime</a></h4>
+<h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">3.12.1. Schedules a regime</a></h4>
 <div class="paragraph">
-<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Section 3.11, &#8220;Resolving scheduling conflicts: <code>resolve</code>&#8221;</a> for details on resolving scheduling conflicts.</p>
+<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Section 3.13, &#8220;Resolving scheduling conflicts: <code>resolve</code>&#8221;</a> for details on resolving scheduling conflicts.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>schedule n/REGIME_NAME d/DATE</code></p>
@@ -654,7 +716,7 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">3.10.2. Completes a schedule regime</a></h4>
+<h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">3.12.2. Completes a schedule regime</a></h4>
 <div class="paragraph">
 <p>Once a scheduled regime is completed, users can add that regime to the exercise tracker.</p>
 </div>
@@ -674,9 +736,9 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="resolve"><a class="link" href="#resolve">3.11. Resolving scheduling conflicts: <code>resolve</code></a></h3>
+<h3 id="resolve"><a class="link" href="#resolve">3.13. Resolving scheduling conflicts: <code>resolve</code></a></h3>
 <div class="sect3">
-<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">3.11.1. Taking one of the conflicting regimes completely</a></h4>
+<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">3.13.1. Taking one of the conflicting regimes completely</a></h4>
 <div class="paragraph">
 <p>Takes the scheduled regime or the conflicting regime completely and discarding the other. Neither regimes will be completely deleted from the user’s collection.</p>
 </div>
@@ -695,7 +757,7 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">3.11.2. Taking some exercises from some regime</a></h4>
+<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">3.13.2. Taking some exercises from some regime</a></h4>
 <div class="paragraph">
 <p>Takes some exercises from the scheduled regime and some from the conflicting regime to make a brand new regime. The new regime that is a result of the combination will be added  to the user’s collection and scheduled at the date of conflict. This new regime will also be added to the user’s collection of regimes</p>
 </div>
@@ -747,33 +809,33 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.13. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
+<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.15. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Reminds you to do exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.14. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.16. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Autocompletes the commands while typing.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -849,4 +911,4 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 04:40:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 08:29:43 UTC</div></div></div></body></html>
