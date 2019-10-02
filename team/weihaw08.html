@@ -139,6 +139,266 @@ It is written in Java, and has about 10 kLoC.</p>
 </tbody>
 </table>
 <div class="sect2">
+<h3 id="delete-health-information-code-delete-code"><a class="link" href="#delete-health-information-code-delete-code">Delete health information : <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-exercise-information"><a class="link" href="#deleting-exercise-information">Deleting exercise information</a></h4>
+<div class="paragraph">
+<p>Deleting a certain exercise information from ExerHealth.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete t/exercise i/INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the exercise at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed exercise list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete t/exercise i/2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-exercise-from-scheduling-regime"><a class="link" href="#deleting-exercise-from-scheduling-regime">Deleting exercise from scheduling regime</a></h4>
+<div class="paragraph">
+<p>Deletes exercises from a certain scheduling regime.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete t/exercise n/REGIME_NAME [i/INDEX]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the exercise at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>If index is not provided, the command deletes the entire scheduling regime</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed regime list.</p>
+</li>
+<li>
+<p>The index, if provided, <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete t/regime n/cardio i/2</code><br>
+Deletes the exercise indexed 2 in the cardio regime</p>
+</li>
+<li>
+<p><code>delete t/regime n/legs</code><br>
+Deletes the entire regime named legs</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-statistics-code-stats-code"><a class="link" href="#display-statistics-code-stats-code">Display statistics : <code>stats</code></a></h3>
+<div class="paragraph">
+<p>Display the statistics of exercises.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stats t/CAT_NAME h/CHART_TYPE [s/START_DATE] [d/END_DATE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Supported chart types: Pie Chart, Line Chart, Bar Chart</p>
+</li>
+<li>
+<p>If no <code>START_DATE</code> and <code>END_DATE</code> are provided, the recent 7 days of history will be used.</p>
+</li>
+<li>
+<p>If any date is provided, both <code>START_DATE</code> and <code>END_DATE</code> dates must be there.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stats t/exercise h/piechart</code></p>
+</li>
+<li>
+<p><code>stats t/calories h/linechart</code></p>
+</li>
+<li>
+<p><code>stats t/exercise h/barchart s/20/09/2019 e/27/09/2019</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="custom-properties-code-custom-code"><a class="link" href="#custom-properties-code-custom-code">Custom properties: <code>custom</code></a></h3>
+<div class="sect3">
+<h4 id="adding-custom-properties"><a class="link" href="#adding-custom-properties">Adding custom properties</a></h4>
+<div class="paragraph">
+<p>Adds in a custom property which you can define for the exercises.</p>
+</div>
+<div class="paragraph">
+<p>Once a new custom property is created, you can simply use the short name which you defined for the
+property to the <code>add</code> and <code>edit</code> command to include information for the new property.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You must choose exactly one of the following as the parameter type for your custom property:
+<code>Text</code>, <code>Number</code>, <code>Date</code>.</p>
+</li>
+<li>
+<p>Every word in the full name of each custom property will be changed to Start Case style, where the first letter of each
+word is capitalised with the other letters in lower case e.g. <code>enD DaTe</code> will be changed to <code>End Date</code>.</p>
+</li>
+<li>
+<p>The date entered for the custom properties must follow the same requirements as that of <code>add</code> command.</p>
+</li>
+<li>
+<p>You need not include the custom properties when adding a new exercise to the app.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>custom s/SHORT_NAME f/FULL_NAME p/PARAMETER_TYPE</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/a f/Ratings p/Number</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>Ratings</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>a/NUMBER</code> in the relevant command where <code>NUMBER</code> refers to
+a number.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/b f/rEmaRk p/Text</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>Remark</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>b/TEXT</code> in the relevant command where
+<code>TEXT</code> refers to a non-empty sentence.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/c f/End Date p/Date</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>End Date</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>s/DATE</code> in the relevant command where
+<code>DATE</code> refers to a date.</p>
+</div>
+<div class="paragraph">
+<p>Using <code>Ratings</code> as an example, you can now perform the following actions after adding it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add t/exercise n/Run d/01/10/2019 a/5</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Adds an exercise with the name <code>Run</code>, date <code>01/10/2019</code> and ratings <code>5</code> into the app.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit t/exercise i/4 a/3</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Edits the ratings of the 4th exercise in the list to <code>3</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-custom-properties"><a class="link" href="#removing-custom-properties">Removing custom properties</a></h4>
+<div class="paragraph">
+<p>Removes a custom property which you have previously defined.
+This removes the custom property from all exercises.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>FULL_NAME</code> denotes the name of the previously defined custom property.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>custom r/FULL_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom r/Ratings</code></p>
+</li>
+<li>
+<p><code>custom r/Remark</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
@@ -389,4 +649,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 04:27:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 04:40:11 UTC</div></div></div></body></html>
