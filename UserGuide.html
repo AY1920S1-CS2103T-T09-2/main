@@ -14,19 +14,18 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#scheduling-exercises-code-schedule-code">3.8. Scheduling exercises: <code>schedule</code></a></li>
-<li><a href="#resolve">3.9. Resolving scheduling conflicts: <code>resolve</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></li>
-<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.11. Remind to do exercises <code>[coming in v2.0]</code></a></li>
-<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.12. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#adding-exercise-regime-information-code-add-code">3.2. Adding exercise/regime information: <code>add</code></a></li>
+<li><a href="#listing-all-exercises-code-list-code">3.3. Listing all exercises : <code>list</code></a></li>
+<li><a href="#edit-exercise-information-code-edit-code">3.4. Edit exercise information: <code>edit</code></a></li>
+<li><a href="#custom-properties-code-custom-code">3.5. Custom properties: <code>custom</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#scheduling-exercises-code-schedule-code">3.7. Scheduling exercises: <code>schedule</code></a></li>
+<li><a href="#resolve">3.8. Resolving scheduling conflicts: <code>resolve</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></li>
+<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.10. Remind to do exercises <code>[coming in v2.0]</code></a></li>
+<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.11. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-the-data">3.12. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.13. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -127,10 +126,303 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<h3 id="adding-exercise-regime-information-code-add-code"><a class="link" href="#adding-exercise-regime-information-code-add-code">3.2. Adding exercise/regime information: <code>add</code></a></h3>
+<div class="sect3">
+<h4 id="adding-exercise-information-br"><a class="link" href="#adding-exercise-information-br">3.2.1. Adding exercise information<br></a></h4>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds the relevant exercise information into ExerHealth.
+You can enter the following additional information for each exercise:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Calories burnt in kcal</p>
+</li>
+<li>
+<p>Quantity of exercises completed and its units of measure</p>
+</li>
+<li>
+<p>Muscle group(s) that are being worked out</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Format: <code>add t/exercise n/EXERCISE_NAME d/DATE [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Dates that are entered have to be of the form <code>dd/MM/yyyy</code>.</p>
+</li>
+<li>
+<p>The day of each date must be between 1 and 31 inclusive.</p>
+</li>
+<li>
+<p>The month of each date must be between 1 and 12 inclusive.</p>
+</li>
+<li>
+<p>If the day of the month entered is within the above range but exceeds the number of days present
+in that particular month, the date will be treated as the last day of that particular month e.g. if
+<code>31/02/2019</code> is entered, it will be treated as <code>28/02/2019</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add t/exercise n/Run d/19/09/2019</code></p>
+</li>
+<li>
+<p><code>add t/exercise n/Swimming d/19/09/2019 c/2000</code></p>
+</li>
+<li>
+<p><code>add t/exercise n/Bench press d/19/09/2019 c/500 q/50 u/reps m/Chest</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-exercises-to-scheduling-regime-br"><a class="link" href="#adding-exercises-to-scheduling-regime-br">3.2.2. Adding exercises to scheduling regime<br></a></h4>
+<div class="paragraph">
+<p>Adds exercises from the exercises you have added into a new exercise regime.
+If a regime of the same name already exists, exercises will be added to the same scheduling regime.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add t/regime [n/REGIME_NAME] [i/INDEX]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add t/regime n/power sets i/1 i/2 i/3</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Adds the 1st, 2nd and 3rd exercise in the list to the regime named <code>power sets</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add t/regime n/cardio i/4</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Adds the 4th exercise in the list to the regime named <code>cardio</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-exercises-code-list-code"><a class="link" href="#listing-all-exercises-code-list-code">3.3. Listing all exercises : <code>list</code></a></h3>
+<div class="paragraph">
+<p>Retrieves all categories of information - Exercise and Regime - from ExerHealth.</p>
+</div>
+<div class="paragraph">
+<p>If you provide a category name, only information from that category will be shown.
+You can also include start and end dates to restrict the range of dates.
+If no dates are supplied, the most recent week of information from each category will be shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list [t/CAT_NAME] [s/START_DATE] [e/END_DATE]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code></p>
+</li>
+<li>
+<p><code>list t/exercise</code></p>
+</li>
+<li>
+<p><code>list t/regime</code></p>
+</li>
+<li>
+<p><code>list t/exercise s/12/12/2019 e/17/12/2019</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-exercise-information-code-edit-code"><a class="link" href="#edit-exercise-information-code-edit-code">3.4. Edit exercise information: <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Edits the relevant exercise information into ExerHealth.
+You can edit all the possible information for exercises except for custom properties.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The date entered for this command must follow the same requirements as that of <code>add</code> command.</p>
+</li>
+<li>
+<p>Edits the exercise at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed exercise list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit t/exercise i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit t/exercise i/2 n/Running d/20/09/2019</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Edits the name and the date of the 2nd exercise to <code>Running</code> and <code>20/09/2019</code> respectively.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit t/exercise i/4 n/Swim d/21/09/2019 c/100</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Edits the name, date and calories burnt of the 4th exercise to <code>Swim</code>, <code>21/09/2019</code> and <code>100</code> respectively.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit t/exercise i/3 n/Bench press d/22/09/2019 c/240 q/10 u/sets m/Chest</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Edits the name, date, calories burnt, quantity, units and muscle group trained of the 3rd exercise to <code>Bench press</code>,
+<code>22/09/2019</code>, <code>240</code>, <code>10</code>, <code>sets</code> and <code>Chest</code> respectively.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="custom-properties-code-custom-code"><a class="link" href="#custom-properties-code-custom-code">3.5. Custom properties: <code>custom</code></a></h3>
+<div class="sect3">
+<h4 id="adding-custom-properties"><a class="link" href="#adding-custom-properties">3.5.1. Adding custom properties</a></h4>
+<div class="paragraph">
+<p>Adds in a custom property which you can define for the exercises.</p>
+</div>
+<div class="paragraph">
+<p>Once a new custom property is created, you can simply use the short name which you defined for the
+property to the <code>add</code> and <code>edit</code> command to include information for the new property.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You must choose exactly one of the following as the parameter type for your custom property:
+<code>Text</code>, <code>Number</code>, <code>Date</code>.</p>
+</li>
+<li>
+<p>Every word in the full name of each custom property will be changed to Start Case style, where the first letter of each
+word is capitalised with the other letters in lower case e.g. <code>enD DaTe</code> will be changed to <code>End Date</code>.</p>
+</li>
+<li>
+<p>The date entered for the custom properties must follow the same requirements as that of <code>add</code> command.</p>
+</li>
+<li>
+<p>You need not include the custom properties when adding a new exercise to the app.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>custom s/SHORT_NAME f/FULL_NAME p/PARAMETER_TYPE</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/a f/Ratings p/Number</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>Ratings</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>a/NUMBER</code> in the relevant command where <code>NUMBER</code> refers to
+a number.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/b f/rEmaRk p/Text</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>Remark</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>b/TEXT</code> in the relevant command where
+<code>TEXT</code> refers to a non-empty sentence.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/c f/End Date p/Date</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>End Date</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>s/DATE</code> in the relevant command where
+<code>DATE</code> refers to a date.</p>
+</div>
+<div class="paragraph">
+<p>Using <code>Ratings</code> as an example, you can now perform the following actions after adding it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add t/exercise n/Run d/01/10/2019 a/5</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Adds an exercise with the name <code>Run</code>, date <code>01/10/2019</code> and ratings <code>5</code> into the app.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit t/exercise i/4 a/3</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Edits the ratings of the 4th exercise in the list to <code>3</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-custom-properties"><a class="link" href="#removing-custom-properties">3.5.2. Removing custom properties</a></h4>
+<div class="paragraph">
+<p>Removes a custom property which you have previously defined.
+This removes the custom property from all exercises.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -139,176 +431,42 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+<code>FULL_NAME</code> denotes the name of the previously defined custom property.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>custom r/FULL_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>custom r/Ratings</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>custom r/Remark</code></p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
-<div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-<li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
-<div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
-</li>
-<li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">3.8. Scheduling exercises: <code>schedule</code></a></h3>
+<h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">3.7. Scheduling exercises: <code>schedule</code></a></h3>
 <div class="sect3">
-<h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">3.8.1. Schedules a regime</a></h4>
+<h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">3.7.1. Schedules a regime</a></h4>
 <div class="paragraph">
-<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Section 3.9, &#8220;Resolving scheduling conflicts: <code>resolve</code>&#8221;</a> for details on resolving scheduling conflicts.</p>
+<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Section 3.8, &#8220;Resolving scheduling conflicts: <code>resolve</code>&#8221;</a> for details on resolving scheduling conflicts.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>schedule n/REGIME_NAME d/DATE</code></p>
@@ -325,7 +483,7 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">3.8.2. Completes a schedule regime</a></h4>
+<h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">3.7.2. Completes a schedule regime</a></h4>
 <div class="paragraph">
 <p>Once a scheduled regime is completed, users can add that regime to the exercise tracker.</p>
 </div>
@@ -345,9 +503,9 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="resolve"><a class="link" href="#resolve">3.9. Resolving scheduling conflicts: <code>resolve</code></a></h3>
+<h3 id="resolve"><a class="link" href="#resolve">3.8. Resolving scheduling conflicts: <code>resolve</code></a></h3>
 <div class="sect3">
-<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">3.9.1. Taking one of the conflicting regimes completely</a></h4>
+<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">3.8.1. Taking one of the conflicting regimes completely</a></h4>
 <div class="paragraph">
 <p>Takes the scheduled regime or the conflicting regime completely and discarding the other. Neither regimes will be completely deleted from the user’s collection.</p>
 </div>
@@ -366,7 +524,7 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">3.9.2. Taking some exercises from some regime</a></h4>
+<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">3.8.2. Taking some exercises from some regime</a></h4>
 <div class="paragraph">
 <p>Takes some exercises from the scheduled regime and some from the conflicting regime to make a brand new regime. The new regime that is a result of the combination will be added  to the user’s collection and scheduled at the date of conflict. This new regime will also be added to the user’s collection of regimes</p>
 </div>
@@ -418,33 +576,33 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.11. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
+<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.10. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Reminds you to do exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.12. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.11. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Autocompletes the commands while typing.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.12. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.13. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -466,31 +624,58 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add</strong> : <code>add t/exercise n/EXERCISE_NAME d/DATE [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203;</code><br>
+e.g. <code>add t/exercise n/Bench press d/19/09/2019 c/500 q/50 u/reps m/Chest</code></p>
+</li>
+<li>
+<p><strong>List</strong> : <code>list [t/CAT_NAME] [s/START_DATE] [e/END_DATE]</code>
+e.g. <code>list t/exercise s/12/12/2019 e/17/12/2019</code></p>
+</li>
+<li>
+<p><strong>Edit</strong> : <code>edit t/exercise i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203; `
+e.g. `edit t/exercise i/3 n/Bench press d/22/09/2019 c/240 q/10 u/sets m/Chest</code></p>
+</li>
+<li>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code>
+e.g. <code>find bench press</code></p>
+</li>
+<li>
+<p><strong>Delete</strong> : <code>delete t/exercise i/INDEX</code>
+e.g. <code>delete t/exercise i/2</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>Stats</strong> : <code>stats t/CAT_NAME h/CHART_TYPE [s/START_DATE] [d/END_DATE]</code>
+e.g. <code>stats t/exercise h/barchart s/20/09/2019 e/27/09/2019</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>Undo</strong> : <code>undo</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Redo</strong> : <code>redo</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Schedule</strong> : <code>schedule n/REGIME_NAME d/DATE</code>
+e.g. <code>schedule n/cardio d/19/9/2019</code></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Resolve</strong> : <code>resolve n/REGIME_TO_TAKE</code>
+e.g. <code>resolve n/cardio</code></p>
+</li>
+<li>
+<p><strong>Suggest</strong> : <code>suggest t/possible [m/MUSCLE]&#8230;&#8203;</code>
+e.g. <code>suggest t/possible m/chest</code></p>
+</li>
+<li>
+<p><strong>Custom</strong> : <code>custom s/SHORT_NAME f/FULL_NAME p/PARAMETER_TYPE</code>
+e.g. <code>custom s/c f/End Date p/Date</code></p>
+</li>
+<li>
+<p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 03:47:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 04:27:41 UTC</div></div></div></body></html>
