@@ -26,11 +26,13 @@
 <li><a href="#custom-properties-code-custom-code">3.11. Custom properties: <code>custom</code></a></li>
 <li><a href="#scheduling-exercises-code-schedule-code">3.12. Scheduling exercises: <code>schedule</code></a></li>
 <li><a href="#resolve">3.13. Resolving scheduling conflicts: <code>resolve</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.15. Remind to do exercises <code>[coming in v2.0]</code></a></li>
-<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.16. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">3.17. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#suggesting-ideas-code-suggest-code">3.14. Suggesting ideas: <code>suggest</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.16. Saving the data</a></li>
+<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.17. Remind to do exercises <code>[coming in v2.0]</code></a></li>
+<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.18. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#importing-data-code-coming-in-v2-0-code">3.19. Importing data <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -809,33 +811,140 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
+<h3 id="suggesting-ideas-code-suggest-code"><a class="link" href="#suggesting-ideas-code-suggest-code">3.14. Suggesting ideas: <code>suggest</code></a></h3>
+<div class="sect3">
+<h4 id="suggest-basic-exercises"><a class="link" href="#suggest-basic-exercises">3.14.1. Suggest basic exercises</a></h4>
+<div class="paragraph">
+<p>Recommends exercises from ExerHealth&#8217;s inbuilt database for beginners.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>suggest basic</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="suggest-possible-exercises"><a class="link" href="#suggest-possible-exercises">3.14.2. Suggest possible exercises</a></h4>
+<div class="paragraph">
+<p>Suggests exercises matching specified tags.</p>
+</div>
+<div class="sect4">
+<h5 id="based-on-matching-muscle-tags"><a class="link" href="#based-on-matching-muscle-tags">Based on matching muscle tags</a></h5>
+<div class="paragraph">
+<p>Format: <code>suggest possible m/MUSCLE</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>suggest possible m/chest</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A list of exercises with chest muscle tag will be displayed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>suggest possible m/chest m/tricep</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A list of exercises tagged with chest or triceps will be displayed.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="based-on-matching-custom-properties-code-coming-in-v2-0-code"><a class="link" href="#based-on-matching-custom-properties-code-coming-in-v2-0-code">Based on matching custom properties <code>[Coming in v2.0]</code></a></h5>
+
+</div>
+</div>
+<div class="sect3">
+<h4 id="suggest-intensity"><a class="link" href="#suggest-intensity">3.14.3. Suggest intensity</a></h4>
+<div class="paragraph">
+<p>Recommends an increased quantity for the indexed exercise/regime based on its past record.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>suggest intensity t/exercise i/INDEX</code>
+<code>suggest intensity t/regime i/INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Takes the exercise at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>i/ is for index of the scheduled regime</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>suggest intensity t/exercise 1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Displays the recommended quantity for the indexed exercise.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>suggest intensity t/regime 1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Displays the recommended quantity for all the exercises in the indexed regime.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.15. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
+<div class="paragraph">
+<p>ExerHealth data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.17. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Reminds you to do exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.16. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.18. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Autocompletes the commands while typing.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
+<h3 id="importing-data-code-coming-in-v2-0-code"><a class="link" href="#importing-data-code-coming-in-v2-0-code">3.19. Importing data <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<p>Imports data to update inbuilt database of exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -898,8 +1007,12 @@ e.g. <code>schedule n/cardio d/19/9/2019</code></p>
 e.g. <code>resolve n/cardio</code></p>
 </li>
 <li>
-<p><strong>Suggest</strong> : <code>suggest t/possible [m/MUSCLE]&#8230;&#8203;</code>
+<p><strong>Suggest possible</strong> : <code>suggest t/possible [m/MUSCLE]&#8230;&#8203;</code>
 e.g. <code>suggest t/possible m/chest</code></p>
+</li>
+<li>
+<p><strong>Suggest intensity</strong> : <code>suggest intensity i/INDEX</code>
+eg. <code>suggest intensity 1</code></p>
 </li>
 <li>
 <p><strong>Custom</strong> : <code>custom s/SHORT_NAME f/FULL_NAME p/PARAMETER_TYPE</code>
@@ -911,4 +1024,4 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 08:29:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 10:10:43 UTC</div></div></div></body></html>
