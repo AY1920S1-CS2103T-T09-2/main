@@ -23,10 +23,11 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#logging">3.2. Logging</a></li>
-<li><a href="#resolve-feature">3.3. Resolve feature</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
-<li><a href="#statistics">3.5. Statistics</a></li>
+<li><a href="#resolve-feature">3.2. Resolve feature</a></li>
+<li><a href="#custom-feature">3.3. Custom feature</a></li>
+<li><a href="#statistics">3.4. Statistics</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -222,7 +223,7 @@ The following class plays an important role at the architecture level:</p>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding an exercise).</p>
+<p>The command execution can affect the <code>Model</code> (e.g. adding an exercise/regime).</p>
 </li>
 <li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
@@ -266,7 +267,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/tree/master/src/main/java/seedu/exercise/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>Model</code>,</p>
+<p>The <code>Model</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -274,7 +275,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores a <code>PropertyManager</code> object that represents the custom properties defined by the user.</p>
+<p>stores a <code>PropertyBook</code> object that represents the custom properties defined by the user.</p>
 </li>
 <li>
 <p>stores the Exercise Book data.</p>
@@ -320,7 +321,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>can save the Resource Book data in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Property Manager data in json format and read it back.</p>
+<p>can save the Property Book data in json format and read it back.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -450,7 +451,7 @@ at the moment.
 <code>UndoableCommand</code>, has been executed and subsequently undone.</p>
 </div>
 <div class="paragraph">
-<p>The first diagram describes the process of storing an <code>EditEvent</code> to <code>EventHistory</code> during the execution of the
+<p>The first diagram (Figure 9) describes the process of storing an <code>EditEvent</code> to <code>EventHistory</code> during the execution of the
 <code>EditCommand</code>. Observe that the <code>EventPayload</code> serves as the main channel of communication of data between the
 <code>Command</code> and the <code>Event</code>.</p>
 </div>
@@ -458,9 +459,10 @@ at the moment.
 <div class="content">
 <img src="images/UndoableCommandSequenceDiagram.png" alt="UndoableCommandSequenceDiagram">
 </div>
+<div class="title">Figure 9. The process of storing an <code>EditEvent</code> to <code>EventHistory</code></div>
 </div>
 <div class="paragraph">
-<p>The second diagram here describes the process of undoing the <code>EditCommand</code> executed above using the <code>UndoCommand</code>. The
+<p>The second diagram (Figure 10) here describes the process of undoing the <code>EditCommand</code> executed above using the <code>UndoCommand</code>. The
 <code>UndoCommand</code> will only communicate with the <code>EventHistory</code> once to ensure the <code>EventHistory</code> takes care of the
 execution and updating of the undo and redo stack it holds internally.</p>
 </div>
@@ -468,9 +470,10 @@ execution and updating of the undo and redo stack it holds internally.</p>
 <div class="content">
 <img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
+<div class="title">Figure 10. The process of undoing the <code>EditCommand</code></div>
 </div>
 <div class="paragraph">
-<p>Given below is a Class Diagram to show the associations between Event, Command and Model. It is specifically designed
+<p>Given below is a Class Diagram (Figure 11) to show the associations between Event, Command and Model. It is specifically designed
 such that only instances that implement the <code>Event</code> and <code>Command</code> interface will need to handle the <code>model</code> class.</p>
 </div>
 <div class="admonitionblock note">
@@ -490,13 +493,17 @@ and <code>ClearCommand</code> and they each stores an <code>EventPayload</code> 
 <div class="content">
 <img src="images/EventClassDiagram.png" alt="EventClassDiagram">
 </div>
+<div class="title">Figure 11. The associations between Event, Command and Model</div>
 </div>
 <div class="paragraph">
-<p>The following Activity Diagram summarizes what happens when a user enter undoable commands,
+<p>The following Activity Diagram (Figure 12) summarizes what happens when a user enter undoable commands,
 the undo command and the redo command.</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+</div>
+<div class="title">Figure 12. The workflow when a user enters an undoable command and performs undo/redo</div>
 </div>
 </div>
 <div class="sect3">
@@ -720,47 +727,9 @@ manage different types of resources that can be altered by commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.2. Logging</a></h3>
-<div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
-</li>
-<li>
-<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
-</li>
-<li>
-<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Logging Levels</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
-</li>
-<li>
-<p><code>WARNING</code> : Can continue, but with caution</p>
-</li>
-<li>
-<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
-</li>
-<li>
-<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="resolve-feature"><a class="link" href="#resolve-feature">3.3. Resolve feature</a></h3>
+<h3 id="resolve-feature"><a class="link" href="#resolve-feature">3.2. Resolve feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.3.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The resolve feature is used when there is a scheduling conflict that happens within ExerHealth. This feature will alter the state of the program. The state is known by <code>MainApp</code> and it is either <code>State.IN_CONFLICT</code> or <code>State.NORMAL</code>. Only when the state is <code>State.IN_CONFLICT</code> will <code>resolve</code> commands be allowed. The flow of the program for a scheduling conflict is as such:</p>
 </div>
@@ -798,12 +767,13 @@ The <code>ResolveWindow</code> will block all inputs to <code>MainWindow</code> 
 </table>
 </div>
 <div class="paragraph">
-<p>Shown below is the sequence diagram for when a scheduling conflict happens:</p>
+<p>Shown below is the sequence diagram (Figure 13) for when a scheduling conflict happens:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ScheduleConflict.png" alt="ScheduleConflict">
 </div>
+<div class="title">Figure 13. Sequence diagram when a scheduling conflict happens</div>
 </div>
 <div class="paragraph">
 <p>Step 5. When the user is prompted with the <code>ResolveWindow</code>, all the conflicting exercises will be shown in one page. The previously <code>scheduled regime</code> on the left and the <code>conflicting regime</code> on the right.</p>
@@ -827,24 +797,26 @@ The <code>ResolveWindow</code> will only take one valid <code>resolve</code> com
 <p>Step 7. The <code>ResolveWindow</code> then closes upon successful <code>resolve</code> and the application continues.</p>
 </div>
 <div class="paragraph">
-<p>Shown below is the sequence diagram for when a valid resolve command is issued:</p>
+<p>Shown below is the sequence diagram (Figure 14) for when a valid resolve command is issued:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ScheduleResolve.png" alt="ScheduleResolve">
 </div>
+<div class="title">Figure 14. Sequence diagram when a valid resolve command is issued</div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user enters a <code>schedule</code> command:</p>
+<p>The following activity diagram (Figure 15) summarizes what happens when a user enters a <code>schedule</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ScheduleActivityDiagram.png" alt="ScheduleActivityDiagram">
 </div>
+<div class="title">Figure 15. Workflow when a user enters a <code>schedule</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-signalling-schedule-conflict"><a class="link" href="#aspect-signalling-schedule-conflict">Aspect: Signalling Schedule Conflict</a></h5>
 <div class="ulist">
@@ -918,32 +890,195 @@ The <code>ResolveWindow</code> will only take one valid <code>resolve</code> com
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="custom-feature"><a class="link" href="#custom-feature">3.3. Custom feature</a></h3>
 <div class="paragraph">
-<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
+<p>This feature is facilitated by both <code>PropertyBook</code> and <code>CustomProperty</code>. Whenever a user
+adds a newly defined custom property, a <code>CustomProperty</code> object will be created which is stored in
+<code>PropertyBook</code>. Its corresponding prefix and full name will be tracked by <code>PropertyBook</code> to avoid
+clashes in their uses.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>To keep track of the custom properties and its relevant information, the following are used:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>CUSTOM_PROPERTIES</code>: A list containing all of the <code>CustomProperty</code> objects that
+have been created.</p>
+</li>
+<li>
+<p><code>prefixes</code>: A set containing all of the <code>Prefix</code> objects associated with existing exercise&#8217;s
+properties.</p>
+</li>
+<li>
+<p><code>fullNames</code>: A set containing the full names of the existing exercise&#8217;s properties.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following methods are also implemented in <code>PropertyBook</code> to aid in the addition of a new custom property:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>PropertyBook#isPrefixUsed(Prefix)</code>: Checks if the given prefix has been used by a property.</p>
+</li>
+<li>
+<p><code>PropertyBook#isFullNameUsed(String)</code>: Checks if the given name has been used by a property.</p>
+</li>
+<li>
+<p><code>PropertyBook#addCustomProperty(CustomProperty)</code>: Adds the new custom property. Each time a custom property is
+added, the prefix set in <code>Prefix</code> is also updated.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The first three methods are exposed in the <code>Model</code> interface as <code>Model#isPrefixUsed(Prefix)</code>,
+<code>Model#isFullNameUsed(String)</code> and <code>Model#addCustomProperty(CustomProperty)</code> respectively.
+These associations are illustrated in a class diagram (Figure 16).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CustomClassDiagram.png" alt="CustomClassDiagram">
+</div>
+<div class="title">Figure 16. Class diagram of the associations of <code>PropertyBook</code></div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram (Figure 17) illustrates how the custom operation works when a custom
+property is <strong>successfully added</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditedCustomSequenceDiagram.png" alt="EditedCustomSequenceDiagram">
+</div>
+<div class="title">Figure 17. Sequence diagram of a successful addition of a custom property</div>
+</div>
+<div class="paragraph">
+<p>However, not all additions of a custom property will be successful. The next activity diagram
+(Figure 18) shows the workflow when a new custom property is defined.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CustomActivityDiagram.png" alt="CustomActivityDiagram">
+</div>
+<div class="title">Figure 18. Activity diagram of the workflow when a new custom property is added</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-tracking-custom-properties"><a class="link" href="#aspect-tracking-custom-properties">Aspect: Tracking custom properties</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice)</strong>: Store the custom properties in a list and store their full
+names and prefixes in a set.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Storing the full names and prefixes separately provides an efficient way to check if a
+full name or a prefix has been used.</p>
+</li>
+<li>
+<p>Cons: It may incur additional memory usage since the full name and prefix of each <code>CustomProperty</code>
+object are stored multiple times.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Store only a list of custom properties</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less memory used as no duplicates in terms of prefix and full names are stored.</p>
+</li>
+<li>
+<p>Cons: It may require more time to check if a full name or a prefix has been used as one has to
+iterate through the whole list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ultimately, Alternative 1 is chosen as it provides a faster way of checking if a full name or a prefix has
+been used. Also, keeping track of the prefixes separately allows us to simply pass them in when adding or
+editing an exercise.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-representing-the-custom-properties"><a class="link" href="#aspect-representing-the-custom-properties">Aspect: Representing the custom properties</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice)</strong>: Represent the custom property as an object that contains
+3 information - its prefix, its name and its parameter type.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This allows us to distinguish custom properties from default properties. Furthermore, these
+objects can be stored in a data structure which can be passed around when adding or editing an exercise.</p>
+</li>
+<li>
+<p>Cons: Each exercise has to store the value of each custom property separately from the custom property
+itself.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Create a <code>Property</code> class which will contain the following information: name, constraint
+message, value and prefix. The default properties will be stored separately in a Java class and will be initialised
+every time the app starts.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This ensures that there is a consistency in terms of how an exercise property is represented
+and it also allows the property value to be stored together.</p>
+</li>
+<li>
+<p>Cons: Methods have to be introduced to identify custom properties from the default ones.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ultimately, Alternative 1 is selected as we believe it is more important to distinguish the custom properties
+from the default ones. This separation ensures that methods meant to operate on custom properties are unable
+to operate on default properties.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics"><a class="link" href="#statistics">3.5. Statistics</a></h3>
+<h3 id="statistics"><a class="link" href="#statistics">3.4. Statistics</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.5.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Statistics of exercises will be displayed in charts. Supported chart types are Pie Chart, Line Chart and Bar Chart.
 StatsFactory will create Statistic using given parameters.
-Figure below shows the class diagram of statistics:</p>
+The figure (Figure 19) below shows the class diagram of statistics:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StatisticClassDiagram.png" alt="StatisticClassDiagram">
 </div>
+<div class="title">Figure 19. Class diagram of the classes behind the statistics feature</div>
 </div>
 <div class="paragraph">
-<p>Figure below shows the activity diagram when user enter a <code>stats</code> command:</p>
+<p>The next figure (Figure 20) shows the activity diagram when user enter a <code>stats</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StatisticActivityDiagram.png" alt="StatisticActivityDiagram">
 </div>
+<div class="title">Figure 20. Workflow when a user enters a <code>stats</code> command</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario of statistics feature.</p>
@@ -961,13 +1096,58 @@ Figure below shows the class diagram of statistics:</p>
 <p>Step 4: Data will be passed back to <code>Ui</code> and <code>Ui</code> will generate and display chart.</p>
 </div>
 <div class="paragraph">
-<p>Shown below us the sequence diagram when user enters a valid <code>stats</code> command:</p>
+<p>Shown below is the sequence diagram (Figure 21) when user enters a valid <code>stats</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StatisticSequenceDiagram.png" alt="StatisticSequenceDiagram">
 </div>
+<div class="title">Figure 21. Sequence diagram of a <code>stats</code> command</div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<div class="paragraph">
+<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+</li>
+<li>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+</li>
+<li>
+<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Logging Levels</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+</li>
+<li>
+<p><code>WARNING</code> : Can continue, but with caution</p>
+</li>
+<li>
+<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+</li>
+<li>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<div class="paragraph">
+<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 </div>
@@ -1627,7 +1807,7 @@ undoable command left to redo</p>
 <dt class="hdlist1"><a id="regime"></a> Regime</dt>
 <dd>
 <p>A specific set of exercises that are to be done together. For example,
-a <strong>Legs</strong> regime at the gym can include mutliple exercises such as
+a <strong>Legs</strong> regime at the gym can include multiple exercises such as
 squats, hamstring curl and calf raises.</p>
 </dd>
 <dt class="hdlist1"><a id="schedule"></a> Schedule</dt>
@@ -1638,6 +1818,11 @@ squats, hamstring curl and calf raises.</p>
 <dd>
 <p>An attribute of an exercise item. Pre-defined attributes include name,
 quantity, units and calories.</p>
+</dd>
+<dt class="hdlist1"><a id="prefix"></a> Prefix</dt>
+<dd>
+<p>The term that comes before each parameter in the command. For example, the
+prefix in <code>p/Number</code> is <code>p/</code>.</p>
 </dd>
 </dl>
 </div>
@@ -1747,4 +1932,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 07:07:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 08:02:12 UTC</div></div></div></body></html>
