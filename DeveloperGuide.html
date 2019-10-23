@@ -25,9 +25,10 @@
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#resolve-feature">3.2. Resolve feature</a></li>
 <li><a href="#custom-feature">3.3. Custom feature</a></li>
-<li><a href="#statistics">3.4. Statistics</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#suggest">3.4. Suggest</a></li>
+<li><a href="#statistics">3.5. Statistics</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -259,7 +260,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
@@ -1057,9 +1058,130 @@ to operate on default properties.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics"><a class="link" href="#statistics">3.4. Statistics</a></h3>
+<h3 id="suggest"><a class="link" href="#suggest">3.4. Suggest</a></h3>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">3.4.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The suggest feature is used to recommend exercises to both beginners and experienced users.
+The user is allowed to specify what type of suggestions to see.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user enters a suggest command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SuggestActivityDiagram.png" alt="SuggestActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the sequence flow from the when a user enters a valid <code>SuggestPossibleCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SuggestSequenceDiagram.png" alt="SuggestSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>From the sequence diagram:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>LogicManager</code> receive the <code>execute</code> command, it calls the <code>parseCommand</code> method of <code>ExerciseBookParser</code>.</p>
+</li>
+<li>
+<p><code>ExerciseBookParser</code> will receive <code>suggest</code> as the command type and instantiate <code>SuggestCommandParser</code> to further parse the command.</p>
+</li>
+<li>
+<p><code>SuggestCommandParser</code> will receive <code>s/possible</code> as the suggest type and instantiate <code>SuggestPossibleCommand</code> with <code>muscles</code> and <code>customProperties</code> as constructor parameters.</p>
+</li>
+<li>
+<p>The <code>SuggestPossibleCommand</code> object is then returned to <code>SuggestCommandParser</code>, <code>ExerciseBookParser</code> and lastly back to <code>LogicManager</code> to execute.</p>
+</li>
+<li>
+<p><code>LogicManager</code> will proceed to call execute <code>SuggestPossibleCommand</code>.</p>
+</li>
+<li>
+<p>When <code>SuggestPossibleCommand</code> is executed, it calls a self invocated method, <code>getPredicate</code>, which is created based on the <code>targetMuscles</code> and <code>targetCustomProperties</code>.</p>
+</li>
+<li>
+<p><code>SuggestPossibleCommand</code> then calls the <code>updateSuggestedExerciseList</code> method in <code>ModelManager</code>, passing in the predicate to filter the list of suggest exercises.</p>
+</li>
+<li>
+<p><code>SuggestPossibleCommand</code> creates a new <code>CommandResult</code> to be returned.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-predicate-creation"><a class="link" href="#aspect-implementation-of-predicate-creation">Aspect: Implementation of predicate creation</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice): </strong> <code>SuggestPossibleCommand</code> to handle the predicates.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Easy to implement and understand. The class <code>SuggestPossibleCommand</code> contains the parsing and creation of the predicate all in one place.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Violation of SRP as <code>SuggestPossibleCommand</code>, in addition to updating the model, has to create the predicate.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: </strong> Predicate Factory class to handles all predicates.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adheres to SRP and Separation of Concern (SoC).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>May increase coupling because classes that use predicates have to depend on this class.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="statistics"><a class="link" href="#statistics">3.5. Statistics</a></h3>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Statistics of exercises will be displayed in charts. Supported chart types are Pie Chart, Line Chart and Bar Chart.
 StatsFactory will create Statistic using given parameters.
@@ -1107,14 +1229,14 @@ The figure (Figure 19) below shows the class diagram of statistics:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1145,7 +1267,7 @@ The figure (Figure 19) below shows the class diagram of statistics:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1932,4 +2054,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 08:02:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 10:47:15 UTC</div></div></div></body></html>
