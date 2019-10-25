@@ -17,22 +17,21 @@
 <li><a href="#adding-exercise-regime-information-code-add-code">3.2. Adding exercise/regime information: <code>add</code></a></li>
 <li><a href="#listing-all-exercises-code-list-code">3.3. Listing all exercises : <code>list</code></a></li>
 <li><a href="#edit-exercise-information-code-edit-code">3.4. Edit exercise information: <code>edit</code></a></li>
-<li><a href="#locating-exercises-by-name-code-find-code">3.5. Locating exercises by name: <code>find</code></a></li>
-<li><a href="#delete-health-information-code-delete-code">3.6. Delete health information : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#display-statistics-code-stats-code">3.8. Display statistics : <code>stats</code></a></li>
-<li><a href="#undo-previous-command-code-undo-code">3.9. Undo previous command: <code>undo</code></a></li>
-<li><a href="#redo-undo-ed-command-code-redo-code">3.10. Redo undo-ed command: <code>redo</code></a></li>
-<li><a href="#custom-properties-code-custom-code">3.11. Custom properties: <code>custom</code></a></li>
-<li><a href="#scheduling-exercises-code-schedule-code">3.12. Scheduling exercises: <code>schedule</code></a></li>
-<li><a href="#resolve">3.13. Resolving scheduling conflicts: <code>resolve</code></a></li>
-<li><a href="#suggesting-ideas-code-suggest-code">3.14. Suggesting ideas: <code>suggest</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.16. Saving the data</a></li>
-<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.17. Remind to do exercises <code>[coming in v2.0]</code></a></li>
-<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.18. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#importing-data-code-coming-in-v2-0-code">3.19. Importing data <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#delete-health-information-code-delete-code">3.5. Delete health information : <code>delete</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#display-statistics-code-stats-code">3.7. Display statistics : <code>stats</code></a></li>
+<li><a href="#undo-previous-command-code-undo-code">3.8. Undo previous command: <code>undo</code></a></li>
+<li><a href="#redo-undo-ed-command-code-redo-code">3.9. Redo undo-ed command: <code>redo</code></a></li>
+<li><a href="#custom-properties-code-custom-code">3.10. Custom properties: <code>custom</code></a></li>
+<li><a href="#scheduling-exercises-code-schedule-code">3.11. Scheduling exercises: <code>schedule</code></a></li>
+<li><a href="#resolve">3.12. Resolving scheduling conflicts: <code>resolve</code></a></li>
+<li><a href="#suggesting-ideas-code-suggest-code">3.13. Suggesting ideas: <code>suggest</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.15. Saving the data</a></li>
+<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.16. Remind to do exercises <code>[coming in v2.0]</code></a></li>
+<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.17. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#importing-data-code-coming-in-v2-0-code">3.18. Importing data <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -345,52 +344,9 @@ You can edit all the possible information for exercises except for custom proper
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-exercises-by-name-code-find-code"><a class="link" href="#locating-exercises-by-name-code-find-code">3.5. Locating exercises by name: <code>find</code></a></h3>
-<div class="paragraph">
-<p>Finds exercises whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>run</code> will match <code>Run</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Bench Press</code> will match <code>Press Bench</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Runs</code> will not match <code>Run</code></p>
-</li>
-<li>
-<p>Exercises matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Bench Press</code> will return <code>Incline Bench Press</code>, <code>Decline Bench Press</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find bench press</code></p>
-</li>
-<li>
-<p><code>find run</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="delete-health-information-code-delete-code"><a class="link" href="#delete-health-information-code-delete-code">3.6. Delete health information : <code>delete</code></a></h3>
+<h3 id="delete-health-information-code-delete-code"><a class="link" href="#delete-health-information-code-delete-code">3.5. Delete health information : <code>delete</code></a></h3>
 <div class="sect3">
-<h4 id="deleting-exercise-information"><a class="link" href="#deleting-exercise-information">3.6.1. Deleting exercise information</a></h4>
+<h4 id="deleting-exercise-information"><a class="link" href="#deleting-exercise-information">3.5.1. Deleting exercise information</a></h4>
 <div class="paragraph">
 <p>Deleting a certain exercise information from ExerHealth.</p>
 </div>
@@ -426,7 +382,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-exercise-from-scheduling-regime"><a class="link" href="#deleting-exercise-from-scheduling-regime">3.6.2. Deleting exercise from scheduling regime</a></h4>
+<h4 id="deleting-exercise-from-scheduling-regime"><a class="link" href="#deleting-exercise-from-scheduling-regime">3.5.2. Deleting exercise from scheduling regime</a></h4>
 <div class="paragraph">
 <p>Deletes exercises from a certain scheduling regime.</p>
 </div>
@@ -471,14 +427,14 @@ Deletes the entire regime named legs</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the exercise tracker.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-statistics-code-stats-code"><a class="link" href="#display-statistics-code-stats-code">3.8. Display statistics : <code>stats</code></a></h3>
+<h3 id="display-statistics-code-stats-code"><a class="link" href="#display-statistics-code-stats-code">3.7. Display statistics : <code>stats</code></a></h3>
 <div class="paragraph">
 <p>Display the statistics of exercises.</p>
 </div>
@@ -520,7 +476,7 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-previous-command-code-undo-code"><a class="link" href="#undo-previous-command-code-undo-code">3.9. Undo previous command: <code>undo</code></a></h3>
+<h3 id="undo-previous-command-code-undo-code"><a class="link" href="#undo-previous-command-code-undo-code">3.8. Undo previous command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undo the previous command entered.</p>
 </div>
@@ -541,7 +497,7 @@ If there is no previous command, undo will do nothing.
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-undo-ed-command-code-redo-code"><a class="link" href="#redo-undo-ed-command-code-redo-code">3.10. Redo undo-ed command: <code>redo</code></a></h3>
+<h3 id="redo-undo-ed-command-code-redo-code"><a class="link" href="#redo-undo-ed-command-code-redo-code">3.9. Redo undo-ed command: <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Redo the previous command that was undo-ed by user.</p>
 </div>
@@ -562,9 +518,9 @@ If there is no undo history, redo command will do nothing.
 </div>
 </div>
 <div class="sect2">
-<h3 id="custom-properties-code-custom-code"><a class="link" href="#custom-properties-code-custom-code">3.11. Custom properties: <code>custom</code></a></h3>
+<h3 id="custom-properties-code-custom-code"><a class="link" href="#custom-properties-code-custom-code">3.10. Custom properties: <code>custom</code></a></h3>
 <div class="sect3">
-<h4 id="adding-custom-properties"><a class="link" href="#adding-custom-properties">3.11.1. Adding custom properties</a></h4>
+<h4 id="adding-custom-properties"><a class="link" href="#adding-custom-properties">3.10.1. Adding custom properties</a></h4>
 <div class="paragraph">
 <p>Adds in a custom property which you can define for the exercises.</p>
 </div>
@@ -664,7 +620,7 @@ Information for this property can be updated for each exercise by using <code>s/
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-custom-properties"><a class="link" href="#removing-custom-properties">3.11.2. Removing custom properties</a></h4>
+<h4 id="removing-custom-properties"><a class="link" href="#removing-custom-properties">3.10.2. Removing custom properties</a></h4>
 <div class="paragraph">
 <p>Removes a custom property which you have previously defined.
 This removes the custom property from all exercises.</p>
@@ -700,11 +656,11 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">3.12. Scheduling exercises: <code>schedule</code></a></h3>
+<h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">3.11. Scheduling exercises: <code>schedule</code></a></h3>
 <div class="sect3">
-<h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">3.12.1. Schedules a regime</a></h4>
+<h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">3.11.1. Schedules a regime</a></h4>
 <div class="paragraph">
-<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Section 3.13, &#8220;Resolving scheduling conflicts: <code>resolve</code>&#8221;</a> for details on resolving scheduling conflicts.</p>
+<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Section 3.12, &#8220;Resolving scheduling conflicts: <code>resolve</code>&#8221;</a> for details on resolving scheduling conflicts.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>schedule n/REGIME_NAME d/DATE</code></p>
@@ -721,7 +677,7 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">3.12.2. Completes a schedule regime</a></h4>
+<h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">3.11.2. Completes a schedule regime</a></h4>
 <div class="paragraph">
 <p>Once a scheduled regime is completed, users can add that regime to the exercise tracker. The schedule is then deleted from the scheduling list.</p>
 </div>
@@ -741,9 +697,9 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="resolve"><a class="link" href="#resolve">3.13. Resolving scheduling conflicts: <code>resolve</code></a></h3>
+<h3 id="resolve"><a class="link" href="#resolve">3.12. Resolving scheduling conflicts: <code>resolve</code></a></h3>
 <div class="sect3">
-<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">3.13.1. Taking one of the conflicting regimes completely</a></h4>
+<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">3.12.1. Taking one of the conflicting regimes completely</a></h4>
 <div class="paragraph">
 <p>Takes the scheduled regime or the conflicting regime completely and discarding the other. Neither regimes will be completely deleted from the user’s collection.</p>
 </div>
@@ -762,7 +718,7 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">3.13.2. Taking some exercises from some regime</a></h4>
+<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">3.12.2. Taking some exercises from some regime</a></h4>
 <div class="paragraph">
 <p>Takes some exercises from the scheduled regime and some from the conflicting regime to make a brand new regime. The new regime that is a result of the combination will be added  to the user’s collection and scheduled at the date of conflict. This new regime will also be added to the user’s collection of regimes</p>
 </div>
@@ -814,9 +770,9 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggesting-ideas-code-suggest-code"><a class="link" href="#suggesting-ideas-code-suggest-code">3.14. Suggesting ideas: <code>suggest</code></a></h3>
+<h3 id="suggesting-ideas-code-suggest-code"><a class="link" href="#suggesting-ideas-code-suggest-code">3.13. Suggesting ideas: <code>suggest</code></a></h3>
 <div class="sect3">
-<h4 id="suggest-basic-exercises"><a class="link" href="#suggest-basic-exercises">3.14.1. Suggest basic exercises</a></h4>
+<h4 id="suggest-basic-exercises"><a class="link" href="#suggest-basic-exercises">3.13.1. Suggest basic exercises</a></h4>
 <div class="paragraph">
 <p>Recommends exercises from ExerHealth&#8217;s inbuilt database for beginners.</p>
 </div>
@@ -825,7 +781,7 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="suggest-possible-exercises"><a class="link" href="#suggest-possible-exercises">3.14.2. Suggest possible exercises</a></h4>
+<h4 id="suggest-possible-exercises"><a class="link" href="#suggest-possible-exercises">3.13.2. Suggest possible exercises</a></h4>
 <div class="paragraph">
 <p>Suggests exercises matching specified tags.</p>
 </div>
@@ -864,7 +820,7 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="suggest-intensity"><a class="link" href="#suggest-intensity">3.14.3. Suggest intensity</a></h4>
+<h4 id="suggest-intensity"><a class="link" href="#suggest-intensity">3.13.3. Suggest intensity</a></h4>
 <div class="paragraph">
 <p>Recommends an increased quantity for the indexed exercise/regime based on its past record.</p>
 </div>
@@ -915,39 +871,39 @@ This removes the custom property from all exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
 <div class="paragraph">
 <p>ExerHealth data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.17. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
+<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.16. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Reminds you to do exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.18. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.17. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Autocompletes the commands while typing.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="importing-data-code-coming-in-v2-0-code"><a class="link" href="#importing-data-code-coming-in-v2-0-code">3.19. Importing data <code>[coming in v2.0]</code></a></h3>
+<h3 id="importing-data-code-coming-in-v2-0-code"><a class="link" href="#importing-data-code-coming-in-v2-0-code">3.18. Importing data <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Imports data to update inbuilt database of exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -979,10 +935,6 @@ e.g. <code>list t/exercise s/12/12/2019 e/17/12/2019</code></p>
 <li>
 <p><strong>Edit</strong> : <code>edit t/exercise i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203; `
 e.g. `edit t/exercise i/3 n/Bench press d/22/09/2019 c/240 q/10 u/sets m/Chest</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code>
-e.g. <code>find bench press</code></p>
 </li>
 <li>
 <p><strong>Delete</strong> : <code>delete t/exercise i/INDEX</code>
@@ -1030,4 +982,4 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 04:10:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 04:32:00 UTC</div></div></div></body></html>
