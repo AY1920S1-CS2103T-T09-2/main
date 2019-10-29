@@ -21,8 +21,8 @@
 <li><a href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#display-statistics-code-stats-code">3.7. Display statistics : <code>stats</code></a></li>
 <li><a href="#undo-previous-command-code-undo-code">3.8. Undo previous command: <code>undo</code></a></li>
-<li><a href="#redo-undo-ed-command-code-redo-code">3.9. Redo undo-ed command: <code>redo</code></a></li>
-<li><a href="#custom-properties-code-custom-code">3.10. Custom properties: <code>custom</code></a></li>
+<li><a href="#redo-undone-command-code-redo-code">3.9. Redo undone command: <code>redo</code></a></li>
+<li><a href="#customproperty">3.10. Custom properties: <code>custom</code></a></li>
 <li><a href="#scheduling-exercises-code-schedule-code">3.11. Scheduling exercises: <code>schedule</code></a></li>
 <li><a href="#resolve">3.12. Resolving scheduling conflicts: <code>resolve</code></a></li>
 <li><a href="#suggesting-ideas-code-suggest-code">3.13. Suggesting ideas: <code>suggest</code></a></li>
@@ -91,13 +91,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>get t/exercise</code></strong> : gets all the exercises ExerHealth is tracking.</p>
+<p><code>list t/exercise</code> : gets all the exercises ExerHealth is tracking.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>t/exercise n/Push ups d/1/10/2019 c/123</code> : adds a exercise named <code>Push ups</code> to ExerHealth.</p>
+<p><code>add t/exercise n/Push ups d/1/10/2019 c/123 q/100 u/reps</code> : adds a exercise named <code>Push ups</code> to ExerHealth.</p>
 </li>
 <li>
-<p><strong><code>exit</code></strong> : exits the app</p>
+<p><code>exit</code> : exits the app</p>
 </li>
 </ul>
 </div>
@@ -128,7 +128,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 information being added. e.g. <code>add t/exercise n/EXERCISE_NAME</code>, <code>t/exercise</code> is a keyword that informs ExerHealth about adding to the exercise tracker.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>d/date [c/CALORIES]</code> can be used as <code>d/1/10/2019 c/123</code>
+<p>Items in square brackets are optional e.g <code>d/date [m/MUSCLE]</code> can be used as <code>d/1/10/2019 m/Legs</code>
 or as <code>d/1/10/2019</code>.</p>
 </li>
 <li>
@@ -163,15 +163,21 @@ You can enter the following additional information for each exercise:</p>
 <p>Calories burnt in kcal</p>
 </li>
 <li>
-<p>Quantity of exercises completed and its units of measure</p>
+<p>Quantity of exercises completed</p>
+</li>
+<li>
+<p>Units of measure</p>
 </li>
 <li>
 <p>Muscle group(s) that are being worked out</p>
 </li>
+<li>
+<p><a href="#customproperty">Custom Properties</a> that have been added</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Format: <code>add t/exercise n/EXERCISE_NAME d/DATE [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203;</code></p>
+<p>Format: <code>add t/exercise n/EXERCISE_NAME d/DATE c/CALORIES q/QUANTITY u/UNITS [m/MUSCLE]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -249,15 +255,14 @@ If a regime of the same name already exists, exercises will be added to the same
 <div class="sect2">
 <h3 id="listing-all-exercises-code-list-code"><a class="link" href="#listing-all-exercises-code-list-code">3.3. Listing all exercises : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Retrieves all categories of information - Exercise and Regime - from ExerHealth.</p>
+<p>Retrieves all categories of information - Exercise, Regime or Scheduled Regime - from ExerHealth.</p>
 </div>
 <div class="paragraph">
-<p>If you provide a category name, only information from that category will be shown.
-You can also include start and end dates to restrict the range of dates.
-If no dates are supplied, the most recent week of information from each category will be shown.</p>
+<p>Type of information shown when will be specified by the category type specified. For example,
+if you wish to see your current list of regimes, you may specify the <code>CAT_NAME</code> as <code>regime</code>.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>list [t/CAT_NAME] [s/START_DATE] [e/END_DATE]</code></p>
+<p>Format: <code>list t/CAT_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -265,16 +270,13 @@ If no dates are supplied, the most recent week of information from each category
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code></p>
-</li>
-<li>
 <p><code>list t/exercise</code></p>
 </li>
 <li>
 <p><code>list t/regime</code></p>
 </li>
 <li>
-<p><code>list t/exercise s/12/12/2019 e/17/12/2019</code></p>
+<p><code>list t/schedule</code></p>
 </li>
 </ul>
 </div>
@@ -484,7 +486,36 @@ Format: <code>clear</code></p>
 <div class="sect2">
 <h3 id="undo-previous-command-code-undo-code"><a class="link" href="#undo-previous-command-code-undo-code">3.8. Undo previous command: <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Undo the previous command entered.</p>
+<p>Undo the previous successful command entered.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Supported Undoable Commands: add, delete, edit, clear</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add t/exercise n/Push ups d/1/10/2019 c/123 q/100 u/reps</code></p>
+</li>
+<li>
+<p><code>add t/regime n/Cardio i/1 i/3 i/5</code></p>
+</li>
+<li>
+<p><code>delete t/exercise i/7</code></p>
+</li>
+<li>
+<p><code>edit t/exercise i/3 n/Push Ups c/140 m/Chest</code></p>
+</li>
+<li>
+<p><code>clear</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -503,9 +534,9 @@ If there is no previous command, undo will do nothing.
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-undo-ed-command-code-redo-code"><a class="link" href="#redo-undo-ed-command-code-redo-code">3.9. Redo undo-ed command: <code>redo</code></a></h3>
+<h3 id="redo-undone-command-code-redo-code"><a class="link" href="#redo-undone-command-code-redo-code">3.9. Redo undone command: <code>redo</code></a></h3>
 <div class="paragraph">
-<p>Redo the previous command that was undo-ed by user.</p>
+<p>Redo the previous command that was undone by user.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -514,7 +545,7 @@ If there is no previous command, undo will do nothing.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If there is no undo history, redo command will do nothing.
+If there is no command has been undone after the latest undoable command, redo command will do nothing.
 </td>
 </tr>
 </table>
@@ -524,7 +555,7 @@ If there is no undo history, redo command will do nothing.
 </div>
 </div>
 <div class="sect2">
-<h3 id="custom-properties-code-custom-code"><a class="link" href="#custom-properties-code-custom-code">3.10. Custom properties: <code>custom</code></a></h3>
+<h3 id="customproperty"><a class="link" href="#customproperty">3.10. Custom properties: <code>custom</code></a></h3>
 <div class="sect3">
 <h4 id="adding-custom-properties"><a class="link" href="#adding-custom-properties">3.10.1. Adding custom properties</a></h4>
 <div class="paragraph">
@@ -988,4 +1019,4 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 16:01:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 16:03:59 UTC</div></div></div></body></html>
