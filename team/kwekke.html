@@ -618,85 +618,56 @@ This removes the custom property from all exercises.</p>
 <div class="sect4">
 <h5 id="based-on-matching-muscle-tags"><a class="link" href="#based-on-matching-muscle-tags">Based on matching muscle tags</a></h5>
 <div class="paragraph">
-<p>Format: <code>suggest s/possible m/MUSCLE</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>suggest s/possible m/chest</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>A list of exercises with chest muscle tag will be displayed.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>suggest s/possible m/chest m/tricep</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>A list of exercises tagged with chest or triceps will be displayed.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="based-on-matching-custom-properties-code-coming-in-v2-0-code"><a class="link" href="#based-on-matching-custom-properties-code-coming-in-v2-0-code">Based on matching custom properties <code>[Coming in v2.0]</code></a></h5>
-
-</div>
-</div>
-<div class="sect3">
-<h4 id="suggest-intensity"><a class="link" href="#suggest-intensity">Suggest intensity</a></h4>
-<div class="paragraph">
-<p>Recommends an increased quantity for the indexed exercise/regime based on its past record.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>suggest intensity t/exercise i/INDEX</code>
-<code>suggest intensity t/regime i/INDEX</code></p>
+<p>Format: <code>suggest s/possible o/OPERATION_TYPE [m/MUSCLE CUSTOM_PROPERTY_PREFIX_NAME/VALUE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Takes the exercise at the specified <code>INDEX</code>.</p>
+<p>You must choose one of the following operation type: <code>and</code>, <code>or</code>.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>You have to enter at least one property (muscle/custom property) to search for suggestions.</p>
 </li>
 <li>
-<p>i/ is for index of the scheduled regime</p>
+<p>i.e commands such as
+<code>suggest s/possible o/and</code> and <code>suggest s/possible o/or</code> will both fail
+whereas <code>suggest s/possible o/or m/Chest</code> will not.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Example:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>suggest intensity t/exercise 1</code></p>
-</li>
-</ul>
+<div class="sect4">
+<h5 id="based-on-matching-custom-properties"><a class="link" href="#based-on-matching-custom-properties">Based on matching custom properties</a></h5>
+<div class="paragraph">
+<p>After creating <a href="#customproperty">Custom Properties</a> and tracking exercises,
+you can search for suggestions with those custom properties.</p>
 </div>
 <div class="paragraph">
-<p>Displays the recommended quantity for the indexed exercise.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>suggest intensity t/regime 1</code></p>
-</li>
-</ul>
+<p>Example:
+Suppose you have created a new Custom Property and have been tracking a few exercises with said custom property:</p>
 </div>
 <div class="paragraph">
-<p>Displays the recommended quantity for all the exercises in the indexed regime.</p>
+<p><code>custom s/r f/Rating p/Number</code></p>
+</div>
+<div class="paragraph">
+<p><code>add t/exercise n/Run d/01/11/2019 c/100 q/30 u/km m/Leg r/8</code></p>
+</div>
+<div class="paragraph">
+<p><code>add t/exercise n/Bench Press d/01/11/2019 c/100 q/30 u/counts m/Chest r/8</code></p>
+</div>
+<div class="paragraph">
+<p>Then, the following input will display a list of exercises which are tagged with "Chest" and have a rating of 8.</p>
+</div>
+<div class="paragraph">
+<p><code>suggest s/possible o/and m/Chest r/8</code></p>
+</div>
+<div class="paragraph">
+<p>Thus the command will display only the exercise named "Bench Press".</p>
+</div>
 </div>
 </div>
 </div>
@@ -713,6 +684,10 @@ Format: <code>exit</code></p>
 <p>ExerHealth data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="suggest-intensity-code-coming-in-v2-0-code"><a class="link" href="#suggest-intensity-code-coming-in-v2-0-code">Suggest intensity <code>[Coming in v2.0]</code></a></h3>
+
 </div>
 <div class="sect2">
 <h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">Remind to do exercises <code>[coming in v2.0]</code></a></h3>
@@ -842,4 +817,4 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 09:11:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 13:04:42 UTC</div></div></div></body></html>
