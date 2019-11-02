@@ -1,4 +1,7 @@
 language: java
+
+sudo: false
+
 matrix:
   include:
     - os: linux
@@ -6,6 +9,15 @@ matrix:
       jdk: openjdk11
       env:
         - _JAVA_OPTIONS="-Dtestfx.robot=awt"
+addons:
+  apt:
+    packages:
+      - oracle-java11-installer
+
+before_install:
+  - if [[ "${TRAVIS_OS_NAME}" == linux ]]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; fi
+
+install: true
 
 script: >-
     ./config/travis/run-checks.sh &&
