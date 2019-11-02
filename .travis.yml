@@ -1,7 +1,11 @@
 language: java
 matrix:
   include:
-    - jdk: openjdk11
+    - os: linux
+      dist: trusty
+      jdk: openjdk11
+      env:
+        - _JAVA_OPTIONS="-Dtestfx.robot=awt"
 
 script: >-
     ./config/travis/run-checks.sh &&
@@ -17,8 +21,11 @@ deploy:
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f  $HOME/.gradle/caches/*/fileHashes/fileHashes.bin
+  - rm -f  $HOME/.gradle/caches/*/fileHashes/fileHashes.lock
 
 cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+    - $HOME/.m2
