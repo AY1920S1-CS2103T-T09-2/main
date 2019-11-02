@@ -1099,7 +1099,11 @@ The user is allowed to specify what type of suggestions to see.</p>
 <p><code>ExerciseBookParser</code> will receive <code>suggest</code> as the command type and instantiate <code>SuggestCommandParser</code> to further parse the command.</p>
 </li>
 <li>
-<p><code>SuggestCommandParser</code> will receive <code>s/possible</code> as the suggest type and instantiate <code>SuggestPossibleCommand</code> with <code>muscles</code> and <code>customProperties</code> as constructor parameters.</p>
+<p><code>SuggestCommandParser</code> will receive <code>s/possible</code> as the suggest type and calls the <code>parsePredicate</code> method of <code>ParserUtil</code>
+to parse the user input to create an <code>ExercisePredicate</code> object (named <code>p</code> in the diagram).</p>
+</li>
+<li>
+<p><code>SuggestCommandParser</code> will instantiate <code>SuggestPossibleCommand</code> with the <code>ExercisePredicate</code> as the constructor parameter.</p>
 </li>
 <li>
 <p>The <code>SuggestPossibleCommand</code> object is then returned to <code>SuggestCommandParser</code>, <code>ExerciseBookParser</code> and lastly back to <code>LogicManager</code> to execute.</p>
@@ -1108,13 +1112,34 @@ The user is allowed to specify what type of suggestions to see.</p>
 <p><code>LogicManager</code> will proceed to call execute <code>SuggestPossibleCommand</code>.</p>
 </li>
 <li>
-<p>When <code>SuggestPossibleCommand</code> is executed, it calls a self invocated method, <code>getPredicate</code>, which is created based on the <code>targetMuscles</code> and <code>targetCustomProperties</code>.</p>
-</li>
-<li>
 <p><code>SuggestPossibleCommand</code> then calls the <code>updateSuggestedExerciseList</code> method in <code>ModelManager</code>, passing in the predicate to filter the list of suggest exercises.</p>
 </li>
 <li>
 <p><code>SuggestPossibleCommand</code> creates a new <code>CommandResult</code> to be returned.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In step 3, the process in which the <code>ExercisePredicate</code> object is created can be explored deeper.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SuggestSequencePredicateDiagram.png" alt="SuggestSequencePredicateDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>From the sequence diagram above:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>ParserUtil</code> creates <code>ExerciseMusclePredicate</code> and <code>ExerciseCustomPropertyPredicate</code> with the input parameters.</p>
+</li>
+<li>
+<p>Since there were no CustomProperty tags to filter, <code>ParserUtil</code> creates <code>ExercisePredicate</code> with only the <code>musclesPredicate</code> and the boolean <code>isStrict</code>.</p>
+</li>
+<li>
+<p>The resulting <code>ExercisePredicate</code> is then returned to <code>ParserUtil</code> and then <code>SuggestCommandParser</code>.</p>
 </li>
 </ol>
 </div>
@@ -1126,7 +1151,7 @@ The user is allowed to specify what type of suggestions to see.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Choice 1 (current choice): </strong> <code>SuggestPossibleCommand</code> to handle the predicates.</p>
+<p><strong>Choice 1: </strong> <code>SuggestPossibleCommand</code> to handle the predicates.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1134,7 +1159,8 @@ The user is allowed to specify what type of suggestions to see.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Easy to implement and understand. The class <code>SuggestPossibleCommand</code> contains the parsing and creation of the predicate all in one place.</p>
+<p>Easy to implement and understand. The class <code>SuggestPossibleCommand</code> contains the parsing and creation of the predicate
+all in one place as it stores the tags, and creates the predicate and filters the list of exercises.</p>
 </li>
 </ul>
 </div>
@@ -1153,7 +1179,7 @@ The user is allowed to specify what type of suggestions to see.</p>
 </div>
 </li>
 <li>
-<p><strong>Choice 2: </strong> Predicate Factory class to handles all predicates.</p>
+<p><strong>Choice 2 (current choice): </strong> Predicate class to handle all predicates.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1161,7 +1187,7 @@ The user is allowed to specify what type of suggestions to see.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Adheres to SRP and Separation of Concern (SoC).</p>
+<p>Adheres to Single Responsibility Principle (SRP) and Separation of Concern (SoC).</p>
 </li>
 </ul>
 </div>
@@ -2060,4 +2086,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 10:36:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 13:25:49 UTC</div></div></div></body></html>
