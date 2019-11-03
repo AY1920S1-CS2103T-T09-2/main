@@ -576,12 +576,12 @@ The name, prefix and parameter type of all existing custom properties will be sh
 <div class="ulist">
 <ul>
 <li>
-<p><code>schedule n/cardio d/19/9/2019</code></p>
+<p><code>schedule n/cardio d/12/12/2019</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Schedules the regime called <code>cardio</code> on the date <code>19/19/2019</code>. If there are no other regimes scheduled on <code>19/19/2019</code> then the command is successful. Otherwise, you will be prompted to resolve the scheduling conflict.</p>
+<p>Schedules the regime called <code>cardio</code> on the date <code>12/12/2019</code>. If there are no other regimes scheduled on <code>12/12/2019</code> then the command is successful. Otherwise, you will be prompted to resolve the scheduling conflict.</p>
 </div>
 </div>
 <div class="sect3">
@@ -615,7 +615,7 @@ The name, prefix and parameter type of all existing custom properties will be sh
 <p>Takes the scheduled regime or the conflicting regime completely and discarding the other. Neither regimes will be completely deleted from the user’s collection.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>resolve n/REGIME_TO_TAKE</code></p>
+<p>Format: <code>resolve n/SCHEDULED_OR_CONFLICTING</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -623,12 +623,22 @@ The name, prefix and parameter type of all existing custom properties will be sh
 <div class="ulist">
 <ul>
 <li>
-<p><code>resolve n/cardio</code></p>
+<p><code>resolve n/scheduled</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Takes the scheduled regime named <code>cardio</code> and schedule at the conflicting date.</p>
+<p>Takes the already scheduled regime and schedule it at conflicting date.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>resolve n/conflicting</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Takes the conflicting regime and schedule it at conflicting date.</p>
 </div>
 </div>
 <div class="sect3">
@@ -819,7 +829,7 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous ExerHealth folder.</p>
 </div>
 </div>
 </div>
@@ -829,23 +839,38 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> : <code>add t/exercise n/EXERCISE_NAME d/DATE c/CALORIES q/QUANTITY u/UNITS [m/MUSCLE]&#8230;&#8203;</code><br>
+<p><strong>Add exercises</strong> : <code>add t/exercise n/EXERCISE_NAME d/DATE c/CALORIES q/QUANTITY u/UNITS [m/MUSCLE]&#8230;&#8203;</code><br>
 e.g. <code>add t/exercise n/Bench press d/19/09/2019 c/500 q/50 u/reps m/Chest</code></p>
+</li>
+<li>
+<p><strong>Add regimes</strong> : <code>add t/regime n/REGIME_NAME [i/INDEX_OF_EXERCISE]&#8230;&#8203;</code>
+e.g. <code>add t/regime n/Cardio i/1 i/2 i/3</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list t/CAT_NAME</code>
 e.g. <code>list t/exercise</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203; `
+<p><strong>Edit exercise</strong> : <code>edit i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203; `
 e.g. `edit i/3 n/Bench press d/22/09/2019 c/240 q/10 u/sets m/Chest</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete t/exercise i/INDEX</code>
+<p><strong>Delete exercise</strong> : <code>delete t/exercise i/INDEX</code>
 e.g. <code>delete t/exercise i/2</code></p>
 </li>
 <li>
+<p><strong>Delete regimes</strong> : <code>delete t/regime n/REGIME_NAME</code>
+e.g. <code>delete t/regime n/Cardio</code></p>
+</li>
+<li>
+<p><strong>Delete exercise from regime</strong> : <code>delete t/regime n/REGIME_NAME [i/INDEX_OF_EXERCISE]&#8230;&#8203;</code>
+e.g. <code>delete t/regime n/Cardio i/1 i/2</code></p>
+</li>
+<li>
 <p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
 <p><strong>Stats</strong> : <code>stats t/CAT_NAME h/CHART_TYPE [s/START_DATE] [d/END_DATE]</code>
@@ -862,19 +887,19 @@ e.g. <code>stats t/exercise h/barchart s/20/09/2019 e/27/09/2019</code></p>
 e.g. <code>schedule n/cardio d/19/09/2019</code></p>
 </li>
 <li>
-<p><strong>Resolve</strong> : <code>resolve n/REGIME_TO_TAKE</code>
+<p><strong>Resolve(Take one regime)</strong> : <code>resolve n/REGIME_TO_TAKE</code>
 e.g. <code>resolve n/cardio</code></p>
+</li>
+<li>
+<p><strong>Resolve(Take some exercise from both regime)</strong> : <code>resolve n/NEW_REGIME_NAME [i/INDEX_OF_SCHEDULED_EXERCISE]&#8230;&#8203; [r/INDEX_OF_CONFLICTING_EXERCISE]&#8230;&#8203;</code>
+e.g. <code>resolve n/new cardio i/1 i/3 r/2</code></p>
 </li>
 <li>
 <p><strong>Suggest basic</strong> : <code>suggest s/basic</code></p>
 </li>
 <li>
-<p><strong>Suggest possible</strong> : <code>suggest s/possible [o/OPERATION_TYPE] [m/MUSCLE] [CUSTOM_PROPERTY_PREFIX_NAME/VALUE]</code>
-e.g. <code>suggest s/possible m/Chest</code>, <code>suggest s/possible o/and m/Chest m/Leg</code></p>
-</li>
-<li>
-<p><strong>Suggest intensity</strong> : <code>suggest s/intensity i/INDEX</code>
-eg. <code>suggest s/intensity 1</code></p>
+<p><strong>Suggest possible</strong> : <code>suggest s/possible [o/OPERATION_TYPE] [m/MUSCLE]&#8230;&#8203; [CUSTOM_PROPERTY_PREFIX/VALUE]&#8230;&#8203;</code>
+e.g. <code>suggest s/possible m/Legs</code>, <code>suggest s/possible o/and m/Chest m/Leg</code></p>
 </li>
 <li>
 <p><strong>Add custom property</strong> : <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code>
@@ -922,4 +947,4 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 13:33:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 14:24:31 UTC</div></div></div></body></html>
