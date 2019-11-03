@@ -273,6 +273,8 @@ Format: <code>clear</code></p>
 </li>
 </ul>
 </div>
+</div>
+</div>
 <div class="paragraph">
 <p>Figure below shows an example of pie chart.<br></p>
 </div>
@@ -309,14 +311,14 @@ Due to space constraint, some labels may not appear. Labels can be seen when mou
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Undo previous command: <code>undo</code></p>
 </div>
+<div class="sect2">
+<h3 id="undo-previous-command-code-undo-code"><a class="link" href="#undo-previous-command-code-undo-code">Undo previous command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undo the previous successful command entered.</p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p>Supported Undoable Commands: add, delete, edit, clear</p>
 </div>
@@ -342,8 +344,8 @@ Due to space constraint, some labels may not appear. Labels can be seen when mou
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -359,9 +361,9 @@ If there is no previous command, undo will do nothing.
 <div class="paragraph">
 <p>Format: <code>undo</code></p>
 </div>
-<div class="paragraph">
-<p>=== Redo undone command: <code>redo</code></p>
 </div>
+<div class="sect2">
+<h3 id="redo-undone-command-code-redo-code"><a class="link" href="#redo-undone-command-code-redo-code">Redo undone command: <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Redo the previous command that was undone by user.</p>
 </div>
@@ -380,12 +382,11 @@ If there is no command has been undone after the latest undoable command, redo c
 <div class="paragraph">
 <p>Format: <code>redo</code></p>
 </div>
-<div id="customproperty" class="paragraph">
-<p>=== Custom properties: <code>custom</code></p>
 </div>
-<div class="paragraph">
-<p>==== Adding custom properties</p>
-</div>
+<div class="sect2">
+<h3 id="customproperty"><a class="link" href="#customproperty">Custom properties</a></h3>
+<div class="sect3">
+<h4 id="adding-custom-properties-code-custom-code"><a class="link" href="#adding-custom-properties-code-custom-code">Adding custom properties: <code>custom</code></a></h4>
 <div class="paragraph">
 <p>Adds in a custom property which you can define for the exercises.</p>
 </div>
@@ -393,8 +394,8 @@ If there is no command has been undone after the latest undoable command, redo c
 <p>Once a new custom property is created, you can simply use the prefix name which you defined for the
 property to the <code>add</code> and <code>edit</code> command to include information for the new property.</p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -416,8 +417,8 @@ word is capitalised with the other letters in lower case e.g. <code>enD DaTe</co
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Format: <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code></p>
 </div>
@@ -483,27 +484,33 @@ Information for this property can be updated for each exercise by using <code>s/
 <div class="paragraph">
 <p>Edits the ratings of the 4th exercise in the list to <code>3</code>.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="removing-custom-properties-code-custom-code"><a class="link" href="#removing-custom-properties-code-custom-code">Removing custom properties: <code>custom</code></a></h4>
 <div class="paragraph">
-<p>==== Removing custom properties</p>
+<p>Removes a custom property which you have previously defined either from a single exercise
+or from Exerhealth.</p>
 </div>
 <div class="paragraph">
-<p>Removes a custom property which you have previously defined.
-This removes the custom property from all exercises.</p>
+<p>In the second case, you will still be able to add back the deleted custom property if you
+wish to.</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<code>FULL_NAME</code> denotes the name of the previously defined custom property.
-</td>
-</tr>
-</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>FULL_NAME</code> denotes the name of the previously defined custom property.</p>
+</li>
+<li>
+<p>The index, if provided, must be a positive integer 1, 2, 3, …​</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>Format: <code>custom rm/FULL_NAME</code></p>
+<p>Format: <code>custom rm/FULL_NAME [i/INDEX]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -513,19 +520,52 @@ This removes the custom property from all exercises.</p>
 <li>
 <p><code>custom rm/Ratings</code></p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Removes the custom property <code>Ratings</code> from all of the exercises and from ExerHealth.</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><code>custom rm/Remark</code></p>
+<p><code>custom rm/Ratings i/1</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>=== Scheduling exercises: <code>schedule</code></p>
+<p>Removes the custom property <code>Ratings</code> from the 1st exercise in the list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-custom-properties-code-viewcustom-code"><a class="link" href="#viewing-custom-properties-code-viewcustom-code">Viewing custom properties: <code>viewcustom</code></a></h4>
+<div class="paragraph">
+<p>Opens up a window for you to view the custom properties you have defined.
+The name, prefix and parameter type of all existing custom properties will be shown.</p>
 </div>
 <div class="paragraph">
-<p>==== Schedules a regime</p>
+<p>Format: <code>viewcustom</code></p>
 </div>
 <div class="paragraph">
-<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">[resolve]</a> for details on resolving scheduling conflicts.</p>
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewcustom</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Opens up a window containing information of all existing custom properties.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">Scheduling exercises: <code>schedule</code></a></h3>
+<div class="sect3">
+<h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">Schedules a regime</a></h4>
+<div class="paragraph">
+<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a> for details on resolving scheduling conflicts.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>schedule n/REGIME_NAME d/DATE</code></p>
@@ -543,9 +583,9 @@ This removes the custom property from all exercises.</p>
 <div class="paragraph">
 <p>Schedules the regime called <code>cardio</code> on the date <code>19/19/2019</code>. If there are no other regimes scheduled on <code>19/19/2019</code> then the command is successful. Otherwise, you will be prompted to resolve the scheduling conflict.</p>
 </div>
-<div class="paragraph">
-<p>==== Completes a schedule regime</p>
 </div>
+<div class="sect3">
+<h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">Completes a schedule regime</a></h4>
 <div class="paragraph">
 <p>Once a scheduled regime is completed, users can add that regime to the exercise tracker. The schedule is then deleted from the scheduling list.</p>
 </div>
@@ -565,12 +605,12 @@ This removes the custom property from all exercises.</p>
 <div class="paragraph">
 <p>Completes all the exercises that are in the schedule at index <code>2</code>. All the exercises will be added to the exercise list and the schedule at index <code>2</code> is deleted.</p>
 </div>
-<div id="resolve" class="paragraph">
-<p>=== Resolving scheduling conflicts: <code>resolve</code></p>
 </div>
-<div class="paragraph">
-<p>==== Taking one of the conflicting regimes completely</p>
 </div>
+<div class="sect2">
+<h3 id="resolve"><a class="link" href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a></h3>
+<div class="sect3">
+<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">Taking one of the conflicting regimes completely</a></h4>
 <div class="paragraph">
 <p>Takes the scheduled regime or the conflicting regime completely and discarding the other. Neither regimes will be completely deleted from the user’s collection.</p>
 </div>
@@ -590,15 +630,17 @@ This removes the custom property from all exercises.</p>
 <div class="paragraph">
 <p>Takes the scheduled regime named <code>cardio</code> and schedule at the conflicting date.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">Taking some exercises from some regime</a></h4>
 <div class="paragraph">
-<p>==== Taking some exercises from some regime
-Takes some exercises from the scheduled regime and some from the conflicting regime to make a brand new regime. The new regime that is a result of the combination will be added  to the user’s collection and scheduled at the date of conflict. This new regime will also be added to the user’s collection of regimes</p>
+<p>Takes some exercises from the scheduled regime and some from the conflicting regime to make a brand new regime. The new regime that is a result of the combination will be added  to the user’s collection and scheduled at the date of conflict. This new regime will also be added to the user’s collection of regimes</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>resolve n/REGIME_NAME [i/INDEX_OF_EXERCISE_IN_SCHEDULED]&#8230;&#8203; [r/INDEX_OF_EXERCISE_IN_CONFLICTING]&#8230;&#8203;</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -624,8 +666,8 @@ Takes some exercises from the scheduled regime and some from the conflicting reg
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
@@ -639,24 +681,31 @@ Takes some exercises from the scheduled regime and some from the conflicting reg
 <div class="paragraph">
 <p>Takes exercise 1, 2, 3 from scheduled regime and exercise 2, 4 from conflicting regime and adds them to a new regime called cardios</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggesting-ideas-code-suggest-code"><a class="link" href="#suggesting-ideas-code-suggest-code">Suggesting ideas: <code>suggest</code></a></h3>
+<div class="sect3">
+<h4 id="suggest-basic-exercises"><a class="link" href="#suggest-basic-exercises">Suggest basic exercises</a></h4>
 <div class="paragraph">
-<p>=== Suggesting ideas: <code>suggest</code>
-==== Suggest basic exercises
-Recommends exercises from ExerHealth&#8217;s inbuilt database for beginners.</p>
+<p>Recommends exercises from ExerHealth&#8217;s inbuilt database for beginners.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>suggest s/basic</code></p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="suggest-possible-exercises"><a class="link" href="#suggest-possible-exercises">Suggest possible exercises</a></h4>
 <div class="paragraph">
-<p>==== Suggest possible exercises
-Suggests exercises matching specified tags.</p>
+<p>Suggests exercises matching specified tags.</p>
 </div>
+<div class="sect4">
+<h5 id="based-on-matching-muscle-tags"><a class="link" href="#based-on-matching-muscle-tags">Based on matching muscle tags</a></h5>
 <div class="paragraph">
-<p>===== Based on matching muscle tags
-Format: <code>suggest s/possible o/OPERATION_TYPE [m/MUSCLE CUSTOM_PROPERTY_PREFIX_NAME/VALUE]</code></p>
+<p>Format: <code>suggest s/possible o/OPERATION_TYPE [m/MUSCLE CUSTOM_PROPERTY_PREFIX_NAME/VALUE]</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -684,11 +733,11 @@ display all the exercises tagged with "Chest" in the exercise tracker and ExerHe
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>===== Based on matching custom properties</p>
 </div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="based-on-matching-custom-properties"><a class="link" href="#based-on-matching-custom-properties">Based on matching custom properties</a></h5>
 <div class="paragraph">
 <p>Similar to matching muscles tags, you can search for suggestions with matching custom property tags.</p>
 </div>
@@ -718,70 +767,78 @@ Suppose you have created a new Custom Property and have been tracking a few exer
 <div class="paragraph">
 <p>Thus the command will display only the exercise named "Bench Press".</p>
 </div>
-<div class="paragraph">
-<p>=== Exiting the program : <code>exit</code></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
-<div class="paragraph">
-<p>=== Saving the data</p>
 </div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
 <div class="paragraph">
 <p>ExerHealth data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
-<div class="paragraph">
-<p>=== Suggest intensity <code>[Coming in v2.0]</code></p>
 </div>
-<div class="paragraph">
-<p>=== Remind to do exercises <code>[coming in v2.0]</code></p>
+<div class="sect2">
+<h3 id="suggest-intensity-code-coming-in-v2-0-code"><a class="link" href="#suggest-intensity-code-coming-in-v2-0-code">Suggest intensity <code>[Coming in v2.0]</code></a></h3>
+
 </div>
+<div class="sect2">
+<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">Remind to do exercises <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Reminds you to do exercises.</p>
 </div>
-<div class="paragraph">
-<p>=== Autocomplete of commands <code>[coming in v2.0]</code></p>
 </div>
+<div class="sect2">
+<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Autocompletes the commands while typing.</p>
 </div>
-<div class="paragraph">
-<p>=== Importing data <code>[coming in v2.0]</code></p>
 </div>
+<div class="sect2">
+<h3 id="importing-data-code-coming-in-v2-0-code"><a class="link" href="#importing-data-code-coming-in-v2-0-code">Importing data <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Imports data to update inbuilt database of exercises.</p>
 </div>
-<div class="paragraph">
-<p>=== Encrypting data files <code>[coming in v2.0]</code></p>
 </div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
-<div class="paragraph">
-<p>== FAQ</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
-<div class="paragraph">
-<p>== Command Summary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> : <code>add t/exercise n/EXERCISE_NAME d/DATE [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203;</code><br>
+<p><strong>Add</strong> : <code>add t/exercise n/EXERCISE_NAME d/DATE c/CALORIES q/QUANTITY u/UNITS [m/MUSCLE]&#8230;&#8203;</code><br>
 e.g. <code>add t/exercise n/Bench press d/19/09/2019 c/500 q/50 u/reps m/Chest</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list [t/CAT_NAME] [s/START_DATE] [e/END_DATE]</code>
-e.g. <code>list t/exercise s/12/12/2019 e/17/12/2019</code></p>
+<p><strong>List</strong> : <code>list t/CAT_NAME</code>
+e.g. <code>list t/exercise</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit t/exercise i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203; `
-e.g. `edit t/exercise i/3 n/Bench press d/22/09/2019 c/240 q/10 u/sets m/Chest</code></p>
+<p><strong>Edit</strong> : <code>edit i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203; `
+e.g. `edit i/3 n/Bench press d/22/09/2019 c/240 q/10 u/sets m/Chest</code></p>
 </li>
 <li>
 <p><strong>Delete</strong> : <code>delete t/exercise i/INDEX</code>
@@ -802,7 +859,7 @@ e.g. <code>stats t/exercise h/barchart s/20/09/2019 e/27/09/2019</code></p>
 </li>
 <li>
 <p><strong>Schedule</strong> : <code>schedule n/REGIME_NAME d/DATE</code>
-e.g. <code>schedule n/cardio d/19/9/2019</code></p>
+e.g. <code>schedule n/cardio d/19/09/2019</code></p>
 </li>
 <li>
 <p><strong>Resolve</strong> : <code>resolve n/REGIME_TO_TAKE</code>
@@ -820,23 +877,31 @@ e.g. <code>suggest s/possible m/Chest</code>, <code>suggest s/possible o/and m/C
 eg. <code>suggest s/intensity 1</code></p>
 </li>
 <li>
-<p><strong>Custom</strong> : <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code>
+<p><strong>Add custom property</strong> : <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code>
 e.g. <code>custom s/c f/End Date p/Date</code></p>
+</li>
+<li>
+<p><strong>Remove custom property</strong> : <code>custom rm/FULL_NAME [i/INDEX]</code></p>
+</li>
+<li>
+<p><strong>View custom property</strong> : <code>viewcustom</code></p>
 </li>
 <li>
 <p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Encrypting data files <code>[coming in v2.0]</code></p>
-</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code-2"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code-2">Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
-<div class="paragraph">
-<p>== Contributions to the Developer Guide</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -847,15 +912,14 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>== PROJECT: PowerPointLabs</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<div class="sectionbody">
 <hr>
 <div class="paragraph">
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 07:16:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 13:33:21 UTC</div></div></div></body></html>
