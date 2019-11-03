@@ -1241,13 +1241,25 @@ The figure (Figure 19) below shows the class diagram of statistics:</p>
 <p>Step 1: User enters a <code>stats</code> command to see statistics of exercises.</p>
 </div>
 <div class="paragraph">
-<p>Step 2: The <code>stats</code> command calls Model#getExerciseBookData to get data of all exercises and pass to <code>Statistic</code>.</p>
+<p>Step 2: <code>ExerciseBookParser</code> will receive command from <code>LogicManager</code> and pass command to <code>StatsCommandParser</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3: <code>Statistic</code> will process and generate data.</p>
+<p>Step 3: <code>StatsCommandParse</code> will parse the command and creates a <code>StatsCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 4: Data will be passed back to <code>Ui</code> and <code>Ui</code> will generate and display chart.</p>
+<p>Step 4: <code>StatsCommand</code> calls <code>Model#getExerciseBookData</code> to get data of all exercises.</p>
+</div>
+<div class="paragraph">
+<p>Step 5: <code>StatsCommand</code> creates a <code>StatsFactory</code> and pass exercises data, chart and category to <code>StatsFactory</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 6: <code>StatsFactory</code> will then generate <code>Statistic</code> and return to <code>StatsCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 7: <code>StatsCommand</code> then calls <code>Model#setStatistic</code> to set the <code>Statistic</code> in <code>Model</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 8: <code>StatsCommand</code> creates a new <code>CommandResult</code> and return to <code>LogicManager</code>.</p>
 </div>
 <div class="paragraph">
 <p>Shown below is the sequence diagram (Figure 21) when user enters a valid <code>stats</code> command:</p>
@@ -2086,4 +2098,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 17:49:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 07:05:46 UTC</div></div></div></body></html>
