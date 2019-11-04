@@ -10,9 +10,18 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ExerHealth is a desktop application used for tracking and scheduling the user&#8217;s exercises.
-The user interacts with it using a CLI, and it has a GUI created with JavaFX.
-It is written in Java, and has about 10 kLoC.</p>
+<p>My team of 4 computer science students were tasked with changing a basic command line application. Our team
+decided to morph the application into ExerHealth. <strong>ExerHealth</strong> is a desktop application used for tracking
+and scheduling the user&#8217;s exercises. The application has statistical analysis of exercises users have completed
+in the past. Additionally, it also acts as a personal trainer by suggesting different exercises which both
+beginners and advanced users can choose from to incorporate into their exercise regimes.
+The user interacts with it using a command line interface, and it has a GUI created with JavaFX.</p>
+</div>
+<div class="paragraph">
+<p>Below is a screenshot of what our desktop application looks like:</p>
+</div>
+<div class="paragraph">
+<p><strong>//TODO: Add image of UI</strong></p>
 </div>
 </div>
 </div>
@@ -22,26 +31,29 @@ It is written in Java, and has about 10 kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to search for suggestions</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: The command <code>suggest</code> allows the user to search for suggestions.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature enables new users to have a starting point in their exercise regime.
+This feature also offers experienced users suggestions based on the type of exercises the user wants to do.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This enhancement works well with existing features, such as Custom Properties, and can be expanded on.
+It required an in-depth analysis of design alternatives to ensure that future extensions or further enhancements can be smooth.
+The implementation too was challenging as it required multiple new predicate and utility classes.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement 1</strong>: Added the display panel on the left hand side of the UI to show the respective information after a command is executed.</p>
+</li>
+<li>
+<p><strong>Minor enhancement 2</strong>: Allowed the command box to be automatically focused on upon opening the application so that user does not need to click on the box to start typing.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -55,7 +67,10 @@ It is written in Java, and has about 10 kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.2</code> - <code>v1.4</code> (3 releases) on GitHub</p>
+</li>
+<li>
+<p>Wrote additional tests for existing features to increase coverage (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/137">#137</a>, <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/96">#96</a>)</p>
 </li>
 </ul>
 </div>
@@ -65,20 +80,7 @@ It is written in Java, and has about 10 kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Refactored the GUI (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/121">#121</a></p>
 </li>
 </ul>
 </div>
@@ -88,29 +90,7 @@ It is written in Java, and has about 10 kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>PRs reviewed (with non-trivial review comments):  <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/114">#114</a></p>
 </li>
 </ul>
 </div>
@@ -119,9 +99,6 @@ It is written in Java, and has about 10 kLoC.</p>
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -138,561 +115,6 @@ It is written in Java, and has about 10 kLoC.</p>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="delete-health-information-code-delete-code"><a class="link" href="#delete-health-information-code-delete-code">Delete health information : <code>delete</code></a></h3>
-<div class="sect3">
-<h4 id="deleting-exercise-information"><a class="link" href="#deleting-exercise-information">Deleting exercise information</a></h4>
-<div class="paragraph">
-<p>Deleting a certain exercise information from ExerHealth.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete t/exercise i/INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the exercise at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed exercise list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete t/exercise i/2</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-exercise-from-scheduling-regime"><a class="link" href="#deleting-exercise-from-scheduling-regime">Deleting exercise from scheduling regime</a></h4>
-<div class="paragraph">
-<p>Deletes exercises from a certain scheduling regime.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete t/exercise n/REGIME_NAME [i/INDEX]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the exercise at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>If index is not provided, the command deletes the entire scheduling regime</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed regime list.</p>
-</li>
-<li>
-<p>The index, if provided, <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete t/regime n/cardio i/2</code><br>
-Deletes the exercise indexed 2 in the cardio regime</p>
-</li>
-<li>
-<p><code>delete t/regime n/legs</code><br>
-Deletes the entire regime named legs</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the exercise tracker.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="display-statistics-code-stats-code"><a class="link" href="#display-statistics-code-stats-code">Display statistics : <code>stats</code></a></h3>
-<div class="paragraph">
-<p>Display the statistics of exercises.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>stats t/CAT_NAME h/CHART_TYPE [s/START_DATE] [e/END_DATE]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Supported chart types: Pie Chart, Line Chart, Bar Chart</p>
-</li>
-<li>
-<p>Supported category: exercise, calories</p>
-</li>
-<li>
-<p>If no <code>START_DATE</code> and <code>END_DATE</code> are provided, the recent 7 days of history will be used.</p>
-</li>
-<li>
-<p>If any date is provided, both <code>START_DATE</code> and <code>END_DATE</code> dates must be there.</p>
-</li>
-<li>
-<p>The maximum range between <code>START_DATE</code> and <code>END_DATE</code> is 31 days.</p>
-</li>
-<li>
-<p>Only exercise with same name and unit will be counted as same exercise.</p>
-</li>
-<li>
-<p>Exercise will appear as <code>NAME (UNIT)</code> in the charts. E.g <code>Running (km)</code>. If it is too long (more than 18 characters), it will be formatted to first 10 characters plus last 8 characters.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For example, exercise <code>Strength Training (counts)</code> is more than 18 characters, it will be formatted to <code>Strength T&#8230;&#8203;(counts)</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>It also includes total and average <code>CATEGORY</code> per day of exercises in the date range.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Figure below shows an example of pie chart.<br></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/PieChart.png" alt="PieChart" width="790">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Due to space constraint, some labels may not appear. Labels can be seen when mouse cursor hovers over the pie chart.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>stats t/exercise h/piechart</code></p>
-</li>
-<li>
-<p><code>stats t/calories h/linechart</code></p>
-</li>
-<li>
-<p><code>stats t/exercise h/barchart s/20/09/2019 e/27/09/2019</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undo-previous-command-code-undo-code"><a class="link" href="#undo-previous-command-code-undo-code">Undo previous command: <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Undo the previous successful command entered.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Supported Undoable Commands: add, delete, edit, clear</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add t/exercise n/Push ups d/1/10/2019 c/123 q/100 u/reps</code></p>
-</li>
-<li>
-<p><code>add t/regime n/Cardio i/1 i/3 i/5</code></p>
-</li>
-<li>
-<p><code>delete t/exercise i/7</code></p>
-</li>
-<li>
-<p><code>edit t/exercise i/3 n/Push Ups c/140 m/Chest</code></p>
-</li>
-<li>
-<p><code>clear</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-If there is no previous command, undo will do nothing.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Format: <code>undo</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redo-undone-command-code-redo-code"><a class="link" href="#redo-undone-command-code-redo-code">Redo undone command: <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Redo the previous command that was undone by user.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-If there is no command has been undone after the latest undoable command, redo command will do nothing.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Format: <code>redo</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="customproperty"><a class="link" href="#customproperty">Custom properties</a></h3>
-<div class="sect3">
-<h4 id="adding-custom-properties-code-custom-code"><a class="link" href="#adding-custom-properties-code-custom-code">Adding custom properties: <code>custom</code></a></h4>
-<div class="paragraph">
-<p>Adds in a custom property which you can define for the exercises.</p>
-</div>
-<div class="paragraph">
-<p>Once a new custom property is created, you can simply use the prefix name which you defined for the
-property to the <code>add</code> and <code>edit</code> command to include information for the new property.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The prefix name can only contain alphabets and should not contain spaces.</p>
-</li>
-<li>
-<p>You must choose exactly one of the following as the parameter type for your custom property:
-<code>Text</code>, <code>Number</code>, <code>Date</code>.</p>
-</li>
-<li>
-<p>Every word in the full name of each custom property will be changed to Start Case style, where the first letter of each
-word is capitalised with the other letters in lower case e.g. <code>enD DaTe</code> will be changed to <code>End Date</code>.</p>
-</li>
-<li>
-<p>The date entered for the custom properties must follow the same requirements as that of <code>add</code> command.</p>
-</li>
-<li>
-<p>You need not include the custom properties when adding a new exercise to the app.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Format: <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/a f/Ratings p/Number</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Creates a <code>Ratings</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>a/NUMBER</code> in the relevant command where <code>NUMBER</code> refers to
-a number.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/b f/rEmaRk p/Text</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Creates a <code>Remark</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>b/TEXT</code> in the relevant command where
-<code>TEXT</code> refers to a text sentence.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/c f/End Date p/Date</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Creates a <code>End Date</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>s/DATE</code> in the relevant command where
-<code>DATE</code> refers to a date.</p>
-</div>
-<div class="paragraph">
-<p>Using <code>Ratings</code> as an example, you can now perform the following actions after adding it:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add t/exercise n/Run d/01/10/2019 a/5</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Adds an exercise with the name <code>Run</code>, date <code>01/10/2019</code> and ratings <code>5</code> into the app.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit t/exercise i/4 a/3</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Edits the ratings of the 4th exercise in the list to <code>3</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="removing-custom-properties-code-custom-code"><a class="link" href="#removing-custom-properties-code-custom-code">Removing custom properties: <code>custom</code></a></h4>
-<div class="paragraph">
-<p>Removes a custom property which you have previously defined either from a single exercise
-or from Exerhealth.</p>
-</div>
-<div class="paragraph">
-<p>In the second case, you will still be able to add back the deleted custom property if you
-wish to.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>FULL_NAME</code> denotes the name of the previously defined custom property.</p>
-</li>
-<li>
-<p>The index, if provided, must be a positive integer 1, 2, 3, …​</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Format: <code>custom rm/FULL_NAME [i/INDEX]</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom rm/Ratings</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Removes the custom property <code>Ratings</code> from all of the exercises and from ExerHealth.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom rm/Ratings i/1</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Removes the custom property <code>Ratings</code> from the 1st exercise in the list.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="viewing-custom-properties-code-viewcustom-code"><a class="link" href="#viewing-custom-properties-code-viewcustom-code">Viewing custom properties: <code>viewcustom</code></a></h4>
-<div class="paragraph">
-<p>Opens up a window for you to view the custom properties you have defined.
-The name, prefix and parameter type of all existing custom properties will be shown.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>viewcustom</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>viewcustom</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Opens up a window containing information of all existing custom properties.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">Scheduling exercises: <code>schedule</code></a></h3>
-<div class="sect3">
-<h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">Schedules a regime</a></h4>
-<div class="paragraph">
-<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a> for details on resolving scheduling conflicts.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>schedule n/REGIME_NAME d/DATE</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>schedule n/cardio d/12/12/2019</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Schedules the regime called <code>cardio</code> on the date <code>12/12/2019</code>. If there are no other regimes scheduled on <code>12/12/2019</code> then the command is successful. Otherwise, you will be prompted to resolve the scheduling conflict.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">Completes a schedule regime</a></h4>
-<div class="paragraph">
-<p>Once a scheduled regime is completed, users can add that regime to the exercise tracker. The schedule is then deleted from the scheduling list.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>schedule i/INDEX_OF_REGIME_IN_SCHEDULE</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>schedule i/2</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Completes all the exercises that are in the schedule at index <code>2</code>. All the exercises will be added to the exercise list and the schedule at index <code>2</code> is deleted.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="resolve"><a class="link" href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a></h3>
-<div class="sect3">
-<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">Taking one of the conflicting regimes completely</a></h4>
-<div class="paragraph">
-<p>Takes the scheduled regime or the conflicting regime completely and discarding the other. Neither regimes will be completely deleted from the user’s collection.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>resolve n/SCHEDULED_OR_CONFLICTING</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>resolve n/scheduled</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Takes the already scheduled regime and schedule it at conflicting date.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>resolve n/conflicting</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Takes the conflicting regime and schedule it at conflicting date.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">Taking some exercises from some regime</a></h4>
-<div class="paragraph">
-<p>Takes some exercises from the scheduled regime and some from the conflicting regime to make a brand new regime. The new regime that is a result of the combination will be added  to the user’s collection and scheduled at the date of conflict. This new regime will also be added to the user’s collection of regimes</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>resolve n/REGIME_NAME [i/INDEX_OF_EXERCISE_IN_SCHEDULED]&#8230;&#8203; [r/INDEX_OF_EXERCISE_IN_CONFLICTING]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Takes the exercise at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>A new regime with <code>REGIME_NAME</code> will be created and added to user&#8217;s collection</p>
-</li>
-<li>
-<p><code>REGIME_NAME</code> must be a new name that does not exist in user&#8217;s collection</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed conflict resolving window.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>i/ is for index of the scheduled regime</p>
-</li>
-<li>
-<p>r/ is for index of the conflicting regime</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>resolve n/cardios i/1 i/2 i/3 r/4 r/2</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Takes exercise 1, 2, 3 from scheduled regime and exercise 2, 4 from conflicting regime and adds them to a new regime called cardios</p>
-</div>
-</div>
-</div>
 <div class="sect2">
 <h3 id="suggesting-ideas-code-suggest-code"><a class="link" href="#suggesting-ideas-code-suggest-code">Suggesting ideas: <code>suggest</code></a></h3>
 <div class="sect3">
@@ -780,148 +202,6 @@ Suppose you have created a new Custom Property and have been tracking a few exer
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
-<div class="paragraph">
-<p>ExerHealth data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="suggest-intensity-code-coming-in-v2-0-code"><a class="link" href="#suggest-intensity-code-coming-in-v2-0-code">Suggest intensity <code>[Coming in v2.0]</code></a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">Remind to do exercises <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>Reminds you to do exercises.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>Autocompletes the commands while typing.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="importing-data-code-coming-in-v2-0-code"><a class="link" href="#importing-data-code-coming-in-v2-0-code">Importing data <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>Imports data to update inbuilt database of exercises.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous ExerHealth folder.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add exercises</strong> : <code>add t/exercise n/EXERCISE_NAME d/DATE c/CALORIES q/QUANTITY u/UNITS [m/MUSCLE]&#8230;&#8203;</code><br>
-e.g. <code>add t/exercise n/Bench press d/19/09/2019 c/500 q/50 u/reps m/Chest</code></p>
-</li>
-<li>
-<p><strong>Add regimes</strong> : <code>add t/regime n/REGIME_NAME [i/INDEX_OF_EXERCISE]&#8230;&#8203;</code>
-e.g. <code>add t/regime n/Cardio i/1 i/2 i/3</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list t/CAT_NAME</code>
-e.g. <code>list t/exercise</code></p>
-</li>
-<li>
-<p><strong>Edit exercise</strong> : <code>edit i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203; `
-e.g. `edit i/3 n/Bench press d/22/09/2019 c/240 q/10 u/sets m/Chest</code></p>
-</li>
-<li>
-<p><strong>Delete exercise</strong> : <code>delete t/exercise i/INDEX</code>
-e.g. <code>delete t/exercise i/2</code></p>
-</li>
-<li>
-<p><strong>Delete regimes</strong> : <code>delete t/regime n/REGIME_NAME</code>
-e.g. <code>delete t/regime n/Cardio</code></p>
-</li>
-<li>
-<p><strong>Delete exercise from regime</strong> : <code>delete t/regime n/REGIME_NAME [i/INDEX_OF_EXERCISE]&#8230;&#8203;</code>
-e.g. <code>delete t/regime n/Cardio i/1 i/2</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Stats</strong> : <code>stats t/CAT_NAME h/CHART_TYPE [s/START_DATE] [d/END_DATE]</code>
-e.g. <code>stats t/exercise h/barchart s/20/09/2019 e/27/09/2019</code></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-<li>
-<p><strong>Schedule</strong> : <code>schedule n/REGIME_NAME d/DATE</code>
-e.g. <code>schedule n/cardio d/19/09/2019</code></p>
-</li>
-<li>
-<p><strong>Resolve(Take one regime)</strong> : <code>resolve n/REGIME_TO_TAKE</code>
-e.g. <code>resolve n/cardio</code></p>
-</li>
-<li>
-<p><strong>Resolve(Take some exercise from both regime)</strong> : <code>resolve n/NEW_REGIME_NAME [i/INDEX_OF_SCHEDULED_EXERCISE]&#8230;&#8203; [r/INDEX_OF_CONFLICTING_EXERCISE]&#8230;&#8203;</code>
-e.g. <code>resolve n/new cardio i/1 i/3 r/2</code></p>
-</li>
-<li>
-<p><strong>Suggest basic</strong> : <code>suggest s/basic</code></p>
-</li>
-<li>
-<p><strong>Suggest possible</strong> : <code>suggest s/possible [o/OPERATION_TYPE] [m/MUSCLE]&#8230;&#8203; [CUSTOM_PROPERTY_PREFIX/VALUE]&#8230;&#8203;</code>
-e.g. <code>suggest s/possible m/Legs</code>, <code>suggest s/possible o/and m/Chest m/Leg</code></p>
-</li>
-<li>
-<p><strong>Add custom property</strong> : <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code>
-e.g. <code>custom s/c f/End Date p/Date</code></p>
-</li>
-<li>
-<p><strong>Remove custom property</strong> : <code>custom rm/FULL_NAME [i/INDEX]</code></p>
-</li>
-<li>
-<p><strong>View custom property</strong> : <code>viewcustom</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <code>exit</code></p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code-2"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code-2">Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -937,6 +217,198 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="suggest"><a class="link" href="#suggest">Suggest</a></h3>
+<div class="sect3">
+<h4 id="rationale"><a class="link" href="#rationale">Rationale</a></h4>
+<div class="paragraph">
+<p>Beginners now have a plethora of choices and may be overwhelmed when deciding on what exercises to do.
+Thus, we decided to provide users with sample exercise routines to reduce the inertia of starting this lifestyle change.
+On other hand, regular gym goers may face a repetitive and mundane exercise routine or may want to experiment with different exercises.
+As such, put it briefly, we decided to give users the ability to discover exercises based on the characteristics they are interested in.</p>
+</div>
+<div class="paragraph">
+<p>This feature presents a cohesive function that all users can benefit from.
+This also makes our application well-rounded so that users can better achieve their fitness goals.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<div class="paragraph">
+<p>The sample exercise routines are currently implemented in ExerHealth&#8217;s database as a hard-coded set of exercises.
+More importantly, the <code>SuggestPossible</code> command which caters to more experienced gym goers utilises the exercises that the user
+has already done, in addition to ExerHealth&#8217;s database. Hence, we allow users to search for suggestions
+based on <code>Muscle</code> and <code>CustomProperty</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>SuggestBasic</code> command displays a list of exercises from our database to the user.
+The <code>SuggestPossible</code> command is created by parsing the user&#8217;s inputs to form a <code>Predicate</code> before filtering ExerHealth&#8217;s database and the user&#8217;s tracked exercises.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram (Figure 21) summarizes what happens when a user enters a suggest possible command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SuggestActivityDiagram.png" alt="SuggestActivityDiagram">
+</div>
+<div class="title">Figure 1. Activity diagram showing the workflow of a suggest possible command</div>
+</div>
+<div class="paragraph">
+<p>In detail, when a <code>SuggestPossibleCommand</code> is entered, the <code>Logic</code> component is responsible for parsing the inputs into a <code>Predicate</code>.
+The <code>Predicate</code> is then used to instantiate a <code>SuggestPossibleCommand</code>, and later used to filter a list of <code>Exercise</code> when the command is executed.
+The interactions between the multiple objects can be captured using a sequence diagram.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram (Figure 22) shows the sequence flow from the when a user enters a valid <code>SuggestPossibleCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SuggestSequenceDiagram.png" alt="SuggestSequenceDiagram">
+</div>
+<div class="title">Figure 2. Sequence diagram of a suggest possible command</div>
+</div>
+<div class="paragraph">
+<p>From the sequence diagram:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the <code>LogicManager</code> receive the <code>execute</code> command, it calls the <code>parseCommand</code> method of <code>ExerciseBookParser</code>.</p>
+</li>
+<li>
+<p><code>ExerciseBookParser</code> will receive <code>suggest</code> as the command type and instantiate <code>SuggestCommandParser</code> to further parse the command.</p>
+</li>
+<li>
+<p><code>SuggestCommandParser</code> will receive <code>s/possible</code> as the suggest type and calls the <code>parsePredicate</code> method of <code>ParserUtil</code>
+to parse the user input to create an <code>ExercisePredicate</code> object (named <code>p</code> in the diagram).</p>
+</li>
+<li>
+<p><code>SuggestCommandParser</code> will instantiate <code>SuggestPossibleCommand</code> with the <code>ExercisePredicate</code> as the constructor parameter.</p>
+</li>
+<li>
+<p>The <code>SuggestPossibleCommand</code> object is then returned to <code>SuggestCommandParser</code>, <code>ExerciseBookParser</code> and lastly back to <code>LogicManager</code> to execute.</p>
+</li>
+<li>
+<p><code>LogicManager</code> will proceed to call execute <code>SuggestPossibleCommand</code>.</p>
+</li>
+<li>
+<p><code>SuggestPossibleCommand</code> then calls the <code>updateSuggestedExerciseList</code> method in <code>ModelManager</code>, passing in the predicate to filter the list of suggest exercises.</p>
+</li>
+<li>
+<p><code>SuggestPossibleCommand</code> creates a new <code>CommandResult</code> to be returned.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In step 3, the process in which the <code>ExercisePredicate</code> object is created can be explored deeper (Figure 23).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SuggestPredicateSequenceDiagram.png" alt="SuggestPredicateSequenceDiagram">
+</div>
+<div class="title">Figure 3. Sequence diagram of how an <code>ExercisePredicate</code> is created</div>
+</div>
+<div class="paragraph">
+<p>From the sequence diagram above:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>ParserUtil</code> creates <code>ExerciseMusclePredicate</code> and <code>ExerciseCustomPropertyPredicate</code> with the input parameters.</p>
+</li>
+<li>
+<p>Since there were no CustomProperty tags to filter, <code>ParserUtil</code> creates <code>ExercisePredicate</code> with only the <code>musclesPredicate</code> and the boolean <code>isStrict</code>.</p>
+</li>
+<li>
+<p>The resulting <code>ExercisePredicate</code> is then returned to <code>ParserUtil</code> and then <code>SuggestCommandParser</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The diagram below shows the structure of a <code>ExercisePredicate</code> object.
+A <code>ExercisePredicate</code> contains a <code>list</code> of <code>BasePropertyPredicate</code>,
+where each contains a <code>Collection</code> of <code>Muscle</code> or <code>CustomProperty</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SuggestCommandClassDiagram.png" alt="SuggestCommandClassDiagram">
+</div>
+<div class="title">Figure 4. Class diagram of the classes behind the suggest possible feature</div>
+</div>
+<div class="paragraph">
+<p>Creating classes such as <code>ExerciseCustomPropertyPredicate</code> and <code>ExerciseMusclePredicate</code>
+allow us to conduct better testing because we can compare the <code>Collection</code> of <code>Muscle</code>/<code>CustomProperty</code> being considered.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-predicate-creation"><a class="link" href="#aspect-implementation-of-predicate-creation">Aspect: Implementation of predicate creation</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Choice 1: </strong> <code>SuggestPossibleCommand</code> to handle the predicates.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Easy to implement and understand. The class <code>SuggestPossibleCommand</code> contains the parsing and creation of the predicate
+all in one place as it stores the tags, and creates the predicate and filters the list of exercises.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Violation of SRP as <code>SuggestPossibleCommand</code>, in addition to updating the model, has to create the predicate.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Choice 2 (current choice): </strong> Predicate class to handle all predicates.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adheres to Single Responsibility Principle (SRP) and Separation of Concern (SoC).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Increases the complexity of the code as more classes are needed, also increasing the lines of code written.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -947,4 +419,4 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 14:24:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 06:19:07 UTC</div></div></div></body></html>

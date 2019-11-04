@@ -279,16 +279,16 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>PropertyBook</code> object that represents the custom properties defined by the user.</p>
 </li>
 <li>
-<p>stores the Exercise Book data.</p>
+<p>stores a <code>ExerciseBook</code> object that represents the user&#8217;s exercises being tracked.</p>
 </li>
 <li>
-<p>stores the Exercise Database Book Data</p>
+<p>stores a <code>ExerciseDatabaseBook</code> object that represents the database of exercises in ExerHealth.</p>
 </li>
 <li>
-<p>stores the Regime Book data.</p>
+<p>stores a <code>RegimeBook</code> object that represents the user&#8217;s regimes.</p>
 </li>
 <li>
-<p>stores the Schedule Book data.</p>
+<p>stores a <code>ScheduleBook</code> object that represents the user&#8217;s schedules.</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Exercise&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
@@ -1144,19 +1144,46 @@ the data inside <code>PropertyBook</code> is cleared before each test.</p>
 <div class="sect2">
 <h3 id="suggest"><a class="link" href="#suggest">3.4. Suggest</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.4.1. Implementation</a></h4>
+<h4 id="rationale-2"><a class="link" href="#rationale-2">3.4.1. Rationale</a></h4>
 <div class="paragraph">
-<p>The suggest feature is used to recommend exercises to both beginners and experienced users.
-The user is allowed to specify what type of suggestions to see.</p>
+<p>Beginners now have a plethora of choices and may be overwhelmed when deciding on what exercises to do.
+Thus, we decided to provide users with sample exercise routines to reduce the inertia of starting this lifestyle change.
+On other hand, regular gym goers may face a repetitive and mundane exercise routine or may want to experiment with different exercises.
+As such, put it briefly, we decided to give users the ability to discover exercises based on the characteristics they are interested in.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram (Figure 21) summarizes what happens when a user enters a suggest command:</p>
+<p>This feature presents a cohesive function that all users can benefit from.
+This also makes our application well-rounded so that users can better achieve their fitness goals.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">3.4.2. Overview</a></h4>
+<div class="paragraph">
+<p>The sample exercise routines are currently implemented in ExerHealth&#8217;s database as a hard-coded set of exercises.
+More importantly, the <code>SuggestPossible</code> command which caters to more experienced gym goers utilises the exercises that the user
+has already done, in addition to ExerHealth&#8217;s database. Hence, we allow users to search for suggestions
+based on <code>Muscle</code> and <code>CustomProperty</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.4.3. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>SuggestBasic</code> command displays a list of exercises from our database to the user.
+The <code>SuggestPossible</code> command is created by parsing the user&#8217;s inputs to form a <code>Predicate</code> before filtering ExerHealth&#8217;s database and the user&#8217;s tracked exercises.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram (Figure 21) summarizes what happens when a user enters a suggest possible command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SuggestActivityDiagram.png" alt="SuggestActivityDiagram">
 </div>
-<div class="title">Figure 21. Activity diagram showing the workflow of a suggest command</div>
+<div class="title">Figure 21. Activity diagram showing the workflow of a suggest possible command</div>
+</div>
+<div class="paragraph">
+<p>In detail, when a <code>SuggestPossibleCommand</code> is entered, the <code>Logic</code> component is responsible for parsing the inputs into a <code>Predicate</code>.
+The <code>Predicate</code> is then used to instantiate a <code>SuggestPossibleCommand</code>, and later used to filter a list of <code>Exercise</code> when the command is executed.
+The interactions between the multiple objects can be captured using a sequence diagram.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram (Figure 22) shows the sequence flow from the when a user enters a valid <code>SuggestPossibleCommand</code>:</p>
@@ -1204,7 +1231,7 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SuggestSequencePredicateDiagram.png" alt="SuggestSequencePredicateDiagram">
+<img src="images/SuggestPredicateSequenceDiagram.png" alt="SuggestPredicateSequenceDiagram">
 </div>
 <div class="title">Figure 23. Sequence diagram of how an <code>ExercisePredicate</code> is created</div>
 </div>
@@ -1224,9 +1251,24 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The diagram below shows the structure of a <code>ExercisePredicate</code> object.
+A <code>ExercisePredicate</code> contains a <code>list</code> of <code>BasePropertyPredicate</code>,
+where each contains a <code>Collection</code> of <code>Muscle</code> or <code>CustomProperty</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SuggestCommandClassDiagram.png" alt="SuggestCommandClassDiagram">
+</div>
+<div class="title">Figure 24. Class diagram of the classes behind the suggest possible feature</div>
+</div>
+<div class="paragraph">
+<p>Creating classes such as <code>ExerciseCustomPropertyPredicate</code> and <code>ExerciseMusclePredicate</code>
+allow us to conduct better testing because we can compare the <code>Collection</code> of <code>Muscle</code>/<code>CustomProperty</code> being considered.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.4. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-predicate-creation"><a class="link" href="#aspect-implementation-of-predicate-creation">Aspect: Implementation of predicate creation</a></h5>
 <div class="ulist">
@@ -1278,7 +1320,7 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="ulist">
 <ul>
 <li>
-<p>May increase coupling because classes that use predicates have to depend on this class.</p>
+<p>Increases the complexity of the code as more classes are needed, also increasing the lines of code written.</p>
 </li>
 </ul>
 </div>
@@ -1294,7 +1336,7 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="sect2">
 <h3 id="statistics"><a class="link" href="#statistics">3.5. Statistics</a></h3>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Statistics of exercises will be displayed in charts. Supported chart types are Pie Chart, Line Chart and Bar Chart.
 StatsFactory will create Statistic using given parameters.
@@ -1304,7 +1346,7 @@ The figure (Figure 24) below shows the class diagram of statistics:</p>
 <div class="content">
 <img src="images/StatisticClassDiagram.png" alt="StatisticClassDiagram">
 </div>
-<div class="title">Figure 24. Class diagram of the classes behind the statistics feature</div>
+<div class="title">Figure 25. Class diagram of the classes behind the statistics feature</div>
 </div>
 <div class="paragraph">
 <p>The next figure (Figure 25) shows the activity diagram when user enter a <code>stats</code> command:</p>
@@ -1313,7 +1355,7 @@ The figure (Figure 24) below shows the class diagram of statistics:</p>
 <div class="content">
 <img src="images/StatisticActivityDiagram.png" alt="StatisticActivityDiagram">
 </div>
-<div class="title">Figure 25. Workflow when a user enters a <code>stats</code> command</div>
+<div class="title">Figure 26. Workflow when a user enters a <code>stats</code> command</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario of statistics feature.</p>
@@ -1349,7 +1391,7 @@ The figure (Figure 24) below shows the class diagram of statistics:</p>
 <div class="content">
 <img src="images/StatisticSequenceDiagram.png" alt="StatisticSequenceDiagram">
 </div>
-<div class="title">Figure 26. Sequence diagram of a <code>stats</code> command</div>
+<div class="title">Figure 27. Sequence diagram of a <code>stats</code> command</div>
 </div>
 </div>
 </div>
@@ -1831,26 +1873,6 @@ their respective frequency for the date range</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><strong>Extension</strong></p>
-</div>
-<div class="ulist None">
-<ul class="None">
-<li>
-<p>1a. User does not have history</p>
-<div class="ulist None">
-<ul class="None">
-<li>
-<p>1a1. System provides user with preset suggestions</p>
-<div class="paragraph">
-<p>Use case ends</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="uc04-configure-command"><a class="link" href="#uc04-configure-command">UC04: Configure Command</a></h3>
@@ -2179,4 +2201,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 14:24:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 06:19:07 UTC</div></div></div></body></html>
