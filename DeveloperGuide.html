@@ -733,7 +733,13 @@ manage different types of resources that can be altered by commands.</p>
 <div class="sect2">
 <h3 id="resolve-feature"><a class="link" href="#resolve-feature">3.2. Resolve feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<h4 id="rationale"><a class="link" href="#rationale">3.2.1. Rationale</a></h4>
+<div class="paragraph">
+<p>There are multiple times where if the user wishes to schedule a regime, they find themselves in trouble over which kind of exercise regime they can fit into their schedule. The motivation behind this feature is so that users can customise their own schedules to their own liking. The alternative of an auto scheduler will restrict users from having the regime of their liking be scheduled. Instead of forcing users to adhere to some pre-generated resolution, we allow the users to make their own choice and choose their own exercise regime to be scheduled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.2. Implementation</a></h4>
 <div class="paragraph">
 <p>The resolve feature is used when there is a scheduling conflict that happens within ExerHealth. This feature will alter the state of the program. The state is known by <code>MainApp</code> and it is either <code>State.IN_CONFLICT</code> or <code>State.NORMAL</code>. Only when the state is <code>State.IN_CONFLICT</code> will <code>resolve</code> commands be allowed.</p>
 </div>
@@ -826,7 +832,7 @@ The <code>ResolveWindow</code> will only take one valid <code>resolve</code> com
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-signalling-schedule-conflict"><a class="link" href="#aspect-signalling-schedule-conflict">Aspect: Signalling Schedule Conflict</a></h5>
 <div class="ulist">
@@ -899,7 +905,7 @@ The <code>ResolveWindow</code> will only take one valid <code>resolve</code> com
 <div class="sect2">
 <h3 id="custom-feature"><a class="link" href="#custom-feature">3.3. Custom feature</a></h3>
 <div class="sect3">
-<h4 id="rationale"><a class="link" href="#rationale">3.3.1. Rationale</a></h4>
+<h4 id="rationale-2"><a class="link" href="#rationale-2">3.3.1. Rationale</a></h4>
 <div class="paragraph">
 <p>A quick conversation with a few of our friends revealed that there are many properties which they intend to keep track
 for exercises. However, it is unlikely that we can implement all of these properties for the exercises as there may
@@ -1144,7 +1150,7 @@ the data inside <code>PropertyBook</code> is cleared before each test.</p>
 <div class="sect2">
 <h3 id="suggest"><a class="link" href="#suggest">3.4. Suggest</a></h3>
 <div class="sect3">
-<h4 id="rationale-2"><a class="link" href="#rationale-2">3.4.1. Rationale</a></h4>
+<h4 id="rationale-3"><a class="link" href="#rationale-3">3.4.1. Rationale</a></h4>
 <div class="paragraph">
 <p>Beginners now have a plethora of choices and may be overwhelmed when deciding on what exercises to do.
 Thus, we decided to provide users with sample exercise routines to reduce the inertia of starting this lifestyle change.
@@ -2201,4 +2207,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 06:19:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 12:11:59 UTC</div></div></div></body></html>

@@ -78,7 +78,7 @@ at a particular date. However, this difficulty was remedied as described in <str
 <p><strong>Minor enhancement 1</strong>: Added the display panel in the center of our UI to display more information on the selected resource on the left panel of our UI.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=t-cheepeng&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">RepoSense</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -294,5 +294,177 @@ at a particular date. However, this difficulty was remedied as described in <str
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="resolve-feature"><a class="link" href="#resolve-feature">Resolve feature</a></h3>
+<div class="sect3">
+<h4 id="rationale"><a class="link" href="#rationale">Rationale</a></h4>
+<div class="paragraph">
+<p>There are multiple times where if the user wishes to schedule a regime, they find themselves in trouble over which kind of exercise regime they can fit into their schedule. The motivation behind this feature is so that users can customise their own schedules to their own liking. The alternative of an auto scheduler will restrict users from having the regime of their liking be scheduled. Instead of forcing users to adhere to some pre-generated resolution, we allow the users to make their own choice and choose their own exercise regime to be scheduled.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 06:19:07 UTC</div></div></div></body></html>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The resolve feature is used when there is a scheduling conflict that happens within ExerHealth. This feature will alter the state of the program. The state is known by <code>MainApp</code> and it is either <code>State.IN_CONFLICT</code> or <code>State.NORMAL</code>. Only when the state is <code>State.IN_CONFLICT</code> will <code>resolve</code> commands be allowed.</p>
+</div>
+<div class="paragraph">
+<p>For the implementation of the resolve feature, the <code>ResolveCommand</code> will hold a <code>Conflict</code> object which is then passed into <code>Model</code>. The concrete implementation, <code>ModelManager</code> then resolves the conflict that is being held there. Each <code>Conflict</code> object will hold 1 conflicting <code>schedule</code> and 1 <code>schedule</code> that was originally scheduled on the date.</p>
+</div>
+<div class="paragraph">
+<p>Shown below is the class diagram for the implementation of the <code>Resolve</code> feature.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleResolveClassDiagram.png" alt="ScheduleResolveClassDiagram">
+</div>
+<div class="title">Figure 1. Class diagram for Resolve Command</div>
+</div>
+<div class="paragraph">
+<p>With regards to the flow of the program for a scheduling conflict, the steps are laid out below:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User enters a <code>schedule</code> command that will cause a scheduling conflict. The <code>ScheduleCommand</code> will change <code>MainApp</code> state to <code>State.IN_CONFLICT</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>schedule</code> can conflict with another <code>schedule</code> when the dates from the 2 schedules are the same. The method <code>model.hasSchedule()</code> returns <code>true</code> if that happens.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2. A <code>CommandResult</code> object is returned to <code>MainWindow</code> where the flag <code>showResolve</code> is set to <code>true</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Upon receipt of the object, <code>MainWindow</code> will show the resolve window and the user is required to resolve the conflict.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>ResolveWindow</code> will block all inputs to <code>MainWindow</code> and only allow <code>resolve</code> command to be entered.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Shown below is the sequence diagram for when a scheduling conflict happens:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleConflict.png" alt="ScheduleConflict">
+</div>
+<div class="title">Figure 2. Sequence diagram when a scheduling conflict happens</div>
+</div>
+<div class="paragraph">
+<p>Step 5. When the user is prompted with the <code>ResolveWindow</code>, all the conflicting exercises will be shown in one page. The previously <code>scheduled regime</code> on the left and the <code>conflicting regime</code> on the right.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. Once the user issue a <code>resolve</code> command correctly, the <code>model</code> and <code>storage</code> of ExerHealth will be updated to reflect the changes. A new regime will be added for the user from the <code>resolve</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>ResolveWindow</code> will only take one valid <code>resolve</code> command and <code>Ui</code> will close the <code>ResolveWindow</code> immediately after the command finishes. The newly made schedule will result in a new <code>regime</code> being added to the user&#8217;s <code>RegimeList</code>, so the name of the <code>regime</code> in the <code>resolve</code> command cannot have any conflicts with current names in <code>RegimeList</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 7. The <code>ResolveWindow</code> then closes upon successful <code>resolve</code> and the application continues.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user enters a <code>schedule</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleActivityDiagram.png" alt="ScheduleActivityDiagram">
+</div>
+<div class="title">Figure 3. Activity diagram for when a user enters a <code>schedule</code> command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-signalling-schedule-conflict"><a class="link" href="#aspect-signalling-schedule-conflict">Aspect: Signalling Schedule Conflict</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Choice 1 (current choice): </strong> Using <code>CommandResult</code> object</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Makes use of existing objects in codebase making it easier to implement</p>
+</li>
+<li>
+<p>UI does not have to handle logic when encountering schedule conflicts. It only has to show the <code>ResolveWindow</code> and pass the data accordingly.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If we have to signal different types of outcomes to the UI, the <code>CommandResult</code> class will become bloated.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Choice 2: </strong> throw <code>ScheduleException</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Easy to implement. <code>ScheduleCommand</code> just has to throw an exception and <code>UI</code> catches it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UI&#8217;s</code> execute methods will contain multiple <code>try/catch</code> which acts like a control flow mechanism which increases code smell.</p>
+</li>
+<li>
+<p>If there is a need to pass down information from executed Commands, an exception is unable to convey any sort of complex information that the <code>UI</code> can act on. Thus, encapsulating information in an object will be more open to extension compared to throwing an exception.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 12:11:59 UTC</div></div></div></body></html>
