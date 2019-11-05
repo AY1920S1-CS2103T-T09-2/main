@@ -384,183 +384,6 @@ If there is no command has been undone after the latest undoable command, redo c
 </div>
 </div>
 <div class="sect2">
-<h3 id="customproperty"><a class="link" href="#customproperty">Custom properties</a></h3>
-<div class="sect3">
-<h4 id="adding-custom-properties-code-custom-code"><a class="link" href="#adding-custom-properties-code-custom-code">Adding custom properties: <code>custom</code></a></h4>
-<div class="paragraph">
-<p>Adds in a custom property which you can define for the exercises.</p>
-</div>
-<div class="paragraph">
-<p>Once a new custom property is created, you can simply use the prefix name which you defined for the
-property to the <code>add</code> and <code>edit</code> command to include information for the new property.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The prefix name can only contain alphabets and should not contain spaces.</p>
-</li>
-<li>
-<p>You must choose exactly one of the following as the parameter type for your custom property:
-<code>Text</code>, <code>Number</code>, <code>Date</code>.</p>
-</li>
-<li>
-<p>Every word in the full name of each custom property will be changed to Start Case style, where the first letter of each
-word is capitalised with the other letters in lower case e.g. <code>enD DaTe</code> will be changed to <code>End Date</code>.</p>
-</li>
-<li>
-<p>The date entered for the custom properties must follow the same requirements as that of <code>add</code> command.</p>
-</li>
-<li>
-<p>You need not include the custom properties when adding a new exercise to the app.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Format: <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/a f/Ratings p/Number</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Creates a <code>Ratings</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>a/NUMBER</code> in the relevant command where <code>NUMBER</code> refers to
-a number.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/b f/rEmaRk p/Text</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Creates a <code>Remark</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>b/TEXT</code> in the relevant command where
-<code>TEXT</code> refers to a text sentence.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/c f/End Date p/Date</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Creates a <code>End Date</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>s/DATE</code> in the relevant command where
-<code>DATE</code> refers to a date.</p>
-</div>
-<div class="paragraph">
-<p>Using <code>Ratings</code> as an example, you can now perform the following actions after adding it:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add t/exercise n/Run d/01/10/2019 a/5</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Adds an exercise with the name <code>Run</code>, date <code>01/10/2019</code> and ratings <code>5</code> into the app.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit t/exercise i/4 a/3</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Edits the ratings of the 4th exercise in the list to <code>3</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="removing-custom-properties-code-custom-code"><a class="link" href="#removing-custom-properties-code-custom-code">Removing custom properties: <code>custom</code></a></h4>
-<div class="paragraph">
-<p>Removes a custom property which you have previously defined either from a single exercise
-or from Exerhealth.</p>
-</div>
-<div class="paragraph">
-<p>In the second case, you will still be able to add back the deleted custom property if you
-wish to.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>FULL_NAME</code> denotes the name of the previously defined custom property.</p>
-</li>
-<li>
-<p>The index, if provided, must be a positive integer 1, 2, 3, …​</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Format: <code>custom rm/FULL_NAME [i/INDEX]</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom rm/Ratings</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Removes the custom property <code>Ratings</code> from all of the exercises and from ExerHealth.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom rm/Ratings i/1</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Removes the custom property <code>Ratings</code> from the 1st exercise in the list.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="viewing-custom-properties-code-viewcustom-code"><a class="link" href="#viewing-custom-properties-code-viewcustom-code">Viewing custom properties: <code>viewcustom</code></a></h4>
-<div class="paragraph">
-<p>Opens up a window for you to view the custom properties you have defined.
-The name, prefix and parameter type of all existing custom properties will be shown.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>viewcustom</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>viewcustom</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Opens up a window containing information of all existing custom properties.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">Scheduling exercises: <code>schedule</code></a></h3>
 <div class="sect3">
 <h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">Schedules a regime</a></h4>
@@ -694,7 +517,7 @@ The name, prefix and parameter type of all existing custom properties will be sh
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggesting-ideas-code-suggest-code"><a class="link" href="#suggesting-ideas-code-suggest-code">Suggesting ideas: <code>suggest</code></a></h3>
+<h3 id="suggestion"><a class="link" href="#suggestion">Suggesting ideas: <code>suggest</code></a></h3>
 <div class="sect3">
 <h4 id="suggest-basic-exercises"><a class="link" href="#suggest-basic-exercises">Suggest basic exercises</a></h4>
 <div class="paragraph">
@@ -781,6 +604,240 @@ Suppose you have created a new Custom Property and have been tracking a few exer
 </div>
 </div>
 <div class="sect2">
+<h3 id="customproperty"><a class="link" href="#customproperty">Custom properties</a></h3>
+<div class="sect3">
+<h4 id="adding-custom-properties-code-custom-code"><a class="link" href="#adding-custom-properties-code-custom-code">Adding custom properties: <code>custom</code></a></h4>
+<div class="paragraph">
+<p>Adds in a custom property which you can define for the exercises.</p>
+</div>
+<div class="paragraph">
+<p>Once a new custom property is created, you can simply use the prefix name which you defined for the
+property to the <code>add</code> and <code>edit</code> command to include information for the new property.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The prefix name can only contain alphabets and should not contain spaces.</p>
+</li>
+<li>
+<p>You must choose exactly one of the following as the parameter type for your custom property:
+<code>Text</code>, <code>Number</code>, <code>Date</code>.</p>
+</li>
+<li>
+<p>Every word in the full name of each custom property will be changed to Start Case style, where the first letter of each
+word is capitalised with the other letters in lower case e.g. <code>enD DaTe</code> will be changed to <code>End Date</code>.</p>
+</li>
+<li>
+<p>The date entered for the custom properties must follow the same requirements as that of <code>add</code> command.</p>
+</li>
+<li>
+<p>You need not include the custom properties when adding a new exercise to the app.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The following names and prefix names have been used for existing add / edit command parameters and properties and so,
+cannot be used.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Names used</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix names used</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quantity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">q</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">u</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Muscle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/a f/Rating p/Number</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>Rating</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>a/NUMBER</code> in the relevant command where <code>NUMBER</code> refers to
+a number.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/b f/rEmaRk p/Text</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>Remark</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>b/TEXT</code> in the relevant command where
+<code>TEXT</code> refers to a text sentence.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/ed f/End Date p/Date</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>End Date</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>ed/DATE</code> in the relevant command where
+<code>DATE</code> refers to a date.</p>
+</div>
+<div class="paragraph">
+<p>Using <code>Rating</code> as an example, you can now perform the following actions after adding it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add t/exercise n/Run d/01/10/2019 a/5</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Adds an exercise with the name <code>Run</code>, date <code>01/10/2019</code> and rating <code>5</code> into the app.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit t/exercise i/4 a/3</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Edits the rating of the 4th exercise in the list to <code>3</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-custom-properties-code-custom-code"><a class="link" href="#removing-custom-properties-code-custom-code">Removing custom properties: <code>custom</code></a></h4>
+<div class="paragraph">
+<p>Removes a custom property which you have previously defined either from a single exercise
+or from ExerHealth.</p>
+</div>
+<div class="paragraph">
+<p>In the second case, you will still be able to add back the deleted custom property if you
+wish to.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>FULL_NAME</code> denotes the name of the previously defined custom property.</p>
+</li>
+<li>
+<p>The index, if provided, must be a positive integer 1, 2, 3, …​</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>custom rm/FULL_NAME [i/INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom rm/Rating</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Removes the custom property <code>Rating</code> from all of the exercises and from ExerHealth.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom rm/Rating i/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Removes the custom property <code>Rating</code> from the 1st exercise in the list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-custom-properties-code-viewcustom-code"><a class="link" href="#viewing-custom-properties-code-viewcustom-code">Viewing custom properties: <code>viewcustom</code></a></h4>
+<div class="paragraph">
+<p>Opens up a window for you to view the custom properties you have defined.
+The name, prefix and parameter type of all existing custom properties will be shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>viewcustom</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewcustom</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Opens up a window containing information of all existing custom properties.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
@@ -847,8 +904,12 @@ e.g. <code>add t/exercise n/Bench press d/19/09/2019 c/500 q/50 u/reps m/Chest</
 e.g. <code>add t/regime n/Cardio i/1 i/2 i/3</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list t/CAT_NAME</code>
+<p><strong>List</strong> : <code>list t/LIST_TYPE</code>
 e.g. <code>list t/exercise</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select t/LIST_TYPE i/INDEX</code>
+e.g. <code>select t/exercise i/1</code></p>
 </li>
 <li>
 <p><strong>Edit exercise</strong> : <code>edit i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203; `
@@ -903,10 +964,11 @@ e.g. <code>suggest s/possible m/Legs</code>, <code>suggest s/possible o/and m/Ch
 </li>
 <li>
 <p><strong>Add custom property</strong> : <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code>
-e.g. <code>custom s/c f/End Date p/Date</code></p>
+e.g. <code>custom s/ed f/End Date p/Date</code></p>
 </li>
 <li>
-<p><strong>Remove custom property</strong> : <code>custom rm/FULL_NAME [i/INDEX]</code></p>
+<p><strong>Remove custom property</strong> : <code>custom rm/FULL_NAME [i/INDEX]</code>
+e.g. <code>custom s/End Date i/1</code></p>
 </li>
 <li>
 <p><strong>View custom property</strong> : <code>viewcustom</code></p>
@@ -947,4 +1009,4 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 12:56:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 03:43:41 UTC</div></div></div></body></html>

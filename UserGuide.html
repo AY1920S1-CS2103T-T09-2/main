@@ -15,24 +15,25 @@
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#adding-exercise-regime-information-code-add-code">3.2. Adding exercise/regime information: <code>add</code></a></li>
-<li><a href="#listing-all-exercises-code-list-code">3.3. Listing all exercises : <code>list</code></a></li>
-<li><a href="#edit-exercise-information-code-edit-code">3.4. Edit exercise information: <code>edit</code></a></li>
-<li><a href="#delete-health-information-code-delete-code">3.5. Delete health information : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#display-statistics-code-stats-code">3.7. Display statistics : <code>stats</code></a></li>
-<li><a href="#undo-previous-command-code-undo-code">3.8. Undo previous command: <code>undo</code></a></li>
-<li><a href="#redo-undone-command-code-redo-code">3.9. Redo undone command: <code>redo</code></a></li>
-<li><a href="#customproperty">3.10. Custom properties</a></li>
+<li><a href="#listing-information-code-list-code">3.3. Listing information : <code>list</code></a></li>
+<li><a href="#selecting-an-item-code-select-code">3.4. Selecting an item: <code>select</code></a></li>
+<li><a href="#edit-exercise-information-code-edit-code">3.5. Edit exercise information: <code>edit</code></a></li>
+<li><a href="#delete-health-information-code-delete-code">3.6. Delete health information : <code>delete</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#display-statistics-code-stats-code">3.8. Display statistics : <code>stats</code></a></li>
+<li><a href="#undo-previous-command-code-undo-code">3.9. Undo previous command: <code>undo</code></a></li>
+<li><a href="#redo-undone-command-code-redo-code">3.10. Redo undone command: <code>redo</code></a></li>
 <li><a href="#scheduling-exercises-code-schedule-code">3.11. Scheduling exercises: <code>schedule</code></a></li>
 <li><a href="#resolve">3.12. Resolving scheduling conflicts: <code>resolve</code></a></li>
-<li><a href="#suggesting-ideas-code-suggest-code">3.13. Suggesting ideas: <code>suggest</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.15. Saving the data</a></li>
-<li><a href="#suggest-intensity-code-coming-in-v2-0-code">3.16. Suggest intensity <code>[Coming in v2.0]</code></a></li>
-<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.17. Remind to do exercises <code>[coming in v2.0]</code></a></li>
-<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.18. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#importing-data-code-coming-in-v2-0-code">3.19. Importing data <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#suggestion">3.13. Suggesting ideas: <code>suggest</code></a></li>
+<li><a href="#customproperty">3.14. Custom properties</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.16. Saving the data</a></li>
+<li><a href="#suggest-intensity-code-coming-in-v2-0-code">3.17. Suggest intensity <code>[Coming in v2.0]</code></a></li>
+<li><a href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.18. Remind to do exercises <code>[coming in v2.0]</code></a></li>
+<li><a href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.19. Autocomplete of commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#importing-data-code-coming-in-v2-0-code">3.20. Importing data <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -256,16 +257,26 @@ If a regime of the same name already exists, exercises will be added to the same
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-exercises-code-list-code"><a class="link" href="#listing-all-exercises-code-list-code">3.3. Listing all exercises : <code>list</code></a></h3>
+<h3 id="listing-information-code-list-code"><a class="link" href="#listing-information-code-list-code">3.3. Listing information : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Retrieves all categories of information - Exercise, Regime or Scheduled Regime - from ExerHealth.</p>
+<p>Retrieves a list of information - Exercise, Regime, Scheduled Regime or Suggestion - from ExerHealth.</p>
 </div>
 <div class="paragraph">
-<p>Type of information shown when will be specified by the category type specified. For example,
-if you wish to see your current list of regimes, you may specify the <code>CAT_NAME</code> as <code>regime</code>.</p>
+<p>Format: <code>list t/LIST_TYPE</code></p>
 </div>
-<div class="paragraph">
-<p>Format: <code>list t/CAT_NAME</code></p>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>There are 4 types of list in ExerHealth: <code>exercise</code>, <code>regime</code>, <code>schedule</code> and <code>suggest</code>.</p>
+</li>
+<li>
+<p>The <code>suggest</code> list will only be displayed if you have used the <a href="#suggestion">suggestion</a> feature before.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -317,7 +328,31 @@ if you wish to see your current list of regimes, you may specify the <code>CAT_N
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-exercise-information-code-edit-code"><a class="link" href="#edit-exercise-information-code-edit-code">3.4. Edit exercise information: <code>edit</code></a></h3>
+<h3 id="selecting-an-item-code-select-code"><a class="link" href="#selecting-an-item-code-select-code">3.4. Selecting an item: <code>select</code></a></h3>
+<div class="paragraph">
+<p>Selects the item at the given index of the chosen category list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>select t/LIST_TYPE i/INDEX</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+ <code>LIST_TYPE</code> can only be one of the following: <code>exercise</code>, <code>regime</code>, <code>schedule</code>, <code>suggest</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example: <code>select t/exercise i/1</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-exercise-information-code-edit-code"><a class="link" href="#edit-exercise-information-code-edit-code">3.5. Edit exercise information: <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits the relevant exercise information in ExerHealth.
 You can edit all the possible information for exercises including custom properties.</p>
@@ -381,9 +416,9 @@ You can edit all the possible information for exercises including custom propert
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-health-information-code-delete-code"><a class="link" href="#delete-health-information-code-delete-code">3.5. Delete health information : <code>delete</code></a></h3>
+<h3 id="delete-health-information-code-delete-code"><a class="link" href="#delete-health-information-code-delete-code">3.6. Delete health information : <code>delete</code></a></h3>
 <div class="sect3">
-<h4 id="deleting-exercise-information"><a class="link" href="#deleting-exercise-information">3.5.1. Deleting exercise information</a></h4>
+<h4 id="deleting-exercise-information"><a class="link" href="#deleting-exercise-information">3.6.1. Deleting exercise information</a></h4>
 <div class="paragraph">
 <p>Deleting a certain exercise information from ExerHealth.</p>
 </div>
@@ -419,7 +454,7 @@ You can edit all the possible information for exercises including custom propert
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-exercise-from-scheduling-regime"><a class="link" href="#deleting-exercise-from-scheduling-regime">3.5.2. Deleting exercise from scheduling regime</a></h4>
+<h4 id="deleting-exercise-from-scheduling-regime"><a class="link" href="#deleting-exercise-from-scheduling-regime">3.6.2. Deleting exercise from scheduling regime</a></h4>
 <div class="paragraph">
 <p>Deletes exercises from a certain scheduling regime.</p>
 </div>
@@ -464,14 +499,14 @@ Deletes the entire regime named legs</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the exercise tracker.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-statistics-code-stats-code"><a class="link" href="#display-statistics-code-stats-code">3.7. Display statistics : <code>stats</code></a></h3>
+<h3 id="display-statistics-code-stats-code"><a class="link" href="#display-statistics-code-stats-code">3.8. Display statistics : <code>stats</code></a></h3>
 <div class="paragraph">
 <p>Display the statistics of exercises.</p>
 </div>
@@ -555,7 +590,7 @@ Due to space constraint, some labels may not appear. Labels can be seen when mou
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-previous-command-code-undo-code"><a class="link" href="#undo-previous-command-code-undo-code">3.8. Undo previous command: <code>undo</code></a></h3>
+<h3 id="undo-previous-command-code-undo-code"><a class="link" href="#undo-previous-command-code-undo-code">3.9. Undo previous command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undo the previous successful command entered.</p>
 </div>
@@ -605,7 +640,7 @@ If there is no previous command, undo will do nothing.
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-undone-command-code-redo-code"><a class="link" href="#redo-undone-command-code-redo-code">3.9. Redo undone command: <code>redo</code></a></h3>
+<h3 id="redo-undone-command-code-redo-code"><a class="link" href="#redo-undone-command-code-redo-code">3.10. Redo undone command: <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Redo the previous command that was undone by user.</p>
 </div>
@@ -623,183 +658,6 @@ If there is no command has been undone after the latest undoable command, redo c
 </div>
 <div class="paragraph">
 <p>Format: <code>redo</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="customproperty"><a class="link" href="#customproperty">3.10. Custom properties</a></h3>
-<div class="sect3">
-<h4 id="adding-custom-properties-code-custom-code"><a class="link" href="#adding-custom-properties-code-custom-code">3.10.1. Adding custom properties: <code>custom</code></a></h4>
-<div class="paragraph">
-<p>Adds in a custom property which you can define for the exercises.</p>
-</div>
-<div class="paragraph">
-<p>Once a new custom property is created, you can simply use the prefix name which you defined for the
-property to the <code>add</code> and <code>edit</code> command to include information for the new property.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The prefix name can only contain alphabets and should not contain spaces.</p>
-</li>
-<li>
-<p>You must choose exactly one of the following as the parameter type for your custom property:
-<code>Text</code>, <code>Number</code>, <code>Date</code>.</p>
-</li>
-<li>
-<p>Every word in the full name of each custom property will be changed to Start Case style, where the first letter of each
-word is capitalised with the other letters in lower case e.g. <code>enD DaTe</code> will be changed to <code>End Date</code>.</p>
-</li>
-<li>
-<p>The date entered for the custom properties must follow the same requirements as that of <code>add</code> command.</p>
-</li>
-<li>
-<p>You need not include the custom properties when adding a new exercise to the app.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Format: <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/a f/Ratings p/Number</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Creates a <code>Ratings</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>a/NUMBER</code> in the relevant command where <code>NUMBER</code> refers to
-a number.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/b f/rEmaRk p/Text</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Creates a <code>Remark</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>b/TEXT</code> in the relevant command where
-<code>TEXT</code> refers to a text sentence.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/c f/End Date p/Date</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Creates a <code>End Date</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>s/DATE</code> in the relevant command where
-<code>DATE</code> refers to a date.</p>
-</div>
-<div class="paragraph">
-<p>Using <code>Ratings</code> as an example, you can now perform the following actions after adding it:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add t/exercise n/Run d/01/10/2019 a/5</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Adds an exercise with the name <code>Run</code>, date <code>01/10/2019</code> and ratings <code>5</code> into the app.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit t/exercise i/4 a/3</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Edits the ratings of the 4th exercise in the list to <code>3</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="removing-custom-properties-code-custom-code"><a class="link" href="#removing-custom-properties-code-custom-code">3.10.2. Removing custom properties: <code>custom</code></a></h4>
-<div class="paragraph">
-<p>Removes a custom property which you have previously defined either from a single exercise
-or from Exerhealth.</p>
-</div>
-<div class="paragraph">
-<p>In the second case, you will still be able to add back the deleted custom property if you
-wish to.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>FULL_NAME</code> denotes the name of the previously defined custom property.</p>
-</li>
-<li>
-<p>The index, if provided, must be a positive integer 1, 2, 3, …​</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Format: <code>custom rm/FULL_NAME [i/INDEX]</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom rm/Ratings</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Removes the custom property <code>Ratings</code> from all of the exercises and from ExerHealth.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom rm/Ratings i/1</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Removes the custom property <code>Ratings</code> from the 1st exercise in the list.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="viewing-custom-properties-code-viewcustom-code"><a class="link" href="#viewing-custom-properties-code-viewcustom-code">3.10.3. Viewing custom properties: <code>viewcustom</code></a></h4>
-<div class="paragraph">
-<p>Opens up a window for you to view the custom properties you have defined.
-The name, prefix and parameter type of all existing custom properties will be shown.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>viewcustom</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>viewcustom</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Opens up a window containing information of all existing custom properties.</p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -936,7 +794,7 @@ The name, prefix and parameter type of all existing custom properties will be sh
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggesting-ideas-code-suggest-code"><a class="link" href="#suggesting-ideas-code-suggest-code">3.13. Suggesting ideas: <code>suggest</code></a></h3>
+<h3 id="suggestion"><a class="link" href="#suggestion">3.13. Suggesting ideas: <code>suggest</code></a></h3>
 <div class="sect3">
 <h4 id="suggest-basic-exercises"><a class="link" href="#suggest-basic-exercises">3.13.1. Suggest basic exercises</a></h4>
 <div class="paragraph">
@@ -1023,43 +881,277 @@ Suppose you have created a new Custom Property and have been tracking a few exer
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
+<h3 id="customproperty"><a class="link" href="#customproperty">3.14. Custom properties</a></h3>
+<div class="sect3">
+<h4 id="adding-custom-properties-code-custom-code"><a class="link" href="#adding-custom-properties-code-custom-code">3.14.1. Adding custom properties: <code>custom</code></a></h4>
+<div class="paragraph">
+<p>Adds in a custom property which you can define for the exercises.</p>
+</div>
+<div class="paragraph">
+<p>Once a new custom property is created, you can simply use the prefix name which you defined for the
+property to the <code>add</code> and <code>edit</code> command to include information for the new property.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The prefix name can only contain alphabets and should not contain spaces.</p>
+</li>
+<li>
+<p>You must choose exactly one of the following as the parameter type for your custom property:
+<code>Text</code>, <code>Number</code>, <code>Date</code>.</p>
+</li>
+<li>
+<p>Every word in the full name of each custom property will be changed to Start Case style, where the first letter of each
+word is capitalised with the other letters in lower case e.g. <code>enD DaTe</code> will be changed to <code>End Date</code>.</p>
+</li>
+<li>
+<p>The date entered for the custom properties must follow the same requirements as that of <code>add</code> command.</p>
+</li>
+<li>
+<p>You need not include the custom properties when adding a new exercise to the app.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The following names and prefix names have been used for existing add / edit command parameters and properties and so,
+cannot be used.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Names used</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix names used</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quantity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">q</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">u</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Muscle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/a f/Rating p/Number</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>Rating</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>a/NUMBER</code> in the relevant command where <code>NUMBER</code> refers to
+a number.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/b f/rEmaRk p/Text</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>Remark</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>b/TEXT</code> in the relevant command where
+<code>TEXT</code> refers to a text sentence.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom s/ed f/End Date p/Date</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creates a <code>End Date</code> property for each exercise.
+Information for this property can be updated for each exercise by using <code>ed/DATE</code> in the relevant command where
+<code>DATE</code> refers to a date.</p>
+</div>
+<div class="paragraph">
+<p>Using <code>Rating</code> as an example, you can now perform the following actions after adding it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add t/exercise n/Run d/01/10/2019 a/5</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Adds an exercise with the name <code>Run</code>, date <code>01/10/2019</code> and rating <code>5</code> into the app.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit t/exercise i/4 a/3</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Edits the rating of the 4th exercise in the list to <code>3</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-custom-properties-code-custom-code"><a class="link" href="#removing-custom-properties-code-custom-code">3.14.2. Removing custom properties: <code>custom</code></a></h4>
+<div class="paragraph">
+<p>Removes a custom property which you have previously defined either from a single exercise
+or from ExerHealth.</p>
+</div>
+<div class="paragraph">
+<p>In the second case, you will still be able to add back the deleted custom property if you
+wish to.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>FULL_NAME</code> denotes the name of the previously defined custom property.</p>
+</li>
+<li>
+<p>The index, if provided, must be a positive integer 1, 2, 3, …​</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>custom rm/FULL_NAME [i/INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom rm/Rating</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Removes the custom property <code>Rating</code> from all of the exercises and from ExerHealth.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>custom rm/Rating i/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Removes the custom property <code>Rating</code> from the 1st exercise in the list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-custom-properties-code-viewcustom-code"><a class="link" href="#viewing-custom-properties-code-viewcustom-code">3.14.3. Viewing custom properties: <code>viewcustom</code></a></h4>
+<div class="paragraph">
+<p>Opens up a window for you to view the custom properties you have defined.
+The name, prefix and parameter type of all existing custom properties will be shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>viewcustom</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewcustom</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Opens up a window containing information of all existing custom properties.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
 <div class="paragraph">
 <p>ExerHealth data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggest-intensity-code-coming-in-v2-0-code"><a class="link" href="#suggest-intensity-code-coming-in-v2-0-code">3.16. Suggest intensity <code>[Coming in v2.0]</code></a></h3>
+<h3 id="suggest-intensity-code-coming-in-v2-0-code"><a class="link" href="#suggest-intensity-code-coming-in-v2-0-code">3.17. Suggest intensity <code>[Coming in v2.0]</code></a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.17. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
+<h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">3.18. Remind to do exercises <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Reminds you to do exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.18. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="autocomplete-of-commands-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-commands-code-coming-in-v2-0-code">3.19. Autocomplete of commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Autocompletes the commands while typing.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="importing-data-code-coming-in-v2-0-code"><a class="link" href="#importing-data-code-coming-in-v2-0-code">3.19. Importing data <code>[coming in v2.0]</code></a></h3>
+<h3 id="importing-data-code-coming-in-v2-0-code"><a class="link" href="#importing-data-code-coming-in-v2-0-code">3.20. Importing data <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Imports data to update inbuilt database of exercises.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1089,8 +1181,12 @@ e.g. <code>add t/exercise n/Bench press d/19/09/2019 c/500 q/50 u/reps m/Chest</
 e.g. <code>add t/regime n/Cardio i/1 i/2 i/3</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list t/CAT_NAME</code>
+<p><strong>List</strong> : <code>list t/LIST_TYPE</code>
 e.g. <code>list t/exercise</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select t/LIST_TYPE i/INDEX</code>
+e.g. <code>select t/exercise i/1</code></p>
 </li>
 <li>
 <p><strong>Edit exercise</strong> : <code>edit i/INDEX [n/EXERCISE_NAME] [d/DATE] [c/CALORIES] [q/QUANTITY] [u/UNITS] [m/MUSCLE]&#8230;&#8203; `
@@ -1145,10 +1241,11 @@ e.g. <code>suggest s/possible m/Legs</code>, <code>suggest s/possible o/and m/Ch
 </li>
 <li>
 <p><strong>Add custom property</strong> : <code>custom s/PREFIX_NAME f/FULL_NAME p/PARAMETER_TYPE</code>
-e.g. <code>custom s/c f/End Date p/Date</code></p>
+e.g. <code>custom s/ed f/End Date p/Date</code></p>
 </li>
 <li>
-<p><strong>Remove custom property</strong> : <code>custom rm/FULL_NAME [i/INDEX]</code></p>
+<p><strong>Remove custom property</strong> : <code>custom rm/FULL_NAME [i/INDEX]</code>
+e.g. <code>custom s/End Date i/1</code></p>
 </li>
 <li>
 <p><strong>View custom property</strong> : <code>viewcustom</code></p>
@@ -1159,4 +1256,4 @@ e.g. <code>custom s/c f/End Date p/Date</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 12:56:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 03:43:40 UTC</div></div></div></body></html>
