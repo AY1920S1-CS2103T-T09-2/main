@@ -388,13 +388,33 @@ If there is no command has been undone after the latest undoable command, redo c
 <div class="sect3">
 <h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">Schedules a regime</a></h4>
 <div class="paragraph">
-<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a> for details on resolving scheduling conflicts.</p>
+<p>Schedules an exercise regime for a certain date. If the regime clashes with another scheduled regime, you will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a> for details on resolving scheduling conflicts.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>schedule n/REGIME_NAME d/DATE</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To schedule a regime, <code>REGIME_NAME</code> must exist in your regime list. You can use <a href="#list"><code>list t/regime</code></a> command to view the regimes that you currently have.</p>
+</li>
+<li>
+<p>The format of <code>DATE</code> must be of the form <code>dd/MM/YYYY</code>. For example, <code>12/12/2019</code> or <code>01/01/2020</code>. Even if the number has only one digit, please ensure you include a 0 at the front to ensure that it adheres to the format required.</p>
+</li>
+<li>
+<p>You will not be allowed to schedule a regime on a date that falls before the date displayed on your system clock</p>
+</li>
+<li>
+<p>You are allowed to schedule a regime of the same name on the same date. The resolve window will pop up for you as per normal.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="paragraph">
-<p>Example:</p>
+<p><strong>Example 1:</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -406,17 +426,48 @@ If there is no command has been undone after the latest undoable command, redo c
 <div class="paragraph">
 <p>Schedules the regime called <code>cardio</code> on the date <code>12/12/2019</code>. If there are no other regimes scheduled on <code>12/12/2019</code> then the command is successful. Otherwise, you will be prompted to resolve the scheduling conflict.</p>
 </div>
+<div class="paragraph">
+<p>Expected Result:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleRegimeCardio.png" alt="ScheduleRegimeCardio">
+</div>
+</div>
+<div class="paragraph">
+<p>Expected Result (if other schedule exist on <code>12/12/2019</code>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleRegimeCardioConflict.png" alt="ScheduleRegimeCardioConflict">
+</div>
+</div>
+<div class="paragraph">
+<p>If the resolve window pops up for you, please refer to <a href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a> for details on resolving a scheduling conflict.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">Completes a schedule regime</a></h4>
 <div class="paragraph">
-<p>Once a scheduled regime is completed, users can add that regime to the exercise tracker. The schedule is then deleted from the scheduling list.</p>
+<p>Once a scheduled regime is completed, you can add that completed schedule to the exercise tracker. The schedule is then deleted from the scheduling list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>schedule i/INDEX_OF_REGIME_IN_SCHEDULE</code></p>
+<p>Format: <code>schedule i/INDEX_OF_SCHEDULE</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>INDEX_OF_SCHEDULE</code> provided must be a valid index from your schedule list. Please use <a href="#list"><code>list t/schedule</code></a> to view you index of the schedule you wish to complete.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -426,22 +477,83 @@ If there is no command has been undone after the latest undoable command, redo c
 </ul>
 </div>
 <div class="paragraph">
-<p>Completes all the exercises that are in the schedule at index <code>2</code>. All the exercises will be added to the exercise list and the schedule at index <code>2</code> is deleted.</p>
+<p>Completes all the exercises that are in the schedule at index <code>2</code>. All the exercises scheduled will be added to the exercise list and the schedule at index <code>2</code> is deleted.</p>
+</div>
+<div class="paragraph">
+<p>Expected Result:</p>
+</div>
+<div class="paragraph">
+<p>Before execution of <code>schedule i/2</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleCompleteBefore.png" alt="ScheduleCompleteBefore">
+</div>
+</div>
+<div class="paragraph">
+<p>In your exercise tracker</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleCompleteExerciseTracker.png" alt="ScheduleCompleteExerciseTracker">
+</div>
+</div>
+<div class="paragraph">
+<p>In your schedule tracker after completing execution of <code>schedule i/2</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleCompleteScheduleTracker.png" alt="ScheduleCompleteScheduleTracker">
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="resolve"><a class="link" href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a></h3>
-<div class="sect3">
-<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">Taking one of the conflicting regimes completely</a></h4>
 <div class="paragraph">
-<p>Takes the scheduled regime or the conflicting regime completely and discarding the other. Neither regimes will be completely deleted from the user’s collection.</p>
+<p>Described in the following two sections are two possible ways to resolve a scheduling conflict in the resolve window that pops up.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Once the resolve window pops up, you are not allowed to interact with the main <code>ExerHealth</code> window anymore. You are required to resolve the scheduling conflict before continuing to use the application as normal.</p>
+</li>
+<li>
+<p>Any <strong>valid</strong> commands that are not <code>resolve</code> will not get executed in the resolve window. Only the <code>resolve</code> command is allowed in the resolve window.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="resolvetakeone"><a class="link" href="#resolvetakeone">Taking one of the regimes completely</a></h4>
+<div class="paragraph">
+<p>Takes the scheduled regime or the conflicting regime completely and discarding the other. Neither regimes will be deleted from the user’s collection.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>resolve n/SCHEDULED_OR_CONFLICTING</code></p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can only enter <code>n/scheduled</code> or <code>n/conflicting</code> to tell ExerHealth which schedule you wish to take. The scheduled or conflicting regimes are stated at the top of the list of exercises as shown below.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ResolveScheduledOrConflicting.png" alt="ResolveScheduledOrConflicting">
+</div>
+</div>
 <div class="paragraph">
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -453,40 +565,46 @@ If there is no command has been undone after the latest undoable command, redo c
 <div class="paragraph">
 <p>Takes the already scheduled regime and schedule it at conflicting date.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>resolve n/conflicting</code></p>
-</li>
-</ul>
+<div class="paragraph">
+<p><strong>Expected Result:</strong></p>
 </div>
 <div class="paragraph">
-<p>Takes the conflicting regime and schedule it at conflicting date.</p>
+<p>The resolve window and inputting the example command</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ResolveScheduled.png" alt="ResolveScheduled">
+</div>
+</div>
+<div class="paragraph">
+<p>Once resolve window closes, the scheduled regime should be taken and scheduled at the correct date.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ResolveScheduledResult.png" alt="ResolveScheduledResult">
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">Taking some exercises from some regime</a></h4>
+<h4 id="taking-some-exercises-from-both-regimes"><a class="link" href="#taking-some-exercises-from-both-regimes">Taking some exercises from both regimes</a></h4>
 <div class="paragraph">
-<p>Takes some exercises from the scheduled regime and some from the conflicting regime to make a brand new regime. The new regime that is a result of the combination will be added  to the user’s collection and scheduled at the date of conflict. This new regime will also be added to the user’s collection of regimes</p>
+<p>Takes some exercises from the scheduled regime and some from the conflicting regime to make a brand new regime. The new regime will be scheduled at the date of conflict. This new regime will also be added to your collection of regimes.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>resolve n/REGIME_NAME [i/INDEX_OF_EXERCISE_IN_SCHEDULED]&#8230;&#8203; [r/INDEX_OF_EXERCISE_IN_CONFLICTING]&#8230;&#8203;</code></p>
+<p>Format: <code>resolve n/NEW_REGIME_NAME [i/INDEX_OF_EXERCISE_IN_SCHEDULED] [r/INDEX_OF_EXERCISE_IN_CONFLICTING]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Takes the exercise at the specified <code>INDEX</code>.</p>
+<p>Takes the exercise at the specified indexes of <code>i/</code> and <code>r/</code></p>
 </li>
 <li>
-<p>A new regime with <code>REGIME_NAME</code> will be created and added to user&#8217;s collection</p>
+<p><code>NEW_REGIME_NAME</code> must be a new name that does not exist in your collection of regimes</p>
 </li>
 <li>
-<p><code>REGIME_NAME</code> must be a new name that does not exist in user&#8217;s collection</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed conflict resolving window.</p>
+<p>The index refers to the index number shown in the displayed resolve window</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -497,22 +615,49 @@ If there is no command has been undone after the latest undoable command, redo c
 <li>
 <p>r/ is for index of the conflicting regime</p>
 </li>
+<li>
+<p>At least one <code>i/</code> or <code>r/</code> must exist in your input for this command to succeed. Otherwise, ExerHealth will think you are trying to take one regime completely as stated in the <a href="#resolvetakeone">previous section</a>.</p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>resolve n/cardios i/1 i/2 i/3 r/4 r/2</code></p>
+<p><code>resolve n/new cardio i/1 r/4 r/2</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Takes exercise 1, 2, 3 from scheduled regime and exercise 2, 4 from conflicting regime and adds them to a new regime called cardios</p>
+<p>Expected Result:</p>
+</div>
+<div class="paragraph">
+<p>Takes exercise <code>1</code> from <code>scheduled regime</code> and exercises <code>2</code> and <code>4</code> from <code>conflicting regime</code> and adds them to a new regime called <code>new cardio</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ResolveTakeOneOrOther.png" alt="ResolveTakeOneOrOther">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>new cardio</code> regime is now scheduled at the conflicting date with the new exercises that have been resolved.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ResolveTakeResolved.png" alt="ResolveTakeResolved">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>new cardio</code> regime is now added to your collection of regimes</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ResolveRegimeTracker.png" alt="ResolveRegimeTracker">
+</div>
 </div>
 </div>
 </div>
@@ -853,7 +998,9 @@ There is no need to save manually.</p>
 </div>
 <div class="sect2">
 <h3 id="suggest-intensity-code-coming-in-v2-0-code"><a class="link" href="#suggest-intensity-code-coming-in-v2-0-code">Suggest intensity <code>[Coming in v2.0]</code></a></h3>
-
+<div class="paragraph">
+<p>Suggesting the amount of repetitions to complete for exercises.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="remind-to-do-exercises-code-coming-in-v2-0-code"><a class="link" href="#remind-to-do-exercises-code-coming-in-v2-0-code">Remind to do exercises <code>[coming in v2.0]</code></a></h3>
@@ -876,7 +1023,7 @@ There is no need to save manually.</p>
 <div class="sect2">
 <h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Allows you to encrypt your data files for more security.</p>
 </div>
 </div>
 </div>
@@ -945,14 +1092,18 @@ e.g. <code>stats t/exercise h/barchart s/20/09/2019 e/27/09/2019</code></p>
 </li>
 <li>
 <p><strong>Schedule</strong> : <code>schedule n/REGIME_NAME d/DATE</code>
-e.g. <code>schedule n/cardio d/19/09/2019</code></p>
+e.g. <code>schedule n/cardio d/12/12/2019</code></p>
 </li>
 <li>
-<p><strong>Resolve(Take one regime)</strong> : <code>resolve n/REGIME_TO_TAKE</code>
-e.g. <code>resolve n/cardio</code></p>
+<p><strong>Complete Schedule</strong> : <code>schedule i/INDEX_OF_SCHEDULE</code>
+e.g. <code>schedule i/2</code></p>
 </li>
 <li>
-<p><strong>Resolve(Take some exercise from both regime)</strong> : <code>resolve n/NEW_REGIME_NAME [i/INDEX_OF_SCHEDULED_EXERCISE]&#8230;&#8203; [r/INDEX_OF_CONFLICTING_EXERCISE]&#8230;&#8203;</code>
+<p><strong>Resolve(Take one regime)</strong> : <code>resolve n/SCHEDULED_OR_CONFLICTING</code>
+e.g. <code>resolve n/scheduled</code>, <code>resolve n/conflicting</code></p>
+</li>
+<li>
+<p><strong>Resolve(Take some exercise from both regime)</strong> : <code>resolve n/NEW_REGIME_NAME [i/INDEX_OF_SCHEDULED_EXERCISE] [r/INDEX_OF_CONFLICTING_EXERCISE]</code>
 e.g. <code>resolve n/new cardio i/1 i/3 r/2</code></p>
 </li>
 <li>
@@ -981,7 +1132,7 @@ e.g. <code>custom s/End Date i/1</code></p>
 <div class="sect2">
 <h3 id="encrypting-data-files-code-coming-in-v2-0-code-2"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code-2">Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Allows you to encrypt your data files for more security.</p>
 </div>
 </div>
 </div>
@@ -1009,4 +1160,4 @@ e.g. <code>custom s/End Date i/1</code></p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 05:07:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:50:38 UTC</div></div></div></body></html>

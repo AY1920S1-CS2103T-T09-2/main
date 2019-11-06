@@ -20,8 +20,10 @@ The user interacts with it using a command line interface, and it has a GUI crea
 <div class="paragraph">
 <p>Below is a screenshot of what our desktop application looks like:</p>
 </div>
-<div class="paragraph">
-<p><strong>//TODO: Add image of UI</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui">
+</div>
 </div>
 <div class="paragraph">
 <p>My role in this project was to design and develop the scheduling and resolving of scheduling conflicts features.
@@ -148,13 +150,33 @@ at a particular date. However, this difficulty was remedied as described in <str
 <div class="sect3">
 <h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">Schedules a regime</a></h4>
 <div class="paragraph">
-<p>Schedules an exercise regime for a certain date. If regime clashes with another scheduled regime, users will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a> for details on resolving scheduling conflicts.</p>
+<p>Schedules an exercise regime for a certain date. If the regime clashes with another scheduled regime, you will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">[resolve]</a> for details on resolving scheduling conflicts.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>schedule n/REGIME_NAME d/DATE</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To schedule a regime, <code>REGIME_NAME</code> must exist in your regime list. You can use <a href="#list"><code>list t/regime</code></a> command to view the regimes that you currently have.</p>
+</li>
+<li>
+<p>The format of <code>DATE</code> must be of the form <code>dd/MM/YYYY</code>. For example, <code>12/12/2019</code> or <code>01/01/2020</code>. Even if the number has only one digit, please ensure you include a 0 at the front to ensure that it adheres to the format required.</p>
+</li>
+<li>
+<p>You will not be allowed to schedule a regime on a date that falls before the date displayed on your system clock</p>
+</li>
+<li>
+<p>You are allowed to schedule a regime of the same name on the same date. The resolve window will pop up for you as per normal.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="paragraph">
-<p>Example:</p>
+<p><strong>Example 1:</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -166,17 +188,48 @@ at a particular date. However, this difficulty was remedied as described in <str
 <div class="paragraph">
 <p>Schedules the regime called <code>cardio</code> on the date <code>12/12/2019</code>. If there are no other regimes scheduled on <code>12/12/2019</code> then the command is successful. Otherwise, you will be prompted to resolve the scheduling conflict.</p>
 </div>
+<div class="paragraph">
+<p>Expected Result:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleRegimeCardio.png" alt="ScheduleRegimeCardio">
+</div>
+</div>
+<div class="paragraph">
+<p>Expected Result (if other schedule exist on <code>12/12/2019</code>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleRegimeCardioConflict.png" alt="ScheduleRegimeCardioConflict">
+</div>
+</div>
+<div class="paragraph">
+<p>If the resolve window pops up for you, please refer to <a href="#resolve">[resolve]</a> for details on resolving a scheduling conflict.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">Completes a schedule regime</a></h4>
 <div class="paragraph">
-<p>Once a scheduled regime is completed, users can add that regime to the exercise tracker. The schedule is then deleted from the scheduling list.</p>
+<p>Once a scheduled regime is completed, you can add that completed schedule to the exercise tracker. The schedule is then deleted from the scheduling list.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>schedule i/INDEX_OF_REGIME_IN_SCHEDULE</code></p>
+<p>Format: <code>schedule i/INDEX_OF_SCHEDULE</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>INDEX_OF_SCHEDULE</code> provided must be a valid index from your schedule list. Please use <a href="#list"><code>list t/schedule</code></a> to view you index of the schedule you wish to complete.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -186,93 +239,34 @@ at a particular date. However, this difficulty was remedied as described in <str
 </ul>
 </div>
 <div class="paragraph">
-<p>Completes all the exercises that are in the schedule at index <code>2</code>. All the exercises will be added to the exercise list and the schedule at index <code>2</code> is deleted.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="resolve"><a class="link" href="#resolve">Resolving scheduling conflicts: <code>resolve</code></a></h3>
-<div class="sect3">
-<h4 id="taking-one-of-the-conflicting-regimes-completely"><a class="link" href="#taking-one-of-the-conflicting-regimes-completely">Taking one of the conflicting regimes completely</a></h4>
-<div class="paragraph">
-<p>Takes the scheduled regime or the conflicting regime completely and discarding the other. Neither regimes will be completely deleted from the user’s collection.</p>
+<p>Completes all the exercises that are in the schedule at index <code>2</code>. All the exercises scheduled will be added to the exercise list and the schedule at index <code>2</code> is deleted.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>resolve n/SCHEDULED_OR_CONFLICTING</code></p>
+<p>Expected Result:</p>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Before execution of <code>schedule i/2</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>resolve n/scheduled</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Takes the already scheduled regime and schedule it at conflicting date.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>resolve n/conflicting</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Takes the conflicting regime and schedule it at conflicting date.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="taking-some-exercises-from-some-regime"><a class="link" href="#taking-some-exercises-from-some-regime">Taking some exercises from some regime</a></h4>
-<div class="paragraph">
-<p>Takes some exercises from the scheduled regime and some from the conflicting regime to make a brand new regime. The new regime that is a result of the combination will be added  to the user’s collection and scheduled at the date of conflict. This new regime will also be added to the user’s collection of regimes</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>resolve n/REGIME_NAME [i/INDEX_OF_EXERCISE_IN_SCHEDULED]&#8230;&#8203; [r/INDEX_OF_EXERCISE_IN_CONFLICTING]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
+<div class="imageblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Takes the exercise at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>A new regime with <code>REGIME_NAME</code> will be created and added to user&#8217;s collection</p>
-</li>
-<li>
-<p><code>REGIME_NAME</code> must be a new name that does not exist in user&#8217;s collection</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed conflict resolving window.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>i/ is for index of the scheduled regime</p>
-</li>
-<li>
-<p>r/ is for index of the conflicting regime</p>
-</li>
-</ul>
-</div>
+<img src="../images/ScheduleCompleteBefore.png" alt="ScheduleCompleteBefore">
 </div>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>In your exercise tracker</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>resolve n/cardios i/1 i/2 i/3 r/4 r/2</code></p>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleCompleteExerciseTracker.png" alt="ScheduleCompleteExerciseTracker">
+</div>
 </div>
 <div class="paragraph">
-<p>Takes exercise 1, 2, 3 from scheduled regime and exercise 2, 4 from conflicting regime and adds them to a new regime called cardios</p>
+<p>In your schedule tracker after completing execution of <code>schedule i/2</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleCompleteScheduleTracker.png" alt="ScheduleCompleteScheduleTracker">
+</div>
 </div>
 </div>
 </div>
@@ -467,4 +461,4 @@ The <code>ResolveWindow</code> will only take one valid <code>resolve</code> com
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 05:07:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:50:38 UTC</div></div></div></body></html>
