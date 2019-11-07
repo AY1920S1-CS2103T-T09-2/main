@@ -463,6 +463,19 @@ You can edit all the possible information for exercises including custom propert
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deleteExerciseBefore.png" alt="deleteExerciseBefore">
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deleteExerciseAfter.png" alt="deleteExerciseAfter">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="deleting-exercise-from-scheduling-regime"><a class="link" href="#deleting-exercise-from-scheduling-regime">3.6.2. Deleting exercise from scheduling regime</a></h4>
@@ -1019,10 +1032,10 @@ Suppose you have created a new Custom Property and have been tracking a few exer
 <p><code>custom s/r f/Rating p/Number</code></p>
 </div>
 <div class="paragraph">
-<p><code>add t/exercise n/Run d/01/11/2019 c/100 q/30 u/km m/Leg r/8</code></p>
+<p><code>add t/exercise n/Run d/02/11/2019 c/200 q/10 u/km m/Legs r/8</code></p>
 </div>
 <div class="paragraph">
-<p><code>add t/exercise n/Bench Press d/01/11/2019 c/100 q/30 u/counts m/Chest r/8</code></p>
+<p><code>add t/exercise n/Bench Press d/05/11/2019 c/150 q/40 u/kg m/Chest r/8</code></p>
 </div>
 <div class="paragraph">
 <p>Then, the following input will display a list of exercises which are tagged with "Chest" and have a rating of 8.</p>
@@ -1032,6 +1045,72 @@ Suppose you have created a new Custom Property and have been tracking a few exer
 </div>
 <div class="paragraph">
 <p>Thus the command will display only the exercise named "Bench Press".</p>
+</div>
+<div class="paragraph">
+<p>Expected Result:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/suggestPossibleAfter1.png" alt="suggestPossibleAfter1">
+</div>
+</div>
+<div class="paragraph">
+<p>The input, <code>suggest s/possible o/or m/Chest r/8</code>, however, will display a list of exercises with "Chest" <strong>or</strong> have a rating of 8.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/suggestPossibleBefore2.png" alt="suggestPossibleBefore2">
+</div>
+</div>
+<div class="paragraph">
+<p>Expected Result:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/suggestPossibleAfter2.png" alt="suggestPossibleAfter2">
+</div>
+</div>
+<div class="paragraph">
+<p>As seen on the image above, the two previously added exercises named "Bench Press" and "Run" are displayed because they each have a rating of 8.
+In addition to the tracked exercises, ExerHealth will also display suggestions in its database. Hence the exercise named "Push Ups" is displayed
+as it has a "Chest" muscle tag.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="duplicates"><a class="link" href="#duplicates">Duplicates</a></h5>
+<div class="paragraph">
+<p>Sometimes, you may track exercises of the same name. Instead of displaying all suggestions of the same name, this function
+display the information of the most recently tracked exercise of that name.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/suggestPossibleBefore3.png" alt="suggestPossibleBefore3">
+</div>
+</div>
+<div class="paragraph">
+<p>Expected Result:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/suggestPossibleAfter3.png" alt="suggestPossibleAfter3">
+</div>
+</div>
+<div class="paragraph">
+<p>As seen on the image above, the tracked exercise named "Bench Press" on "06/11/2019" is displayed instead of the one on "05/11/2019".</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Notes:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suggestions from the database have dates displayed refer to the last time ExerHealth&#8217;s database was updated.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1418,4 +1497,4 @@ e.g. <code>custom s/End Date i/1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 04:25:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:10:50 UTC</div></div></div></body></html>
