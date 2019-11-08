@@ -21,8 +21,8 @@
 </ul>
 </li>
 <li><a href="#implementation">3. Implementation</a>
-<ul class="sectlevel2">
-<li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
+<ul class="sectlevel3">
+<li><a href="#design-considerations">3.1. Design Considerations</a></li>
 <li><a href="#resolve-feature">3.2. Resolve feature</a></li>
 <li><a href="#custom-feature">3.3. Custom feature</a></li>
 <li><a href="#suggest">3.4. Suggest</a></li>
@@ -351,12 +351,10 @@ Resource Book data consists of Exercise Book, Regime Book and Schedule Book data
 <h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
+<p>This section describes some noteworthy details on how certain features are implemented.
+=== Undo/Redo feature
+==== Implementation</p>
 </div>
-<div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by the <code>events</code> package consisting of <code>EventHistory</code>, <code>EventFactory</code>,
 <code>EventPayload</code> and the various <code>Event</code> classes.</p>
@@ -382,12 +380,12 @@ Instances of <code>Event</code> are stored in either the <code>undoStack</code> 
 <p>These operations are utilised in the <code>UndoCommand</code> and <code>RedoCommand</code> respectively.</p>
 </div>
 <div class="paragraph">
-<p>The following steps will describe the full life-cycle of executing an UndoableCommand, and subsequently
+<p>The following steps will describe the steps taken in the execution of an UndoableCommand, and subsequently
 the UndoCommand and RedoCommand.</p>
 </div>
 <div class="paragraph">
-<p>Step 1: When an <code>UndoableCommand</code> is executed, relevant information will be added into a newly initialized
-<code>EventPayload</code>.</p>
+<p><strong>Step 1:</strong> When an <code>UndoableCommand</code> is executed, key information used during the command will be added into a
+newly initialized <code>EventPayload</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -396,7 +394,7 @@ the UndoCommand and RedoCommand.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <code>EventPayload</code> is a wrapper class to store key information about the particular <code>Command</code> object.
+The <code>EventPayload</code> is a wrapper class to store key information about the particular command.
 For instance, if an <code>EditCommand</code> has been executed, the <code>EventPayload</code> will store the <code>originalExercise</code>
 as well as the <code>editedExercise</code>.
 </td>
@@ -404,7 +402,7 @@ as well as the <code>editedExercise</code>.
 </table>
 </div>
 <div class="paragraph">
-<p>Step 2: The <code>EventFactory</code> takes in the <code>UndoableCommand</code> and generates an <code>Event</code> using the <code>EventPayload</code>
+<p><strong>Step 2:</strong> The <code>EventFactory</code> takes in the <code>UndoableCommand</code> and generates an <code>Event</code> using the <code>EventPayload</code>
 stored in the <code>UndoableCommand</code>.
 The <code>Event</code> is then added to the undo stack of the <code>EventHistory</code>.</p>
 </div>
@@ -416,25 +414,25 @@ The <code>Event</code> is then added to the undo stack of the <code>EventHistory
 </td>
 <td class="content">
 The <code>EventFactory</code> checks for the command word of the <code>UndoableCommand</code> to decide which specific <code>Event</code> object
-to generate. It will get the <code>EventPayload</code> from the <code>UndoableCommand</code> and pass it into the constructor of the
+to generate. It will then obtain the <code>EventPayload</code> from the <code>UndoableCommand</code> and pass it into the constructor of the
 <code>Event</code> so that the <code>Event</code> captures the key information of the <code>UndoableCommand</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 3: To undo the latest <code>UndoableCommand</code> the user executes the <code>UndoCommand</code> by entering <code>undo</code>
+<p><strong>Step 3:</strong> To undo the latest <code>UndoableCommand</code> the user executes the <code>UndoCommand</code> by entering <code>undo</code>
 into the command box.</p>
 </div>
 <div class="paragraph">
-<p>Step 4: The <code>UndoCommand</code> executes <code>eventHistory.undo(model)</code>, which prompts the <code>EventHistory</code> instance
+<p><strong>Step 4:</strong> The <code>UndoCommand</code> executes <code>eventHistory.undo(model)</code>, which prompts the <code>EventHistory</code> instance
 to pop the next <code>Event</code> to undo from the undo stack. Once the <code>Event</code> is undone, it will be pushed to the
 top of the redo stack.</p>
 </div>
 <div class="paragraph">
-<p>Step 5: To redo the command that has been undone, the user executes the <code>RedoCommand</code>. This execution
-behaves similarly to step 4, except that the next <code>Event</code> is taken from the top of the redo stack instead
-of the undo stack.</p>
+<p><strong>Step 5:</strong> To redo the command that has been undone, the user executes the <code>RedoCommand</code>. This execution
+behaves similarly to step 4, except that the next <code>Event</code> is taken from the top of the redo stack and
+pushed to the undo stack instead.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -443,9 +441,8 @@ of the undo stack.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For step 4 and 5, if any of the respective stack is empty when it is needed, a <code>CommandException</code> will be thrown
-and an error message will be displayed to inform of the user that there are no commands to undo or redo
-at the moment.
+In steps 4 and 5, if any of the respective stack is empty when undo or redo is called, a <code>CommandException</code> will be thrown
+and an error message will be displayed to indicate there is no undoable or redoable commands.
 </td>
 </tr>
 </table>
@@ -463,10 +460,10 @@ subsequently used for the initialization of the <code>EditEvent</code>.</p>
 <div class="content">
 <img src="images/UndoableCommandSequenceDiagram.png" alt="UndoableCommandSequenceDiagram">
 </div>
-<div class="title">Figure 9. The process of storing an <code>EditEvent</code> to <code>EventHistory</code></div>
+<div class="title">Figure 9. The process of storing an EditEvent to EventHistory</div>
 </div>
 <div class="paragraph">
-<p>The second diagram (Figure 10) here describes the process of undoing the <code>EditCommand</code> executed above using the <code>UndoCommand</code>.
+<p>The second diagram (Figure 10) describes the process of undoing the executed <code>EditCommand</code>  using the <code>UndoCommand</code>.
 When the <code>UndoCommand</code> is executed, the <code>EventHistory</code> calls the <code>undo</code> method of the next <code>Event</code> in the undo stack
 (i.e. the <code>EditEvent</code>).</p>
 </div>
@@ -474,7 +471,7 @@ When the <code>UndoCommand</code> is executed, the <code>EventHistory</code> cal
 <div class="content">
 <img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
-<div class="title">Figure 10. The process of undoing the <code>EditCommand</code></div>
+<div class="title">Figure 10. The process of undoing the EditCommand</div>
 </div>
 <div class="paragraph">
 <p>Given below is a Class Diagram (Figure 11) to show the associations between Event, Command and Model. It is specifically designed
@@ -487,8 +484,8 @@ such that only objects that implement the <code>Event</code> and <code>Command</
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The only commands that implements the <code>UndoableCommand</code> are <code>AddCommand</code>, <code>DeleteCommand</code>, <code>EditCommand</code>
-and <code>ClearCommand</code> and they each stores an <code>EventPayload</code> instance.
+The only commands that implements the <code>UndoableCommand</code> are <code>AddCommand</code>, <code>DeleteCommand</code>, <code>EditCommand</code>,
+<code>ClearCommand</code>, <code>ScheduleCommand</code> and <code>ResolveCommand</code>. They each stores an <code>EventPayload</code> instance.
 </td>
 </tr>
 </table>
@@ -509,9 +506,8 @@ the undo command and the redo command.</p>
 </div>
 <div class="title">Figure 12. The workflow when a user enters an undoable command and performs undo/redo</div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -525,15 +521,11 @@ the undo command and the redo command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Uses less memory to store Event objects as compared to entire copes of the Model.</p>
+<p>Uses less memory to store Event objects and payloads as compared to entire copies of the Model object.</p>
 </li>
 <li>
 <p>Open for extensions and close to modifications as the Event interface only contains undo and redo methods, and can
 be easily implemented when new Undoable commands are introduced.</p>
-</li>
-<li>
-<p>Obeys Single Responsibility Principle as Commands simply have to execute what it does and does not need to know
-how it is undone or redone</p>
 </li>
 </ul>
 </div>
@@ -544,7 +536,7 @@ how it is undone or redone</p>
 <ul>
 <li>
 <p>UndoableCommand objects are forced to depend on EventPayloads when it does not actually use it directly.
-(e.g. for <code>delete</code>, the exercise being deleted).</p>
+(e.g. <code>DeleteCommand</code> has to store the exercise being deleted despite using it only once).</p>
 </li>
 </ul>
 </div>
@@ -561,7 +553,7 @@ how it is undone or redone</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Uses less memory</p>
+<p>Uses less memory to store each command as compared to entire copies of the Model object.</p>
 </li>
 </ul>
 </div>
@@ -571,8 +563,8 @@ how it is undone or redone</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Violates Single Responsibility Principle as Commands need to know implementation for how it
-can be undone or redone and also stores data such as the exercise being deleted in a local field.</p>
+<p>Violates Single Responsibility Principle as Commands need to contain specific implementation of the inverse action of itself
+and also stores data such as the exercise being deleted in a local field.</p>
 </li>
 </ul>
 </div>
@@ -630,7 +622,7 @@ can be undone or redone and also stores data such as the exercise being deleted 
 <p>Ensures only one instance of EventHistory exists</p>
 </li>
 <li>
-<p>The EventFactory relies on the Factory pattern and helps to reduce coupling between
+<p>The EventFactory relies on the Factory pattern that helps to reduce coupling between
 EventHistory and each individual Event.</p>
 </li>
 </ul>
@@ -641,8 +633,9 @@ EventHistory and each individual Event.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The Singleton pattern may have a chance of break if multiple threads initializes the singleton class
-at the same time, creating multiple versions of EventHistory.</p>
+<p>The Singleton pattern may have a chance of breaking if multiple threads initialize the singleton class
+at the same time, creating multiple instances of EventHistory. However, if this problem arises, the instantiation
+method can be made "synchronized" to circumvent this issue.</p>
 </li>
 </ul>
 </div>
@@ -671,7 +664,8 @@ and stored.</p>
 <ul>
 <li>
 <p>Difficult to monitor multiple resource books (e.g. Regime books and Exercise books) as they all
-manage different types of resources that can be altered by commands.</p>
+manage different types of resources that can be altered by commands.
+==== Design Patterns</p>
 </li>
 </ul>
 </div>
@@ -681,10 +675,6 @@ manage different types of resources that can be altered by commands.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-patterns"><a class="link" href="#design-patterns">3.1.3. Design Patterns</a></h4>
 <div class="paragraph">
 <p>The Undo/Redo feature implementation is based on the Singleton, Command, and Factory design patterns</p>
 </div>
@@ -695,7 +685,7 @@ manage different types of resources that can be altered by commands.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>To help ensure that only one copy of <code>EventHistory</code> exists during the execution of the program</p>
+<p>To help ensure that only one instance of <code>EventHistory</code> exists during the execution of the program</p>
 </li>
 <li>
 <p>Allows easier access by the various command classes (i.e. the UndoableCommands, UndoCommand and RedoCommand)</p>
@@ -708,7 +698,7 @@ manage different types of resources that can be altered by commands.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Extensions to add a new <code>Event</code> is easy and can be done without changing the existing code</p>
+<p>Extensions of new <code>Event</code> is easy and can be done without significant changes to the existing code</p>
 </li>
 </ul>
 </div>
@@ -739,7 +729,7 @@ manage different types of resources that can be altered by commands.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.2. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.2. Implementation</a></h4>
 <div class="paragraph">
 <p>The resolve feature is used when there is a scheduling conflict that happens within ExerHealth. This feature will alter the state of the program. The state is known by <code>MainApp</code> and it is either <code>State.IN_CONFLICT</code> or <code>State.NORMAL</code>. Only when the state is <code>State.IN_CONFLICT</code> will <code>resolve</code> commands be allowed.</p>
 </div>
@@ -1342,7 +1332,7 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="sect2">
 <h3 id="statistics"><a class="link" href="#statistics">3.5. Statistics</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.5.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Statistics of exercises will be displayed in charts. Supported chart types are Pie Chart, Line Chart and Bar Chart.
 StatsFactory will create Statistic using given parameters.
@@ -2207,4 +2197,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 14:23:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 07:14:41 UTC</div></div></div></body></html>

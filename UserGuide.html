@@ -21,7 +21,7 @@
 <li><a href="#delete-health-information-code-delete-code">3.6. Delete health information : <code>delete</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#display-statistics-code-stats-code">3.8. Display statistics : <code>stats</code></a></li>
-<li><a href="#undo-previous-command-code-undo-code">3.9. Undo previous command: <code>undo</code></a></li>
+<li><a href="#undocommand">3.9. Undo previous command: <code>undo</code></a></li>
 <li><a href="#redo-undone-command-code-redo-code">3.10. Redo undone command: <code>redo</code></a></li>
 <li><a href="#scheduling-exercises-code-schedule-code">3.11. Scheduling exercises: <code>schedule</code></a></li>
 <li><a href="#resolve">3.12. Resolving scheduling conflicts: <code>resolve</code></a></li>
@@ -165,7 +165,7 @@ can be used as <code>&#160;</code> (i.e. 0 times), <code>m/glutes</code>, <code>
 <div class="sect2">
 <h3 id="adding-exercise-regime-information-code-add-code"><a class="link" href="#adding-exercise-regime-information-code-add-code">3.2. Adding exercise/regime information: <code>add</code></a></h3>
 <div class="sect3">
-<h4 id="adding-exercise-information-br"><a class="link" href="#adding-exercise-information-br">3.2.1. Adding exercise information<br></a></h4>
+<h4 id="addexercise"><a class="link" href="#addexercise">3.2.1. Adding exercise information<br></a></h4>
 <div class="paragraph">
 <p>Adds the relevant exercise information into ExerHealth.
 You can enter the following additional information for each exercise:</p>
@@ -393,17 +393,18 @@ If a regime of the same name already exists, exercises will be added to the same
 <h3 id="edit-exercise-information-code-edit-code"><a class="link" href="#edit-exercise-information-code-edit-code">3.5. Edit exercise information: <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits the relevant exercise information in ExerHealth.
-You can edit all the possible information for exercises including custom properties.</p>
+You can edit all the possible information for exercises including <a href="#customproperty">Custom Properties</a>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The date entered for this command must follow the same requirements as that of <code>add</code> command.</p>
+<p>The date entered for this command must follow the same requirements as that of <a href="#addexercise">Add</a> command.</p>
 </li>
 <li>
-<p>Edits the exercise at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed exercise list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the exercise at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed exercise list.
+The index <strong>must be a positive integer:</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -431,26 +432,49 @@ You can edit all the possible information for exercises including custom propert
 <div class="paragraph">
 <p>Edits the name and the date of the 2nd exercise to <code>Running</code> and <code>20/09/2019</code> respectively.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit i/4 n/Swim d/21/09/2019 c/100</code></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Before<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditExerciseBefore.png" alt="EditExerciseBefore">
+</div>
 </div>
 <div class="paragraph">
-<p>Edits the name, date and calories burnt of the 4th exercise to <code>Swim</code>, <code>21/09/2019</code> and <code>100</code> respectively.</p>
+<p>After<br>
+Exercise now appears at the bottom as the list is sorted by date.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditExerciseAfter.png" alt="EditExerciseAfter">
+</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit i/3 n/Bench press d/22/09/2019 c/240 q/10 u/sets m/Chest</code></p>
+<p><code>edit i/3 n/Bench press d/04/11/2019 c/240 q/10 u/sets m/Chest</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Edits the name, date, calories burnt, quantity, units and muscle group trained of the 3rd exercise to <code>Bench press</code>,
 <code>22/09/2019</code>, <code>240</code>, <code>10</code>, <code>sets</code> and <code>Chest</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Before<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditExerciseBefore2.png" alt="EditExerciseBefore2">
+</div>
+</div>
+<div class="paragraph">
+<p>After<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditExerciseAfter2.png" alt="EditExerciseAfter2">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -588,8 +612,42 @@ Deletes the entire regime named legs</p>
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the exercise tracker.<br>
-Format: <code>clear</code></p>
+<p>Clears all entries from the exercise tracker.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Exercise tracker must not be empty when the clear command is executed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Initially, the exercise tracker is populated with exercises.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ClearBefore.png" alt="ClearBefore">
+</div>
+</div>
+<div class="paragraph">
+<p>After calling the <code>clear</code> command, all exercises are removed from the
+exercise tracker list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ClearAfter.png" alt="ClearAfter">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -692,17 +750,14 @@ Due to space constraint, some labels may not appear. Labels can be seen when mou
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-previous-command-code-undo-code"><a class="link" href="#undo-previous-command-code-undo-code">3.9. Undo previous command: <code>undo</code></a></h3>
+<h3 id="undocommand"><a class="link" href="#undocommand">3.9. Undo previous command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undo the previous successful command entered.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Supported Undoable Commands: add, delete, edit, clear</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
+<p>Supported Undoable Commands: add, delete, edit, clear, schedule, resolve</p>
 </div>
 <div class="ulist">
 <ul>
@@ -720,6 +775,15 @@ Due to space constraint, some labels may not appear. Labels can be seen when mou
 </li>
 <li>
 <p><code>clear</code></p>
+</li>
+<li>
+<p><code>schedule n/Regime Five d/20/11/2019</code></p>
+</li>
+<li>
+<p><code>schedule i/1</code></p>
+</li>
+<li>
+<p><code>resolve n/New Regime i/1 r/2</code></p>
 </li>
 </ul>
 </div>
@@ -740,11 +804,115 @@ If there is no previous command, undo will do nothing.
 <div class="paragraph">
 <p>Format: <code>undo</code></p>
 </div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Undoing a <code>delete t/regime [i/INDEX]&#8230;&#8203;</code> command that deletes exercise from an existing regime.<br>
+<strong>Initial</strong>:<br></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteExerciseFromRegimeBeforeUndo.png" alt="DeleteExerciseFromRegimeBeforeUndo">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: <code>delete t/regime n/Level 3 i/5</code><br>
+Deletes the fifth exercise <code>Hiking</code> from the regime <code>Level 3</code><br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteExerciseFromRegimeUndo.png" alt="DeleteExerciseFromRegimeUndo">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: <code>undo</code><br>
+Adds the exercise <code>Hiking</code> back to the regime <code>Level 3</code><br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteExerciseFromRegimeUndoOutcome.png" alt="DeleteExerciseFromRegimeUndoOutcome">
+</div>
+</div>
+<div class="paragraph">
+<p> <br>
+ <br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Undoing a <a href="#schedulecomplete">Schedule Complete</a> command and a <a href="#scheduleregime">Schedule Regime</a> command<br>
+<strong>Initial</strong>: Schedule list only contains two scheduled regimes<br></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleRegimeBefore.png" alt="ScheduleRegimeBefore">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: <code>schedule n/Level 3 d/10/11/2019</code><br>
+Schedules the regime <code>Level 3</code> on <code>10/11/2019</code><br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleRegimeAfter.png" alt="ScheduleRegimeAfter">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: <code>schedule i/1</code><br>
+Marks the scheduled regime at index 1, regime <code>Level 3</code>, as completed.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Exercise list showing the newly completed exercises from the regime "Level 3"</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleCompleteAfterExerciseView.png" alt="ScheduleCompleteAfterExerciseView">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Schedule list showing the updated schedule without regime "Level 3"</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleCompleteAfterScheduleView.png" alt="ScheduleCompleteAfterScheduleView">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: <code>undo</code><br>
+Undoes the completion of regime. The regime <code>Level 3</code> appears in the schedule list again.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleCompleteUndo.png" alt="ScheduleCompleteUndo">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: <code>undo</code><br>
+Undoes the scheduling of regime. The regime <code>Level 3</code> is no longer visible in the schedule list.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleRegimeUndo.png" alt="ScheduleRegimeUndo">
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="redo-undone-command-code-redo-code"><a class="link" href="#redo-undone-command-code-redo-code">3.10. Redo undone command: <code>redo</code></a></h3>
 <div class="paragraph">
-<p>Redo the previous command that was undone by user.</p>
+<p>Redo the previous command that was undone by the user. It can only be executed after
+successful executions of the undo command. For a list of Undoable commands, refer
+to the <a href="#undocommand">Undo Command</a>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -753,19 +921,124 @@ If there is no previous command, undo will do nothing.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If there is no command has been undone after the latest undoable command, redo command will do nothing.
+If the <code>Undo</code> command has not been executed after the execution of the last Undoable command, there will be
+no command to redo.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Format: <code>redo</code></p>
+<p>Format: <code>redo</code>
+Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Redoing a <code>add t/exercise</code> command that has just been undone.<br>
+<strong>Initial</strong>:<br></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddExerciseBeforeAdding.png" alt="AddExerciseBeforeAdding">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: <code>add t/exercise n/Squats d/08/11/2019 c/200 q/150 u/reps</code><br>
+Adds a new exercise called <code>Squats</code>.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddExerciseBeforeUndo.png" alt="AddExerciseBeforeUndo">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: <code>undo</code><br>
+Undoing the command removes the <code>Squats</code> exercise from the list.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddExerciseBeforeRedo.png" alt="AddExerciseBeforeRedo">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: <code>redo</code><br>
+Redoing the command returns the <code>Squats</code> exercise to the list again.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddExerciseAfterRedo.png" alt="AddExerciseAfterRedo">
+</div>
+</div>
+<div class="paragraph">
+<p> <br>
+ <br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Redoing a <a href="#resolve">Resolve</a> command that has just been undone.<br>
+<strong>Initial</strong>:<br>
+Attempts to schedule <code>Level 2</code> regime on the date of <code>Level 1</code> regime.<br></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleRegimeBeforeConflict.png" alt="ScheduleRegimeBeforeConflict">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: <code>schedule n/Level 2 d/10/11/2019</code><br>
+Resolve conflict window appears due to the conflict in date.
+The conflict can be resolved by specifying the index of exercises
+to be taken from each regime.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleRegimeBeforeResolve.png" alt="ScheduleRegimeBeforeResolve">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: <code>resolve n/Level 1 and 2 i/2 r/2 r/3</code><br>
+Resolves conflict by creating a new regime <code>Level 1 and 2</code>.
+The new regime <code>Level 1 and 2</code> replaces the initial <code>Level 1</code> regime
+in the schedule.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleRegimeBeforeResolveUndo.png" alt="ScheduleRegimeBeforeResolveUndo">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: <code>undo</code><br>
+Undoing the command reverts the scheduled regime from <code>Level 1 and 2</code> to the initial
+<code>Level 1</code> regime.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleRegimeBeforeResolveRedo.png" alt="ScheduleRegimeBeforeResolveRedo">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: <code>redo</code><br>
+Redoing the command updates the scheduled regime from <code>Level 1</code> to the resolved
+<code>Level 1 and 2</code> regime.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleRegimeAfterResolveRedo.png" alt="ScheduleRegimeAfterResolveRedo">
+</div>
+</div>
+<div class="paragraph">
+<p> <br></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="scheduling-exercises-code-schedule-code"><a class="link" href="#scheduling-exercises-code-schedule-code">3.11. Scheduling exercises: <code>schedule</code></a></h3>
 <div class="sect3">
-<h4 id="schedules-a-regime"><a class="link" href="#schedules-a-regime">3.11.1. Schedules a regime</a></h4>
+<h4 id="scheduleregime"><a class="link" href="#scheduleregime">3.11.1. Schedules a regime</a></h4>
 <div class="paragraph">
 <p>Schedules an exercise regime for a certain date. If the regime clashes with another scheduled regime, you will be prompted to resolve the conflict via a popup window. Refer to <a href="#resolve">Section 3.12, &#8220;Resolving scheduling conflicts: <code>resolve</code>&#8221;</a> for details on resolving scheduling conflicts.</p>
 </div>
@@ -826,7 +1099,7 @@ If there is no command has been undone after the latest undoable command, redo c
 </div>
 </div>
 <div class="sect3">
-<h4 id="completes-a-schedule-regime"><a class="link" href="#completes-a-schedule-regime">3.11.2. Completes a schedule regime</a></h4>
+<h4 id="schedulecomplete"><a class="link" href="#schedulecomplete">3.11.2. Completes a schedule regime</a></h4>
 <div class="paragraph">
 <p>Once a scheduled regime is completed, you can add that completed schedule to the exercise tracker. The schedule is then deleted from the scheduling list.</p>
 </div>
@@ -1575,4 +1848,4 @@ e.g. <code>custom s/End Date i/1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 14:23:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 07:14:41 UTC</div></div></div></body></html>
