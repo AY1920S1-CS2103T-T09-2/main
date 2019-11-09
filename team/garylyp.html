@@ -208,6 +208,7 @@ no command to redo.
 <div class="content">
 <img src="../images/DeleteExerciseFromRegimeBeforeUndo.png" alt="DeleteExerciseFromRegimeBeforeUndo">
 </div>
+<div class="title">Figure 1. Selecting the 3rd regime</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>: <code>delete t/regime n/Level 3 i/5</code><br>
@@ -217,6 +218,7 @@ Deletes the fifth exercise <code>Hiking</code> from the regime <code>Level 3</co
 <div class="content">
 <img src="../images/DeleteExerciseFromRegimeUndo.png" alt="DeleteExerciseFromRegimeUndo">
 </div>
+<div class="title">Figure 2. Deleting <code>Hiking</code> from our selected regime</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 2</strong>: <code>undo</code><br>
@@ -226,6 +228,7 @@ Adds the exercise <code>Hiking</code> back to the regime <code>Level 3</code><br
 <div class="content">
 <img src="../images/DeleteExerciseFromRegimeUndoOutcome.png" alt="DeleteExerciseFromRegimeUndoOutcome">
 </div>
+<div class="title">Figure 3. <code>undo</code> reverses the deletion!</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 3</strong>: <code>redo</code><br>
@@ -356,7 +359,7 @@ and an error message will be displayed to indicate there is no undoable or redoa
 <code>UndoableCommand</code>, has been executed and subsequently undone.</p>
 </div>
 <div class="paragraph">
-<p>The first diagram (Figure 9) describes the process of storing an <code>EditEvent</code> to <code>EventHistory</code> during the execution of the
+<p>The first diagram describes the process of storing an <code>EditEvent</code> to <code>EventHistory</code> during the execution of the
 <code>EditCommand</code>. The <code>EventPayload</code> is only initialized when the <code>EditCommand</code> is executed. The <code>EventPayload</code> is
 subsequently used for the initialization of the <code>EditEvent</code>.</p>
 </div>
@@ -364,10 +367,10 @@ subsequently used for the initialization of the <code>EditEvent</code>.</p>
 <div class="content">
 <img src="../images/UndoableCommandSequenceDiagram.png" alt="UndoableCommandSequenceDiagram">
 </div>
-<div class="title">Figure 1. The process of storing an EditEvent to EventHistory</div>
+<div class="title">Figure 4. The process of storing an EditEvent to EventHistory</div>
 </div>
 <div class="paragraph">
-<p>The second diagram (Figure 10) describes the process of undoing the executed <code>EditCommand</code>  using the <code>UndoCommand</code>.
+<p>The second diagram here describes the process of undoing the <code>EditCommand</code> executed above using the <code>UndoCommand</code>.
 When the <code>UndoCommand</code> is executed, the <code>EventHistory</code> calls the <code>undo</code> method of the next <code>Event</code> in the undo stack
 (i.e. the <code>EditEvent</code>).</p>
 </div>
@@ -375,10 +378,10 @@ When the <code>UndoCommand</code> is executed, the <code>EventHistory</code> cal
 <div class="content">
 <img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
-<div class="title">Figure 2. The process of undoing the EditCommand</div>
+<div class="title">Figure 5. The process of undoing the EditCommand</div>
 </div>
 <div class="paragraph">
-<p>Given below is a Class Diagram (Figure 11) to show the associations between Event, Command and Model. It is specifically designed
+<p>Given below is a Class Diagram to show the associations between Event, Command and Model. It is specifically designed
 such that only objects that implement the <code>Event</code> and <code>Command</code> interface will need to handle the <code>model</code> class.</p>
 </div>
 <div class="admonitionblock note">
@@ -398,17 +401,17 @@ The only commands that implements the <code>UndoableCommand</code> are <code>Add
 <div class="content">
 <img src="../images/EventClassDiagram.png" alt="EventClassDiagram">
 </div>
-<div class="title">Figure 3. The associations between Event, Command and Model</div>
+<div class="title">Figure 6. The associations between Event, Command and Model</div>
 </div>
 <div class="paragraph">
-<p>The following Activity Diagram (Figure 12) summarizes what happens when a user enters undoable commands,
+<p>The following Activity Diagram summarizes what happens when a user enters undoable commands,
 the undo command and the redo command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
 </div>
-<div class="title">Figure 4. The workflow when a user enters an undoable command and performs undo/redo</div>
+<div class="title">Figure 7. The workflow when a user enters an undoable command and performs undo/redo</div>
 </div>
 </div>
 <div class="sect3">
@@ -583,4 +586,4 @@ manage different types of resources that can be altered by commands.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 07:14:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 11:33:57 UTC</div></div></div></body></html>

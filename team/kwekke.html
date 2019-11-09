@@ -145,24 +145,15 @@ The implementation too was challenging as it required multiple new predicate and
 <div class="ulist">
 <ul>
 <li>
-<p>You must choose one of the following operation type: <code>and</code>, <code>or</code>.</p>
+<p>You must choose one of the following operation type: <code>and</code> / <code>or</code> i.e. commands such as <code>suggest s/possible m/Chest m/Legs</code> will fail whereas <code>suggest s/possible o/or m/Chest m/Legs</code> will succeed.</p>
 </li>
 <li>
-<p>i.e commands such as <code>suggest s/possible m/Chest m/Legs</code> will fail whereas <code>suggest s/possible o/or m/Chest m/Legs</code> will succeed.</p>
-</li>
-<li>
-<p>You have to enter at least one property (muscle/custom property) to search for suggestions.</p>
-</li>
-<li>
-<p>i.e commands such as
+<p>You have to enter at least one property (muscle/custom property) to search for suggestions i.e. commands such as
 <code>suggest s/possible o/and</code> and <code>suggest s/possible o/or</code> will both fail
 whereas <code>suggest s/possible o/or m/Chest</code> will succeed.</p>
 </li>
 <li>
-<p>The operation type is optional if there is only one tag provided</p>
-</li>
-<li>
-<p>i.e commands such as
+<p>The operation type is optional if there is only one tag provided i.e. commands such as
 <code>suggest s/possible o/and m/Chest</code>, <code>suggest s/possible o/or m/Chest</code> and <code>suggest s/possible m/Chest</code>
 will all achieve the same outcome -
 display all the exercises tagged with "Chest" in the exercise tracker and ExerHealth&#8217;s database.</p>
@@ -178,21 +169,25 @@ display all the exercises tagged with "Chest" in the exercise tracker and ExerHe
 <p>Similar to matching muscles tags, you can search for suggestions with matching custom property tags.</p>
 </div>
 <div class="paragraph">
-<p>After creating <a href="#customproperty">Custom Properties</a> and tracking exercises,
+<p>After creating <a href="#customproperty">custom properties</a> and tracking exercises,
 you can search for suggestions with those custom properties.</p>
 </div>
 <div class="paragraph">
 <p>Example:
-Suppose you have created a new Custom Property and have been tracking a few exercises with said custom property:</p>
+Suppose you have created a new custom property and have been tracking a few exercises with said custom property:</p>
 </div>
-<div class="paragraph">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
 <p><code>custom s/r f/Rating p/Number</code></p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p><code>add t/exercise n/Run d/02/11/2019 c/200 q/10 u/km m/Legs r/8</code></p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p><code>add t/exercise n/Bench Press d/05/11/2019 c/150 q/40 u/kg m/Chest r/8</code></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Then, the following input will display a list of exercises which are tagged with "Chest" and have a rating of 8.</p>
@@ -210,6 +205,7 @@ Suppose you have created a new Custom Property and have been tracking a few exer
 <div class="content">
 <img src="../images/suggestPossibleAfter1.png" alt="suggestPossibleAfter1">
 </div>
+<div class="title">Figure 1. Exercises with a <code>Chest</code> tag and a rating of <code>8</code> are shown.</div>
 </div>
 <div class="paragraph">
 <p>The input, <code>suggest s/possible o/or m/Chest r/8</code>, however, will display a list of exercises with "Chest" <strong>or</strong> have a rating of 8.</p>
@@ -218,6 +214,7 @@ Suppose you have created a new Custom Property and have been tracking a few exer
 <div class="content">
 <img src="../images/suggestPossibleBefore2.png" alt="suggestPossibleBefore2">
 </div>
+<div class="title">Figure 2. Before entering the new suggest command</div>
 </div>
 <div class="paragraph">
 <p>Expected Result:</p>
@@ -226,6 +223,7 @@ Suppose you have created a new Custom Property and have been tracking a few exer
 <div class="content">
 <img src="../images/suggestPossibleAfter2.png" alt="suggestPossibleAfter2">
 </div>
+<div class="title">Figure 3. Exercises with a <code>Chest</code> tag and exercises with a rating of <code>8</code> are shown.</div>
 </div>
 <div class="paragraph">
 <p>As seen on the image above, the two previously added exercises named "Bench Press" and "Run" are displayed because they each have a rating of 8.
@@ -243,6 +241,7 @@ display the information of the most recently tracked exercise of that name.</p>
 <div class="content">
 <img src="../images/suggestPossibleBefore3.png" alt="suggestPossibleBefore3">
 </div>
+<div class="title">Figure 4. Before entering the new suggest command</div>
 </div>
 <div class="paragraph">
 <p>Expected Result:</p>
@@ -251,6 +250,7 @@ display the information of the most recently tracked exercise of that name.</p>
 <div class="content">
 <img src="../images/suggestPossibleAfter3.png" alt="suggestPossibleAfter3">
 </div>
+<div class="title">Figure 5. Only the latest <code>Bench Press</code> exercise is displayed</div>
 </div>
 <div class="paragraph">
 <p>As seen on the image above, the tracked exercise named "Bench Press" on "06/11/2019" is displayed instead of the one on "05/11/2019".</p>
@@ -318,13 +318,13 @@ based on <code>Muscle</code> and <code>CustomProperty</code>.</p>
 The <code>SuggestPossible</code> command is created by parsing the user&#8217;s inputs to form a <code>Predicate</code> before filtering ExerHealth&#8217;s database and the user&#8217;s tracked exercises.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram (Figure 21) summarizes what happens when a user enters a suggest possible command:</p>
+<p>The following activity diagram summarizes what happens when a user enters a suggest possible command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/SuggestActivityDiagram.png" alt="SuggestActivityDiagram">
 </div>
-<div class="title">Figure 1. Activity diagram showing the workflow of a suggest possible command</div>
+<div class="title">Figure 6. Activity diagram showing the workflow of a suggest possible command</div>
 </div>
 <div class="paragraph">
 <p>In detail, when a <code>SuggestPossibleCommand</code> is entered, the <code>Logic</code> component is responsible for parsing the inputs into a <code>Predicate</code>.
@@ -332,13 +332,13 @@ The <code>Predicate</code> is then used to instantiate a <code>SuggestPossibleCo
 The interactions between the multiple objects can be captured using a sequence diagram.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 22) shows the sequence flow from the when a user enters a valid <code>SuggestPossibleCommand</code>:</p>
+<p>The following sequence diagram shows the sequence flow from the when a user enters a valid <code>SuggestPossibleCommand</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/SuggestSequenceDiagram.png" alt="SuggestSequenceDiagram">
 </div>
-<div class="title">Figure 2. Sequence diagram of a suggest possible command</div>
+<div class="title">Figure 7. Sequence diagram of a suggest possible command</div>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram:</p>
@@ -373,13 +373,13 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 </ol>
 </div>
 <div class="paragraph">
-<p>In step 3, the process in which the <code>ExercisePredicate</code> object is created can be explored deeper (Figure 23).</p>
+<p>In step 3, the process in which the <code>ExercisePredicate</code> object is created can be explored deeper.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/SuggestPredicateSequenceDiagram.png" alt="SuggestPredicateSequenceDiagram">
 </div>
-<div class="title">Figure 3. Sequence diagram of how an <code>ExercisePredicate</code> is created</div>
+<div class="title">Figure 8. Sequence diagram of how an <code>ExercisePredicate</code> is created</div>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram above:</p>
@@ -406,7 +406,7 @@ where each contains a <code>Collection</code> of <code>Muscle</code> or <code>Cu
 <div class="content">
 <img src="../images/SuggestCommandClassDiagram.png" alt="SuggestCommandClassDiagram">
 </div>
-<div class="title">Figure 4. Class diagram of the classes behind the suggest possible feature</div>
+<div class="title">Figure 9. Class diagram of the classes behind the suggest possible feature</div>
 </div>
 <div class="paragraph">
 <p>Creating classes such as <code>ExerciseCustomPropertyPredicate</code> and <code>ExerciseMusclePredicate</code>
@@ -489,4 +489,4 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 07:14:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 11:33:57 UTC</div></div></div></body></html>

@@ -15,6 +15,15 @@ enables users to track important information about their exercises and also prov
 the ability to create their own fitness regimes and the ability to provide statistical analysis of their activities.
 Users can also define their own properties which they wish to track for their exercises.</p>
 </div>
+<div class="paragraph">
+<p>Below is a screenshot of our application:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="550">
+</div>
+<div class="title">Figure 1. A screenshot of ExerHealth application</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -23,86 +32,28 @@ Users can also define their own properties which they wish to track for their ex
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement 1</strong>: Provided a feature that <strong>allows user to define their own custom properties</strong>.</p>
+<p><strong>Major enhancement 1</strong>: Provided a feature that <strong>allows user to define their own custom properties</strong> and <strong>remove them</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Users can simply add in their own custom properties should they wish to keep track of extra properties
+<p>What it does: Users can simply add in or remove their own custom properties should they wish to keep track of extra/lesser properties
 for each exercise.</p>
 </li>
 <li>
-<p>Justification: This feature was introduced after a quick conversation with our friends who provided us with lots of
-properties which they wish to keep track of for their exercises. However, more likely than not, most properties which
-they suggest are unique to themselves. As such, we have decided to provide a set of default properties (such as calories, date etc)
-which appear frequently among the suggestions while introducing custom properties to provide greater flexibility among
-the various users if they wish to include more information which they wish to track. This customisation can help users to
+<p>Justification: This feature provides greater flexibility among various users if they wish to include more information which they wish to track. This customisation can help users to
 tailor suit the app for their personal use.</p>
 </li>
 <li>
-<p>Highlights: This feature complements well with another feature that was implemented by my team mate, Kee En. By having
-custom properties, users can now produce exercise suggestions based on the custom properties they had created. This enhances
-the utility of both the suggestion and the custom property feature. Furthermore, the implementation of this feature is
-quite challenging as there are a few aspects to take note of:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Display of custom properties which requires UI considerations</p>
-</li>
-<li>
-<p>Representation of custom properties in each exercise</p>
-</li>
-<li>
-<p>Tracking of custom properties that have been created</p>
-</li>
-<li>
-<p>Interaction between the add / edit command parsers and the custom properties</p>
-</li>
-<li>
-<p>Storage of custom properties so that they will not be a one-off thing</p>
-</li>
-<li>
-<p>Ensure that invalid custom properties do not sneak in into the storage files</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Credits: We will like to thank our friends who gave us the inspiration for this feature.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Major enhancement 2</strong>: Provided a feature that <strong>allows user to remove unwanted custom properties</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: Users can choose to remove a previously defined custom property should they no longer require them.</p>
-</li>
-<li>
-<p>Justification: Similar to undo and redo feature, if the user is able to add in a custom property, they should also be
-able to remove them as well. This ensures that the custom property feature is more complete and once again, provides
-the user with greater flexibility in the way they wish to use the exercise tracker.</p>
-</li>
-<li>
-<p>Highlights: Users can choose to either remove a custom property from a single exercise or remove a custom property
-completely from the app. So, extra considerations have to be taken care of to ensure that the correct result is obtained
-depending on the user&#8217;s input.</p>
+<p>Highlights: This feature complements well with the suggestion feature. By having
+custom properties, users can now produce exercise suggestions based on the custom properties they had created. Furthermore, the implementation of this feature is
+quite challenging as there are a few aspects to take note of: the representation of custom properties in each exercise, the tracking of custom properties that have been created
+and storage of custom properties.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Minor enhancement 1</strong>: Added a <code>viewcustom</code> command that allows user to view the custom properties that they have defined.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Justification: This provides a way for user to check the names and prefixes that have been used for each of the custom
-properties. Furthermore, users can use it to remind themselves what kind of custom properties which they have defined. This
-ensures that the custom property feature is more complete and provides greater utility for the users.</p>
-</li>
-</ul>
-</div>
 </li>
 <li>
 <p><strong>Minor enhancement 2</strong>: Designed the centre panel UI for exercises. This design helps to display both the default and custom
@@ -111,14 +62,6 @@ properties of each exercise to the user.</p>
 <li>
 <p><strong>Minor enhancement 3</strong>: Added a <code>select</code> command that allows user to select a specific exercise/regime/schedule/suggestion
 which they wish to view.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Justification: As our intended target audience are also fast typists, providing them with a keyboard method to select an item which
-they wish to view is very appropriate.</p>
-</li>
-</ul>
-</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=weihaw08&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">Code Contribution</a>]</p>
@@ -177,7 +120,7 @@ they wish to view is very appropriate.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="customproperty"><a class="link" href="#customproperty">Custom properties</a></h3>
+<h3 id="customproperty"><a class="link" href="#customproperty">Custom properties <code>custom</code> / <code>viewcustom</code></a></h3>
 <div class="sect3">
 <h4 id="adding-custom-properties-code-custom-code"><a class="link" href="#adding-custom-properties-code-custom-code">Adding custom properties: <code>custom</code></a></h4>
 <div class="paragraph">
@@ -203,7 +146,13 @@ property to the <code>add</code> and <code>edit</code> command to include inform
 word is capitalised with the other letters in lower case e.g. <code>enD DaTe</code> will be changed to <code>End Date</code>.</p>
 </li>
 <li>
-<p>The date entered for the custom properties must follow the same requirements as that of <code>add</code> command.</p>
+<p>The date entered for custom properties with a <code>DATE</code> parameter must follow the same requirements as that of <a href="#addexercise">add</a> command.</p>
+</li>
+<li>
+<p>The text entered for custom properties with a <code>TEXT</code> parameter can contain only alphabets.</p>
+</li>
+<li>
+<p>The number entered for custom properties with a <code>NUMBER</code> parameter must be non-negative.</p>
 </li>
 <li>
 <p>You need not include the custom properties when adding a new exercise to the app.</p>
@@ -278,61 +227,40 @@ cannot be used.
 <div class="ulist">
 <ul>
 <li>
-<p><code>custom s/a f/Rating p/Number</code></p>
+<p><code>custom s/r f/Rating p/Number</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Creates a <code>Rating</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>a/NUMBER</code> in the relevant command where <code>NUMBER</code> refers to
-a number.</p>
+<p>Creates a <code>Rating</code> property for each of your exercises.</p>
+</div>
+<div class="paragraph">
+<p>Expected Result:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CustomRating.png" alt="CustomRating">
+</div>
+<div class="title">Figure 2. Your rating property has been created</div>
+</div>
+<div class="paragraph">
+<p>You can now add a new exercise with <code>Rating</code>!</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>custom s/b f/rEmaRk p/Text</code></p>
+<p><code>add t/exercise n/Run d/07/11/2019 c/400 q/2.4 u/km r/5</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Creates a <code>Remark</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>b/TEXT</code> in the relevant command where
-<code>TEXT</code> refers to a text sentence.</p>
+<p>Expected Result:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom s/ed f/End Date p/Date</code></p>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddCustomRating.png" alt="AddCustomRating">
 </div>
-<div class="paragraph">
-<p>Creates a <code>End Date</code> property for each exercise.
-Information for this property can be updated for each exercise by using <code>ed/DATE</code> in the relevant command where
-<code>DATE</code> refers to a date.</p>
-</div>
-<div class="paragraph">
-<p>Using <code>Rating</code> as an example, you can now perform the following actions after adding it:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add t/exercise n/Run d/01/10/2019 a/5</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Adds an exercise with the name <code>Run</code>, date <code>01/10/2019</code> and rating <code>5</code> into the app.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit t/exercise i/4 a/3</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Edits the rating of the 4th exercise in the list to <code>3</code>.</p>
+<div class="title">Figure 3. A new exercise with the remark property is added</div>
 </div>
 </div>
 <div class="sect3">
@@ -373,40 +301,35 @@ wish to.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Removes the custom property <code>Rating</code> from all of the exercises and from ExerHealth.</p>
+<p>Before the execution, the <code>Rating</code> property will be present in exercises that have them.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>custom rm/Rating i/1</code></p>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditCustomRating.png" alt="EditCustomRating">
 </div>
-<div class="paragraph">
-<p>Removes the custom property <code>Rating</code> from the 1st exercise in the list.</p>
+<div class="title">Figure 4. A rating of 4.5 for exercise 6</div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditAnotherCustomRating.png" alt="EditAnotherCustomRating">
 </div>
-<div class="sect3">
-<h4 id="viewing-custom-properties-code-viewcustom-code"><a class="link" href="#viewing-custom-properties-code-viewcustom-code">Viewing custom properties: <code>viewcustom</code></a></h4>
-<div class="paragraph">
-<p>Opens up a window for you to view the custom properties you have defined.
-The name, prefix and parameter type of all existing custom properties will be shown.</p>
+<div class="title">Figure 5. A rating of 3.5 for exercise 7</div>
 </div>
 <div class="paragraph">
-<p>Format: <code>viewcustom</code></p>
+<p>After the execution, the <code>Rating</code> property will be removed from all of the exercises and the app
+as illustrated in the next few figures.</p>
 </div>
-<div class="paragraph">
-<p>Example:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RunRatingRemoved.png" alt="RunRatingRemoved">
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>viewcustom</code></p>
-</li>
-</ul>
+<div class="title">Figure 6. Rating in exercise 6 is removed</div>
 </div>
-<div class="paragraph">
-<p>Opens up a window containing information of all existing custom properties.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BenchPressRatingRemoved.png" alt="BenchPressRatingRemoved">
+</div>
+<div class="title">Figure 7. Rating in exercise 7 is also removed</div>
 </div>
 </div>
 </div>
@@ -432,13 +355,7 @@ The name, prefix and parameter type of all existing custom properties will be sh
 <div class="paragraph">
 <p>A quick conversation with a few of our friends revealed that there are many properties which they intend to keep track
 for exercises. However, it is unlikely that we can implement all of these properties for the exercises as there may
-be too much overhead and we can never be certain that we have met all of the users' needs. As such, we decide to allow
-users to define their own properties should they require them. These custom properties can then be applied to all of the
-exercises, providing more flexibility in terms of tracking the exercises' properties.</p>
-</div>
-<div class="paragraph">
-<p>Furthermore, as noted by one of our user stories, there are users that love customisations too. This can also come in handy
-when they want to define their own properties for the exercises.</p>
+be too much overhead and we can never be certain that we have met all of the users' needs.</p>
 </div>
 </div>
 <div class="sect3">
@@ -516,17 +433,13 @@ is also removed from the prefix set in <code>CliSyntax</code>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Method 3 is implemented to ensure that the name of a default property is not removed by mistake if the user chooses to
-remove a predefined custom property.</p>
-</div>
-<div class="paragraph">
-<p>All of the crucial associations mentioned above are summarised in the next class diagram (Figure 16).</p>
+<p>All of the crucial associations mentioned above are summarised in the next class diagram.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/CustomClassDiagram.png" alt="CustomClassDiagram">
 </div>
-<div class="title">Figure 1. Class diagram of the associations of <code>PropertyBook</code> and <code>CustomProperty</code></div>
+<div class="title">Figure 8. Class diagram of the associations of <code>PropertyBook</code> and <code>CustomProperty</code></div>
 </div>
 <div class="sect4">
 <h5 id="adding-custom-properties"><a class="link" href="#adding-custom-properties">Adding Custom Properties</a></h5>
@@ -535,24 +448,44 @@ remove a predefined custom property.</p>
 p/PARAMETER_TYPE</code>. Examples include <code>custom s/r f/Rating p/Number</code> and <code>custom s/ed f/Ending Date p/Date</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 17) will illustrate how the custom operation works when a custom
+<p>The following sequence diagram will illustrate how the custom operation works when a custom
 property is <strong>successfully added</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/EditedCustomSequenceDiagram.png" alt="EditedCustomSequenceDiagram">
+<img src="../images/EditedCustomAddSequenceDiagram.png" alt="EditedCustomAddSequenceDiagram">
 </div>
-<div class="title">Figure 2. Sequence diagram of a successful addition of a custom property</div>
+<div class="title">Figure 9. Sequence diagram of a successful addition of a custom property</div>
 </div>
 <div class="paragraph">
-<p>However, not all additions of a custom property will be successful. The next activity diagram
-(Figure 18) shows the workflow when a new custom property is defined.</p>
+<p>For further clarity, one can identify the above diagram with the following sequence of steps:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> User first defines the custom property they wish to add for the exercises.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> The custom property will be parsed by the app&#8217;s parser and a new <code>CustomProperty</code>
+object is created.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> This <code>CustomProperty</code> object will be returned together with a newly created <code>CustomAddCommand</code> object.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> The <code>execute</code> method of the <code>CustomAddCommand</code> method will be called and the <code>CustomProperty</code> object
+will be added to <code>PropertyBook</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> Finally, a <code>CommandResult</code> object will be created and returned.</p>
+</div>
+<div class="paragraph">
+<p>The above steps illustrate the main success scenario. However, not all additions of a custom property will be successful.
+The next activity diagram shows the workflow when a new custom property is defined.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/CustomAddActivityDiagram.png" alt="CustomAddActivityDiagram">
+<img src="../images/CustomAddActivityDiagram.png" alt="CustomAddActivityDiagram" width="500">
 </div>
-<div class="title">Figure 3. Activity diagram of the workflow when a new custom property is added</div>
+<div class="title">Figure 10. Activity diagram of the workflow when a new custom property is added</div>
 </div>
 <div class="paragraph">
 <p>Once a custom property is successfully added into <code>PropertyBook</code>, the user can use the prefix of the custom property in
@@ -563,39 +496,17 @@ property is <strong>successfully added</strong>.</p>
 <h5 id="removing-custom-properties"><a class="link" href="#removing-custom-properties">Removing Custom Properties</a></h5>
 <div class="paragraph">
 <p>Should a user wish to remove a custom property from all of the exercises, he/she can simply make use of the command
-<code>custom rm/FULL_NAME</code>. Alternatively, if the user wishes to remove a custom property just from a single exercise, he/she
-can choose to enter <code>custom rm/FULL_NAME i/INDEX</code> instead.</p>
+<code>custom rm/FULL_NAME</code>. A custom property that has been removed from the <code>PropertyBook</code> can be re-added back if the user chooses to.
+Alternatively, if the user wishes to remove a custom property just from a single exercise, he/she can choose to enter <code>custom rm/FULL_NAME i/INDEX</code> instead.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 19) illustrates how a custom property is removed from all of the exercises
-when a user wishes to remove, say, the <code>Rating</code> property from the <code>PropertyBook</code>.</p>
+<p>The next sequence diagram illustrates what happens when a custom property is removed from the <code>PropertyBook</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/EditedCustomRemoveSequenceDiagram.png" alt="EditedCustomRemoveSequenceDiagram">
 </div>
-<div class="title">Figure 4. Sequence diagram of a successful removal of a custom property from all exercises</div>
-</div>
-<div class="paragraph">
-<p>Similar to the addition of custom properties, the removal of a custom property involves a sequence of checks to
-ensure that the correct custom property is removed from the correct exercise(s). These checks are summarised in the
-next activity diagram (Figure 20).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/CustomRemoveActivityDiagram.png" alt="CustomRemoveActivityDiagram">
-</div>
-<div class="title">Figure 5. Activity diagram of the workflow when a custom property is to be removed</div>
-</div>
-<div class="paragraph">
-<p>A custom property that has been removed from the <code>PropertyBook</code> can be re-added back if the user chooses to.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="viewing-custom-properties"><a class="link" href="#viewing-custom-properties">Viewing Custom Properties</a></h5>
-<div class="paragraph">
-<p>To allow user to view the custom properties which they have defined, they can enter <code>viewcustom</code> which will produce
-a table that lists out the name, prefix and parameter type of each custom property they have defined.</p>
+<div class="title">Figure 11. Sequence diagram of a successful removal of a custom property from all exercises</div>
 </div>
 </div>
 </div>
@@ -611,9 +522,7 @@ act as the only access point for the addition and removal of custom properties.<
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: This prevents situations where there could be 2 instances of <code>PropertyBook</code> objects and the addition
-of a custom property is only carried out to one instance and not in the other. Furthermore, having a singleton
-like this helps to provide more utility for methods that rely on the <code>CustomProperty</code> objects that have been
+<p>Pros: Having a singleton helps to provide more utility for methods that rely on the <code>CustomProperty</code> objects that have been
 created.</p>
 </li>
 <li>
@@ -641,8 +550,7 @@ custom property is done to only one instance and not in the other.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Choice 2 seems like an ideal selection at the start as coupling is reduced and it reduces the likelihood
-of untestable code. However, certain issues arise:</p>
+<p>After much consideration, Choice 1 was implemented with the following reasons:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -651,24 +559,18 @@ of untestable code. However, certain issues arise:</p>
 for the custom properties in the add/edit commands are valid. However, as the <code>ExerciseBookParser</code> in the original code base only takes in a
 <code>String</code> as a parameter, there has to be another way of retrieving the custom properties. While we can change the
 <code>ExerciseBookParser</code> to take in a data structure containing <code>CustomProperty</code> objects, this does not seem good as its responsibility
-is just to ensure that a predefined command is entered and is passed to the correct command parser.
-Thus, it does not require knowledge of any custom properties. So, a slightly better choice in this case
-is to make the data structure holding the <code>CustomProperty</code> objects a static variable and parsers that require it can access
+is just to ensure that a predefined command is entered and is passed to the correct command parser.A slightly better choice in this case is to make the data structure holding the <code>CustomProperty</code> objects a static variable and parsers that require it can access
 it directly.</p>
 </li>
 <li>
 <p>If the data structure holding the <code>CustomProperty</code> object is to be made static, it means that this information is
-shared among all of the <code>PropertyBook</code> instances if Choice 2 was implemented instead. Thus, <code>PropertyBook</code>
-is acting similarly to a singleton since the information carried by any instance of <code>PropertyBook</code> is the same.</p>
+shared among all of the <code>PropertyBook</code> instances if Choice 2 was implemented. Thus, <code>PropertyBook</code>
+is acting like a singleton and so, a singleton class will be appropriate.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>As such, after much consideration, Choice 1 was implemented. To ensure that testing can be carried out better,
-the data inside <code>PropertyBook</code> is cleared before each test.</p>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 07:14:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 11:33:57 UTC</div></div></div></body></html>

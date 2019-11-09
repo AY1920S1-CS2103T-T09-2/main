@@ -452,7 +452,7 @@ and an error message will be displayed to indicate there is no undoable or redoa
 <code>UndoableCommand</code>, has been executed and subsequently undone.</p>
 </div>
 <div class="paragraph">
-<p>The first diagram (Figure 9) describes the process of storing an <code>EditEvent</code> to <code>EventHistory</code> during the execution of the
+<p>The first diagram describes the process of storing an <code>EditEvent</code> to <code>EventHistory</code> during the execution of the
 <code>EditCommand</code>. The <code>EventPayload</code> is only initialized when the <code>EditCommand</code> is executed. The <code>EventPayload</code> is
 subsequently used for the initialization of the <code>EditEvent</code>.</p>
 </div>
@@ -463,7 +463,7 @@ subsequently used for the initialization of the <code>EditEvent</code>.</p>
 <div class="title">Figure 9. The process of storing an EditEvent to EventHistory</div>
 </div>
 <div class="paragraph">
-<p>The second diagram (Figure 10) describes the process of undoing the executed <code>EditCommand</code>  using the <code>UndoCommand</code>.
+<p>The second diagram here describes the process of undoing the <code>EditCommand</code> executed above using the <code>UndoCommand</code>.
 When the <code>UndoCommand</code> is executed, the <code>EventHistory</code> calls the <code>undo</code> method of the next <code>Event</code> in the undo stack
 (i.e. the <code>EditEvent</code>).</p>
 </div>
@@ -474,7 +474,7 @@ When the <code>UndoCommand</code> is executed, the <code>EventHistory</code> cal
 <div class="title">Figure 10. The process of undoing the EditCommand</div>
 </div>
 <div class="paragraph">
-<p>Given below is a Class Diagram (Figure 11) to show the associations between Event, Command and Model. It is specifically designed
+<p>Given below is a Class Diagram to show the associations between Event, Command and Model. It is specifically designed
 such that only objects that implement the <code>Event</code> and <code>Command</code> interface will need to handle the <code>model</code> class.</p>
 </div>
 <div class="admonitionblock note">
@@ -497,7 +497,7 @@ The only commands that implements the <code>UndoableCommand</code> are <code>Add
 <div class="title">Figure 11. The associations between Event, Command and Model</div>
 </div>
 <div class="paragraph">
-<p>The following Activity Diagram (Figure 12) summarizes what happens when a user enters undoable commands,
+<p>The following Activity Diagram summarizes what happens when a user enters undoable commands,
 the undo command and the redo command.</p>
 </div>
 <div class="imageblock">
@@ -899,13 +899,7 @@ The <code>ResolveWindow</code> will only take one valid <code>resolve</code> com
 <div class="paragraph">
 <p>A quick conversation with a few of our friends revealed that there are many properties which they intend to keep track
 for exercises. However, it is unlikely that we can implement all of these properties for the exercises as there may
-be too much overhead and we can never be certain that we have met all of the users' needs. As such, we decide to allow
-users to define their own properties should they require them. These custom properties can then be applied to all of the
-exercises, providing more flexibility in terms of tracking the exercises' properties.</p>
-</div>
-<div class="paragraph">
-<p>Furthermore, as noted by one of our user stories, there are users that love customisations too. This can also come in handy
-when they want to define their own properties for the exercises.</p>
+be too much overhead and we can never be certain that we have met all of the users' needs.</p>
 </div>
 </div>
 <div class="sect3">
@@ -983,11 +977,7 @@ is also removed from the prefix set in <code>CliSyntax</code>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Method 3 is implemented to ensure that the name of a default property is not removed by mistake if the user chooses to
-remove a predefined custom property.</p>
-</div>
-<div class="paragraph">
-<p>All of the crucial associations mentioned above are summarised in the next class diagram (Figure 16).</p>
+<p>All of the crucial associations mentioned above are summarised in the next class diagram.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1002,22 +992,42 @@ remove a predefined custom property.</p>
 p/PARAMETER_TYPE</code>. Examples include <code>custom s/r f/Rating p/Number</code> and <code>custom s/ed f/Ending Date p/Date</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 17) will illustrate how the custom operation works when a custom
+<p>The following sequence diagram will illustrate how the custom operation works when a custom
 property is <strong>successfully added</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/EditedCustomSequenceDiagram.png" alt="EditedCustomSequenceDiagram">
+<img src="images/EditedCustomAddSequenceDiagram.png" alt="EditedCustomAddSequenceDiagram">
 </div>
 <div class="title">Figure 17. Sequence diagram of a successful addition of a custom property</div>
 </div>
 <div class="paragraph">
-<p>However, not all additions of a custom property will be successful. The next activity diagram
-(Figure 18) shows the workflow when a new custom property is defined.</p>
+<p>For further clarity, one can identify the above diagram with the following sequence of steps:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> User first defines the custom property they wish to add for the exercises.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> The custom property will be parsed by the app&#8217;s parser and a new <code>CustomProperty</code>
+object is created.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> This <code>CustomProperty</code> object will be returned together with a newly created <code>CustomAddCommand</code> object.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> The <code>execute</code> method of the <code>CustomAddCommand</code> method will be called and the <code>CustomProperty</code> object
+will be added to <code>PropertyBook</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> Finally, a <code>CommandResult</code> object will be created and returned.</p>
+</div>
+<div class="paragraph">
+<p>The above steps illustrate the main success scenario. However, not all additions of a custom property will be successful.
+The next activity diagram shows the workflow when a new custom property is defined.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/CustomAddActivityDiagram.png" alt="CustomAddActivityDiagram">
+<img src="images/CustomAddActivityDiagram.png" alt="CustomAddActivityDiagram" width="500">
 </div>
 <div class="title">Figure 18. Activity diagram of the workflow when a new custom property is added</div>
 </div>
@@ -1030,39 +1040,17 @@ property is <strong>successfully added</strong>.</p>
 <h5 id="removing-custom-properties"><a class="link" href="#removing-custom-properties">Removing Custom Properties</a></h5>
 <div class="paragraph">
 <p>Should a user wish to remove a custom property from all of the exercises, he/she can simply make use of the command
-<code>custom rm/FULL_NAME</code>. Alternatively, if the user wishes to remove a custom property just from a single exercise, he/she
-can choose to enter <code>custom rm/FULL_NAME i/INDEX</code> instead.</p>
+<code>custom rm/FULL_NAME</code>. A custom property that has been removed from the <code>PropertyBook</code> can be re-added back if the user chooses to.
+Alternatively, if the user wishes to remove a custom property just from a single exercise, he/she can choose to enter <code>custom rm/FULL_NAME i/INDEX</code> instead.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 19) illustrates how a custom property is removed from all of the exercises
-when a user wishes to remove, say, the <code>Rating</code> property from the <code>PropertyBook</code>.</p>
+<p>The next sequence diagram illustrates what happens when a custom property is removed from the <code>PropertyBook</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/EditedCustomRemoveSequenceDiagram.png" alt="EditedCustomRemoveSequenceDiagram">
 </div>
 <div class="title">Figure 19. Sequence diagram of a successful removal of a custom property from all exercises</div>
-</div>
-<div class="paragraph">
-<p>Similar to the addition of custom properties, the removal of a custom property involves a sequence of checks to
-ensure that the correct custom property is removed from the correct exercise(s). These checks are summarised in the
-next activity diagram (Figure 20).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CustomRemoveActivityDiagram.png" alt="CustomRemoveActivityDiagram">
-</div>
-<div class="title">Figure 20. Activity diagram of the workflow when a custom property is to be removed</div>
-</div>
-<div class="paragraph">
-<p>A custom property that has been removed from the <code>PropertyBook</code> can be re-added back if the user chooses to.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="viewing-custom-properties"><a class="link" href="#viewing-custom-properties">Viewing Custom Properties</a></h5>
-<div class="paragraph">
-<p>To allow user to view the custom properties which they have defined, they can enter <code>viewcustom</code> which will produce
-a table that lists out the name, prefix and parameter type of each custom property they have defined.</p>
 </div>
 </div>
 </div>
@@ -1078,9 +1066,7 @@ act as the only access point for the addition and removal of custom properties.<
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: This prevents situations where there could be 2 instances of <code>PropertyBook</code> objects and the addition
-of a custom property is only carried out to one instance and not in the other. Furthermore, having a singleton
-like this helps to provide more utility for methods that rely on the <code>CustomProperty</code> objects that have been
+<p>Pros: Having a singleton helps to provide more utility for methods that rely on the <code>CustomProperty</code> objects that have been
 created.</p>
 </li>
 <li>
@@ -1108,8 +1094,7 @@ custom property is done to only one instance and not in the other.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Choice 2 seems like an ideal selection at the start as coupling is reduced and it reduces the likelihood
-of untestable code. However, certain issues arise:</p>
+<p>After much consideration, Choice 1 was implemented with the following reasons:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1118,21 +1103,15 @@ of untestable code. However, certain issues arise:</p>
 for the custom properties in the add/edit commands are valid. However, as the <code>ExerciseBookParser</code> in the original code base only takes in a
 <code>String</code> as a parameter, there has to be another way of retrieving the custom properties. While we can change the
 <code>ExerciseBookParser</code> to take in a data structure containing <code>CustomProperty</code> objects, this does not seem good as its responsibility
-is just to ensure that a predefined command is entered and is passed to the correct command parser.
-Thus, it does not require knowledge of any custom properties. So, a slightly better choice in this case
-is to make the data structure holding the <code>CustomProperty</code> objects a static variable and parsers that require it can access
+is just to ensure that a predefined command is entered and is passed to the correct command parser.A slightly better choice in this case is to make the data structure holding the <code>CustomProperty</code> objects a static variable and parsers that require it can access
 it directly.</p>
 </li>
 <li>
 <p>If the data structure holding the <code>CustomProperty</code> object is to be made static, it means that this information is
-shared among all of the <code>PropertyBook</code> instances if Choice 2 was implemented instead. Thus, <code>PropertyBook</code>
-is acting similarly to a singleton since the information carried by any instance of <code>PropertyBook</code> is the same.</p>
+shared among all of the <code>PropertyBook</code> instances if Choice 2 was implemented. Thus, <code>PropertyBook</code>
+is acting like a singleton and so, a singleton class will be appropriate.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>As such, after much consideration, Choice 1 was implemented. To ensure that testing can be carried out better,
-the data inside <code>PropertyBook</code> is cleared before each test.</p>
 </div>
 </div>
 </div>
@@ -1168,13 +1147,13 @@ based on <code>Muscle</code> and <code>CustomProperty</code>.</p>
 The <code>SuggestPossible</code> command is created by parsing the user&#8217;s inputs to form a <code>Predicate</code> before filtering ExerHealth&#8217;s database and the user&#8217;s tracked exercises.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram (Figure 21) summarizes what happens when a user enters a suggest possible command:</p>
+<p>The following activity diagram summarizes what happens when a user enters a suggest possible command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SuggestActivityDiagram.png" alt="SuggestActivityDiagram">
 </div>
-<div class="title">Figure 21. Activity diagram showing the workflow of a suggest possible command</div>
+<div class="title">Figure 20. Activity diagram showing the workflow of a suggest possible command</div>
 </div>
 <div class="paragraph">
 <p>In detail, when a <code>SuggestPossibleCommand</code> is entered, the <code>Logic</code> component is responsible for parsing the inputs into a <code>Predicate</code>.
@@ -1182,13 +1161,13 @@ The <code>Predicate</code> is then used to instantiate a <code>SuggestPossibleCo
 The interactions between the multiple objects can be captured using a sequence diagram.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 22) shows the sequence flow from the when a user enters a valid <code>SuggestPossibleCommand</code>:</p>
+<p>The following sequence diagram shows the sequence flow from the when a user enters a valid <code>SuggestPossibleCommand</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SuggestSequenceDiagram.png" alt="SuggestSequenceDiagram">
 </div>
-<div class="title">Figure 22. Sequence diagram of a suggest possible command</div>
+<div class="title">Figure 21. Sequence diagram of a suggest possible command</div>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram:</p>
@@ -1223,13 +1202,13 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 </ol>
 </div>
 <div class="paragraph">
-<p>In step 3, the process in which the <code>ExercisePredicate</code> object is created can be explored deeper (Figure 23).</p>
+<p>In step 3, the process in which the <code>ExercisePredicate</code> object is created can be explored deeper.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SuggestPredicateSequenceDiagram.png" alt="SuggestPredicateSequenceDiagram">
 </div>
-<div class="title">Figure 23. Sequence diagram of how an <code>ExercisePredicate</code> is created</div>
+<div class="title">Figure 22. Sequence diagram of how an <code>ExercisePredicate</code> is created</div>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram above:</p>
@@ -1256,7 +1235,7 @@ where each contains a <code>Collection</code> of <code>Muscle</code> or <code>Cu
 <div class="content">
 <img src="images/SuggestCommandClassDiagram.png" alt="SuggestCommandClassDiagram">
 </div>
-<div class="title">Figure 24. Class diagram of the classes behind the suggest possible feature</div>
+<div class="title">Figure 23. Class diagram of the classes behind the suggest possible feature</div>
 </div>
 <div class="paragraph">
 <p>Creating classes such as <code>ExerciseCustomPropertyPredicate</code> and <code>ExerciseMusclePredicate</code>
@@ -1336,22 +1315,22 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="paragraph">
 <p>Statistics of exercises will be displayed in charts. Supported chart types are Pie Chart, Line Chart and Bar Chart.
 StatsFactory will create Statistic using given parameters.
-The figure (Figure 24) below shows the class diagram of statistics:</p>
+The figure below shows the class diagram of statistics:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StatisticClassDiagram.png" alt="StatisticClassDiagram">
 </div>
-<div class="title">Figure 25. Class diagram of the classes behind the statistics feature</div>
+<div class="title">Figure 24. Class diagram of the classes behind the statistics feature</div>
 </div>
 <div class="paragraph">
-<p>The next figure (Figure 25) shows the activity diagram when user enter a <code>stats</code> command:</p>
+<p>The next figure shows the activity diagram when user enter a <code>stats</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StatisticActivityDiagram.png" alt="StatisticActivityDiagram">
 </div>
-<div class="title">Figure 26. Workflow when a user enters a <code>stats</code> command</div>
+<div class="title">Figure 25. Workflow when a user enters a <code>stats</code> command</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario of statistics feature.</p>
@@ -1381,13 +1360,13 @@ The figure (Figure 24) below shows the class diagram of statistics:</p>
 <p>Step 8: <code>StatsCommand</code> creates a new <code>CommandResult</code> and return to <code>LogicManager</code>.</p>
 </div>
 <div class="paragraph">
-<p>Shown below is the sequence diagram (Figure 26) when user enters a valid <code>stats</code> command:</p>
+<p>Shown below is the sequence diagram when user enters a valid <code>stats</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StatisticSequenceDiagram.png" alt="StatisticSequenceDiagram">
 </div>
-<div class="title">Figure 27. Sequence diagram of a <code>stats</code> command</div>
+<div class="title">Figure 26. Sequence diagram of a <code>stats</code> command</div>
 </div>
 </div>
 </div>
@@ -2089,6 +2068,10 @@ quantity, units and calories.</p>
 <p>The term that comes before each parameter in the command. For example, the
 prefix in <code>p/Number</code> is <code>p/</code>.</p>
 </dd>
+<dt class="hdlist1"><a id="prefixName"></a> Prefix Name</dt>
+<dd>
+<p>The word that comes before <code>/</code> in the prefix. For example, the prefix name of <code>p/</code> is `p/</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -2197,4 +2180,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 07:14:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 11:33:57 UTC</div></div></div></body></html>
