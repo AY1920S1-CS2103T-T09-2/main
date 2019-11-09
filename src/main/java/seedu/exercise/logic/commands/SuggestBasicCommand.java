@@ -2,13 +2,16 @@ package seedu.exercise.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.exercise.logic.parser.CliSyntax.PREFIX_SUGGEST_TYPE;
-import static seedu.exercise.model.util.DefaultExerciseDatabaseUtil.getBasicExercises;
+import static seedu.exercise.model.util.SampleDataUtil.getBasicExercises;
+
+import java.util.Arrays;
+import java.util.List;
 
 import seedu.exercise.logic.commands.exceptions.CommandException;
 import seedu.exercise.model.Model;
+import seedu.exercise.model.resource.Exercise;
 import seedu.exercise.ui.ListResourceType;
 
-//@@author kwekke
 /**
  * Lists basic exercises in the exercise database to the user.
  */
@@ -24,7 +27,8 @@ public class SuggestBasicCommand extends SuggestCommand {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        model.setSuggestions(getBasicExercises());
+        List<Exercise> basicExercises = Arrays.asList(getBasicExercises());
+        model.setSuggestions(basicExercises);
         return new CommandResult(MESSAGE_SUCCESS, ListResourceType.SUGGESTION);
     }
 

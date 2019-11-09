@@ -8,10 +8,8 @@ import static seedu.exercise.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.exercise.model.resource.ResourceComparator.DEFAULT_EXERCISE_COMPARATOR;
 import static seedu.exercise.model.resource.ResourceComparator.DEFAULT_REGIME_COMPARATOR;
 import static seedu.exercise.model.resource.ResourceComparator.DEFAULT_SCHEDULE_COMPARATOR;
-import static seedu.exercise.model.util.DateChangerUtil.changeAllDate;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +31,6 @@ import seedu.exercise.logic.commands.statistic.StatsFactory;
 import seedu.exercise.logic.parser.ParserUtil;
 import seedu.exercise.logic.parser.exceptions.ParseException;
 import seedu.exercise.model.conflict.Conflict;
-import seedu.exercise.model.property.Date;
 import seedu.exercise.model.property.Name;
 import seedu.exercise.model.resource.Exercise;
 import seedu.exercise.model.resource.Regime;
@@ -365,16 +362,8 @@ public class ModelManager implements Model {
     @Override
     public void updateSuggestedExerciseList(Predicate<Exercise> predicate) {
         requireNonNull(predicate);
-        List<Exercise> allSuggestions = generateAllSuggestions(predicate);
-        List<Exercise> suggestionsTodayDate = updateSuggestionsDate(allSuggestions);
-        setSuggestions(suggestionsTodayDate);
-    }
-
-    /**
-     * Returns a list of {@code exercises} with dates updated to today.
-     */
-    private List<Exercise> updateSuggestionsDate(List<Exercise> suggestions) {
-        return new ArrayList<>(changeAllDate(suggestions, Date.getToday()));
+        List<Exercise> filteredSuggestions = generateAllSuggestions(predicate);
+        setSuggestions(filteredSuggestions);
     }
 
     /**

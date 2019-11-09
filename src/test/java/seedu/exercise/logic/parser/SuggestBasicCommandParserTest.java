@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.exercise.logic.commands.SuggestBasicCommand;
 
-//@@author kwekke
 
 public class SuggestBasicCommandParserTest {
     private SuggestCommandParser parser = new SuggestCommandParser();

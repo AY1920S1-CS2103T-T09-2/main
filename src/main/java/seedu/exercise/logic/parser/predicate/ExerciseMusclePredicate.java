@@ -1,13 +1,10 @@
 package seedu.exercise.logic.parser.predicate;
 
-import static java.util.Objects.requireNonNull;
-
 import java.util.Set;
 
 import seedu.exercise.model.property.Muscle;
 import seedu.exercise.model.resource.Exercise;
 
-//@@author kwekke
 /**
  * Tests whether an {@code Exercise} matches the {@code predicate}
  */
@@ -17,7 +14,6 @@ public class ExerciseMusclePredicate implements BasePropertyPredicate {
     private final boolean isStrict;
 
     public ExerciseMusclePredicate(Set<Muscle> muscles, boolean isStrict) {
-        requireNonNull(muscles);
         this.muscles = muscles;
         this.isStrict = isStrict;
     }

@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.exercise.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.exercise.model.resource.ResourceComparator.DEFAULT_REGIME_COMPARATOR;
 import static seedu.exercise.model.resource.ResourceComparator.DEFAULT_SCHEDULE_COMPARATOR;
-import static seedu.exercise.model.util.DefaultExerciseDatabaseUtil.getBasicExercises;
+import static seedu.exercise.model.util.SampleDataUtil.getBasicExercises;
 import static seedu.exercise.testutil.typicalutil.TypicalExercises.getTypicalExerciseBook;
+
+import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,8 +18,6 @@ import seedu.exercise.model.ModelManager;
 import seedu.exercise.model.ReadOnlyResourceBook;
 import seedu.exercise.model.UserPrefs;
 import seedu.exercise.ui.ListResourceType;
-
-//@@author kwekke
 
 public class SuggestBasicCommandTest {
 
@@ -34,7 +34,7 @@ public class SuggestBasicCommandTest {
                 new ReadOnlyResourceBook<>(DEFAULT_REGIME_COMPARATOR),
                 getTypicalExerciseBook(), new ReadOnlyResourceBook<>(DEFAULT_SCHEDULE_COMPARATOR),
                 new UserPrefs());
-        expectedModel.setSuggestions(getBasicExercises());
+        expectedModel.setSuggestions(Arrays.asList(getBasicExercises()));
     }
 
     @Test
