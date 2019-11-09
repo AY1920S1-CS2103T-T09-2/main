@@ -1423,7 +1423,7 @@ You can only enter <code>n/scheduled</code> or <code>n/conflicting</code> to tel
 <div class="sect2">
 <h3 id="suggestion"><a class="link" href="#suggestion">4.13. Suggesting ideas: <code>suggest</code></a></h3>
 <div class="sect3">
-<h4 id="suggest-basic-exercises"><a class="link" href="#suggest-basic-exercises">4.13.1. Suggest basic exercises</a></h4>
+<h4 id="suggests-basic-exercises"><a class="link" href="#suggests-basic-exercises">4.13.1. Suggests basic exercises</a></h4>
 <div class="paragraph">
 <p>Recommends exercises from ExerHealth&#8217;s inbuilt database for beginners.</p>
 </div>
@@ -1432,7 +1432,7 @@ You can only enter <code>n/scheduled</code> or <code>n/conflicting</code> to tel
 </div>
 </div>
 <div class="sect3">
-<h4 id="suggest-possible-exercises"><a class="link" href="#suggest-possible-exercises">4.13.2. Suggest possible exercises</a></h4>
+<h4 id="suggests-possible-exercises"><a class="link" href="#suggests-possible-exercises">4.13.2. Suggests possible exercises</a></h4>
 <div class="paragraph">
 <p>Suggests exercises matching specified tags.</p>
 </div>
@@ -1446,7 +1446,7 @@ You can only enter <code>n/scheduled</code> or <code>n/conflicting</code> to tel
 <div class="ulist">
 <ul>
 <li>
-<p>You must choose one of the following operation type: <code>and</code> / <code>or</code> i.e. commands such as <code>suggest s/possible m/Chest m/Legs</code> will fail whereas <code>suggest s/possible o/or m/Chest m/Legs</code> will succeed.</p>
+<p>You must choose one of the following operation types: <code>and</code> / <code>or</code> i.e. commands such as <code>suggest s/possible m/Chest m/Legs</code> will fail whereas <code>suggest s/possible o/or m/Chest m/Legs</code> will succeed.</p>
 </li>
 <li>
 <p>You have to enter at least one property (muscle/custom property) to search for suggestions i.e. commands such as
@@ -1457,7 +1457,7 @@ whereas <code>suggest s/possible o/or m/Chest</code> will succeed.</p>
 <p>The operation type is optional if there is only one tag provided i.e. commands such as
 <code>suggest s/possible o/and m/Chest</code>, <code>suggest s/possible o/or m/Chest</code> and <code>suggest s/possible m/Chest</code>
 will all achieve the same outcome -
-display all the exercises tagged with "Chest" in the exercise tracker and ExerHealth&#8217;s database.</p>
+display all the exercises tagged with <code>Chest</code> in the exercise tracker and ExerHealth&#8217;s database.</p>
 </li>
 </ul>
 </div>
@@ -1483,7 +1483,7 @@ Suppose you have created a new custom property and have been tracking a few exer
 <p><code>custom s/r f/Rating p/Number</code></p>
 </li>
 <li>
-<p><code>add t/exercise n/Run d/02/11/2019 c/200 q/10 u/km m/Legs r/8</code></p>
+<p><code>add t/exercise n/Run d/03/11/2019 c/200 q/10 u/km m/Legs r/8</code></p>
 </li>
 <li>
 <p><code>add t/exercise n/Bench Press d/05/11/2019 c/150 q/40 u/kg m/Chest r/8</code></p>
@@ -1491,7 +1491,7 @@ Suppose you have created a new custom property and have been tracking a few exer
 </ol>
 </div>
 <div class="paragraph">
-<p>Then, the following input will display a list of exercises which are tagged with "Chest" and have a rating of 8.</p>
+<p>Then, the following input will display a list of exercises which are tagged with <code>Chest</code> and have a rating of <code>8</code>.</p>
 </div>
 <div class="paragraph">
 <p><code>suggest s/possible o/and m/Chest r/8</code></p>
@@ -1499,6 +1499,7 @@ Suppose you have created a new custom property and have been tracking a few exer
 <div class="paragraph">
 <p>Thus the command will display only the exercise named "Bench Press".</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Expected Result:</p>
 </div>
@@ -1509,13 +1510,7 @@ Suppose you have created a new custom property and have been tracking a few exer
 <div class="title">Figure 55. Exercises with a <code>Chest</code> tag and a rating of <code>8</code> are shown.</div>
 </div>
 <div class="paragraph">
-<p>The input, <code>suggest s/possible o/or m/Chest r/8</code>, however, will display a list of exercises with "Chest" <strong>or</strong> have a rating of 8.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/suggestPossibleBefore2.png" alt="suggestPossibleBefore2">
-</div>
-<div class="title">Figure 56. Before entering the new suggest command</div>
+<p>The input, <code>suggest s/possible o/or m/Chest r/8</code>, however, will display a list of exercises tagged with <code>Chest</code> <strong>or</strong> have a rating of <code>8</code>.</p>
 </div>
 <div class="paragraph">
 <p>Expected Result:</p>
@@ -1524,25 +1519,25 @@ Suppose you have created a new custom property and have been tracking a few exer
 <div class="content">
 <img src="images/suggestPossibleAfter2.png" alt="suggestPossibleAfter2">
 </div>
-<div class="title">Figure 57. Exercises with a <code>Chest</code> tag and exercises with a rating of <code>8</code> are shown.</div>
+<div class="title">Figure 56. Exercises with a <code>Chest</code> tag and exercises with a rating of <code>8</code> are shown.</div>
 </div>
 <div class="paragraph">
-<p>As seen on the image above, the two previously added exercises named "Bench Press" and "Run" are displayed because they each have a rating of 8.
-In addition to the tracked exercises, ExerHealth will also display suggestions in its database. Hence the exercise named "Push Ups" is displayed
-as it has a "Chest" muscle tag.</p>
+<p>As shown above, the two previously added exercises, "Bench Press and "Run", are displayed because they each have a rating of <code>8</code>.
+In addition to the tracked exercises, ExerHealth also displays suggestions in its database. Hence it will display the exercise named "Push Ups" as it has a <code>Chest</code> tag.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="duplicates"><a class="link" href="#duplicates">Duplicates</a></h5>
 <div class="paragraph">
-<p>Sometimes, you may track exercises of the same name. Instead of displaying all suggestions of the same name, this function
-display the information of the most recently tracked exercise of that name.</p>
+<p>Sometimes, you may want to track exercises of the same name. Instead of displaying all suggestions of the same name, <code>suggest</code>
+displays the information of the most recently tracked exercise of that name.
+As can be seen below, there are two exercises named "Bench Press".</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/suggestPossibleBefore3.png" alt="suggestPossibleBefore3">
 </div>
-<div class="title">Figure 58. Before entering the new suggest command</div>
+<div class="title">Figure 57. Before entering the new suggest command</div>
 </div>
 <div class="paragraph">
 <p>Expected Result:</p>
@@ -1551,24 +1546,10 @@ display the information of the most recently tracked exercise of that name.</p>
 <div class="content">
 <img src="images/suggestPossibleAfter3.png" alt="suggestPossibleAfter3">
 </div>
-<div class="title">Figure 59. Only the latest <code>Bench Press</code> exercise is displayed</div>
+<div class="title">Figure 58. Only the latest <code>Bench Press</code> exercise is displayed</div>
 </div>
 <div class="paragraph">
-<p>As seen on the image above, the tracked exercise named "Bench Press" on "06/11/2019" is displayed instead of the one on "05/11/2019".</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Notes:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Suggestions from the database have dates displayed refer to the last time ExerHealth&#8217;s database was updated.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>As seen from the image above, the information from the "Bench Press" on "06/11/2019" is displayed instead of the one on "05/11/2019" (observe that the calories are different).</p>
 </div>
 </div>
 </div>
@@ -1695,7 +1676,7 @@ cannot be used.
 <div class="content">
 <img src="images/CustomRating.png" alt="CustomRating">
 </div>
-<div class="title">Figure 60. Your rating property has been created</div>
+<div class="title">Figure 59. Your rating property has been created</div>
 </div>
 <div class="paragraph">
 <p>You can now add a new exercise with <code>Rating</code>!</p>
@@ -1714,7 +1695,7 @@ cannot be used.
 <div class="content">
 <img src="images/AddCustomRating.png" alt="AddCustomRating">
 </div>
-<div class="title">Figure 61. A new exercise with the remark property is added</div>
+<div class="title">Figure 60. A new exercise with the remark property is added</div>
 </div>
 </div>
 <div class="sect3">
@@ -1761,13 +1742,13 @@ wish to.</p>
 <div class="content">
 <img src="images/EditCustomRating.png" alt="EditCustomRating">
 </div>
-<div class="title">Figure 62. A rating of 4.5 for exercise 6</div>
+<div class="title">Figure 61. A rating of 4.5 for exercise 6</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/EditAnotherCustomRating.png" alt="EditAnotherCustomRating">
 </div>
-<div class="title">Figure 63. A rating of 3.5 for exercise 7</div>
+<div class="title">Figure 62. A rating of 3.5 for exercise 7</div>
 </div>
 <div class="paragraph">
 <p>After the execution, the <code>Rating</code> property will be removed from all of the exercises and the app
@@ -1777,13 +1758,13 @@ as illustrated in the next few figures.</p>
 <div class="content">
 <img src="images/RunRatingRemoved.png" alt="RunRatingRemoved">
 </div>
-<div class="title">Figure 64. Rating in exercise 6 is removed</div>
+<div class="title">Figure 63. Rating in exercise 6 is removed</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/BenchPressRatingRemoved.png" alt="BenchPressRatingRemoved">
 </div>
-<div class="title">Figure 65. Rating in exercise 7 is also removed</div>
+<div class="title">Figure 64. Rating in exercise 7 is also removed</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1799,13 +1780,13 @@ as illustrated in the next few figures.</p>
 <div class="content">
 <img src="images/EditCustomRating.png" alt="EditCustomRating">
 </div>
-<div class="title">Figure 66. A rating of 4.5 to exercise 6</div>
+<div class="title">Figure 65. A rating of 4.5 to exercise 6</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/EditAnotherCustomRating.png" alt="EditAnotherCustomRating">
 </div>
-<div class="title">Figure 67. A rating of 3.5 to exercise 7</div>
+<div class="title">Figure 66. A rating of 3.5 to exercise 7</div>
 </div>
 <div class="paragraph">
 <p>After the execution, only exercise 6 has its rating property removed.</p>
@@ -1814,13 +1795,13 @@ as illustrated in the next few figures.</p>
 <div class="content">
 <img src="images/RatingRemovedForSix.png" alt="RatingRemovedForSix">
 </div>
-<div class="title">Figure 68. The rating for exercise 6 is removed</div>
+<div class="title">Figure 67. The rating for exercise 6 is removed</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/RatingRemainedForSeven.png" alt="RatingRemainedForSeven">
 </div>
-<div class="title">Figure 69. The rating for exercise 7 remains</div>
+<div class="title">Figure 68. The rating for exercise 7 remains</div>
 </div>
 </div>
 <div class="sect3">
@@ -1849,7 +1830,7 @@ The name, prefix and parameter type of all existing custom properties will be sh
 <div class="content">
 <img src="images/ViewCustom.png" alt="ViewCustom">
 </div>
-<div class="title">Figure 70. A window showing the custom properties you have defined is opened</div>
+<div class="title">Figure 69. A window showing the custom properties you have defined is opened</div>
 </div>
 </div>
 </div>
@@ -1913,7 +1894,7 @@ There is no need to save manually.</p>
 <div class="content">
 <img src="images/NullMessage.png" alt="NullMessage" width="400">
 </div>
-<div class="title">Figure 71. A null message appeared</div>
+<div class="title">Figure 70. A null message appeared</div>
 </div>
 <div class="paragraph">
 <p><strong>A</strong>: Fear not! Simply restart the app and the <code>null</code> message will go away.</p>
@@ -1928,7 +1909,7 @@ The same thing can also be done for custom properties!</p>
 <div class="content">
 <img src="images/LongNamesTooltip.png" alt="LongNamesTooltip" width="400">
 </div>
-<div class="title">Figure 72. The friendly tooltip displaying the name of an exercise</div>
+<div class="title">Figure 71. The friendly tooltip displaying the name of an exercise</div>
 </div>
 </div>
 </div>
@@ -2025,4 +2006,4 @@ e.g. <code>custom s/End Date i/1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 15:07:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 18:18:04 UTC</div></div></div></body></html>

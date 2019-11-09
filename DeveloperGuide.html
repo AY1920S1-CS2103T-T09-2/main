@@ -1121,14 +1121,14 @@ is acting like a singleton and so, a singleton class will be appropriate.</p>
 <div class="sect3">
 <h4 id="rationale-3"><a class="link" href="#rationale-3">3.4.1. Rationale</a></h4>
 <div class="paragraph">
-<p>Beginners now have a plethora of choices and may be overwhelmed when deciding on what exercises to do.
+<p>Beginners now have a plethora of choices, which may overwhelm them when they are deciding on what exercises to do.
 Thus, we decided to provide users with sample exercise routines to reduce the inertia of starting this lifestyle change.
-On other hand, regular gym goers may face a repetitive and mundane exercise routine or may want to experiment with different exercises.
-As such, put it briefly, we decided to give users the ability to discover exercises based on the characteristics they are interested in.</p>
+On the other hand, regular gym goers may face a repetitive and mundane exercise routine or may want to experiment with different exercises.
+As such, to put it briefly, we decided to give users the ability to discover exercises based on the characteristics they are interested in.</p>
 </div>
 <div class="paragraph">
 <p>This feature presents a cohesive function that all users can benefit from.
-This also makes our application well-rounded so that users can better achieve their fitness goals.</p>
+It also makes our application well-rounded so that users can better achieve their fitness goals.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1146,28 +1146,30 @@ based on <code>Muscle</code> and <code>CustomProperty</code>.</p>
 <p>The <code>SuggestBasic</code> command displays a list of exercises from our database to the user.
 The <code>SuggestPossible</code> command is created by parsing the user&#8217;s inputs to form a <code>Predicate</code> before filtering ExerHealth&#8217;s database and the user&#8217;s tracked exercises.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user enters a suggest possible command:</p>
+<p>The following activity diagram summarizes what happens when a user enters a <code>SuggestPossible</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SuggestActivityDiagram.png" alt="SuggestActivityDiagram">
 </div>
-<div class="title">Figure 20. Activity diagram showing the workflow of a suggest possible command</div>
+<div class="title">Figure 20. Activity diagram showing the workflow of a <code>SuggestPossible</code> command</div>
 </div>
 <div class="paragraph">
-<p>In detail, when a <code>SuggestPossibleCommand</code> is entered, the <code>Logic</code> component is responsible for parsing the inputs into a <code>Predicate</code>.
-The <code>Predicate</code> is then used to instantiate a <code>SuggestPossibleCommand</code>, and later used to filter a list of <code>Exercise</code> when the command is executed.
+<p>In detail, when a <code>SuggestPossible</code> command is entered, the <code>Logic</code> component is responsible for parsing the inputs into a <code>Predicate</code>.
+The <code>Predicate</code> is then used to instantiate a <code>SuggestPossible</code> command, and later used to filter a list of <code>Exercise</code> when the command is executed.
 The interactions between the multiple objects can be captured using a sequence diagram.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
-<p>The following sequence diagram shows the sequence flow from the when a user enters a valid <code>SuggestPossibleCommand</code>:</p>
+<p>The following sequence diagram shows the sequence flow when a user enters a valid <code>SuggestPossible</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SuggestSequenceDiagram.png" alt="SuggestSequenceDiagram">
 </div>
-<div class="title">Figure 21. Sequence diagram of a suggest possible command</div>
+<div class="title">Figure 21. Sequence diagram of a <code>SuggestPossibleCommand</code>.</div>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram:</p>
@@ -1175,7 +1177,7 @@ The interactions between the multiple objects can be captured using a sequence d
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>When the <code>LogicManager</code> receive the <code>execute</code> command, it calls the <code>parseCommand</code> method of <code>ExerciseBookParser</code>.</p>
+<p>When the <code>LogicManager</code> receives the <code>execute</code> command, it calls the <code>parseCommand</code> method of <code>ExerciseBookParser</code>.</p>
 </li>
 <li>
 <p><code>ExerciseBookParser</code> will receive <code>suggest</code> as the command type and instantiate <code>SuggestCommandParser</code> to further parse the command.</p>
@@ -1188,10 +1190,10 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 <p><code>SuggestCommandParser</code> will instantiate <code>SuggestPossibleCommand</code> with the <code>ExercisePredicate</code> as the constructor parameter.</p>
 </li>
 <li>
-<p>The <code>SuggestPossibleCommand</code> object is then returned to <code>SuggestCommandParser</code>, <code>ExerciseBookParser</code> and lastly back to <code>LogicManager</code> to execute.</p>
+<p>The <code>SuggestPossibleCommand</code> object is then returned to <code>SuggestCommandParser</code>, followed by <code>ExerciseBookParser</code>, and lastly back to <code>LogicManager</code> to execute.</p>
 </li>
 <li>
-<p><code>LogicManager</code> will proceed to call execute <code>SuggestPossibleCommand</code>.</p>
+<p><code>LogicManager</code> will proceed to <code>execute</code> <code>SuggestPossibleCommand</code>.</p>
 </li>
 <li>
 <p><code>SuggestPossibleCommand</code> then calls the <code>updateSuggestedExerciseList</code> method in <code>ModelManager</code>, passing in the predicate to filter the list of suggest exercises.</p>
@@ -1201,6 +1203,7 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 </li>
 </ol>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>In step 3, the process in which the <code>ExercisePredicate</code> object is created can be explored deeper.</p>
 </div>
@@ -1222,7 +1225,7 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 <p>Since there were no CustomProperty tags to filter, <code>ParserUtil</code> creates <code>ExercisePredicate</code> with only the <code>musclesPredicate</code> and the boolean <code>isStrict</code>.</p>
 </li>
 <li>
-<p>The resulting <code>ExercisePredicate</code> is then returned to <code>ParserUtil</code> and then <code>SuggestCommandParser</code>.</p>
+<p>The resulting <code>ExercisePredicate</code> is then returned to <code>ParserUtil</code>, followed by <code>SuggestCommandParser</code>.</p>
 </li>
 </ol>
 </div>
@@ -1239,8 +1242,9 @@ where each contains a <code>Collection</code> of <code>Muscle</code> or <code>Cu
 </div>
 <div class="paragraph">
 <p>Creating classes such as <code>ExerciseCustomPropertyPredicate</code> and <code>ExerciseMusclePredicate</code>
-allow us to conduct better testing because we can compare the <code>Collection</code> of <code>Muscle</code>/<code>CustomProperty</code> being considered.</p>
+allows us to conduct better testing because we can compare the <code>Collection</code> of <code>Muscle</code>/<code>CustomProperty</code> that is being considered.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.4. Design Considerations</a></h4>
@@ -1268,7 +1272,7 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="ulist">
 <ul>
 <li>
-<p>Violation of SRP as <code>SuggestPossibleCommand</code>, in addition to updating the model, has to create the predicate.</p>
+<p>Violation of Single Responsibility Principle (SRP) as <code>SuggestPossibleCommand</code> updates the model and creates the predicate.</p>
 </li>
 </ul>
 </div>
@@ -1285,7 +1289,7 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="ulist">
 <ul>
 <li>
-<p>Adheres to Single Responsibility Principle (SRP) and Separation of Concern (SoC).</p>
+<p>Adheres to SRP and Separation of Concern (SoC).</p>
 </li>
 </ul>
 </div>
@@ -1295,7 +1299,7 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="ulist">
 <ul>
 <li>
-<p>Increases the complexity of the code as more classes are needed, also increasing the lines of code written.</p>
+<p>Increases the complexity of the code as more classes are needed, and also increases the lines of code written.</p>
 </li>
 </ul>
 </div>
@@ -2180,4 +2184,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 15:07:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 18:18:04 UTC</div></div></div></body></html>

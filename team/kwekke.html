@@ -10,9 +10,9 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My team of 4 computer science students were tasked with changing a basic command line application. Our team
+<p>My team of 5 computer science students were tasked with changing a basic command line application. Our team
 decided to morph the application into ExerHealth. <strong>ExerHealth</strong> is a desktop application used for tracking
-and scheduling the user&#8217;s exercises. The application has statistical analysis of exercises users have completed
+and scheduling the user&#8217;s exercises. The application contains statistical analysis of exercises that users have completed
 in the past. Additionally, it also acts as a personal trainer by suggesting different exercises which both
 beginners and advanced users can choose from to incorporate into their exercise regimes.
 The user interacts with it using a command line interface, and it has a GUI created with JavaFX.</p>
@@ -20,9 +20,12 @@ The user interacts with it using a command line interface, and it has a GUI crea
 <div class="paragraph">
 <p>Below is a screenshot of what our desktop application looks like:</p>
 </div>
-<div class="paragraph">
-<p><strong>//TODO: Add image of UI</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui">
 </div>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -38,22 +41,22 @@ The user interacts with it using a command line interface, and it has a GUI crea
 <p>What it does: The command <code>suggest</code> allows the user to search for suggestions.</p>
 </li>
 <li>
-<p>Justification: This feature enables new users to have a starting point in their exercise regime.
-This feature also offers experienced users suggestions based on the type of exercises the user wants to do.</p>
+<p>Justification: This feature gives new users a starting point in their exercise regime.
+This feature also offers experienced users suggestions based on the type of exercises the user wishes to do.</p>
 </li>
 <li>
-<p>Highlights: This enhancement works well with existing features, such as Custom Properties, and can be expanded on.
-It required an in-depth analysis of design alternatives to ensure that future extensions or further enhancements can be smooth.
-The implementation too was challenging as it required multiple new predicate and utility classes.</p>
+<p>Highlights: This enhancement works well with existing features, such as Custom Properties, and can be expanded upon.
+It requires an in-depth analysis of design alternatives to ensure that future extensions or further enhancements can be smooth.
+The implementation was also challenging as it required multiple new predicate and utility classes.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement 1</strong>: Added the display panel on the left hand side of the UI to show the respective information after a command is executed.</p>
+<p><strong>Minor enhancement 1</strong>: Added the display panel on the left hand side of the UI to show the respective information after a command is executed (Pull request <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/121/files">#121</a>).</p>
 </li>
 <li>
-<p><strong>Minor enhancement 2</strong>: Allowed the command box to be automatically focused on upon opening the application so that user does not need to click on the box to start typing.</p>
+<p><strong>Minor enhancement 2</strong>: Allowed the command box to be automatically focused on upon opening the application so that user does not need to click on the box to start typing (Pull request <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/128">#128</a>).</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=kwekke&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">RepoSense</a></p>
@@ -80,7 +83,7 @@ The implementation too was challenging as it required multiple new predicate and
 <div class="ulist">
 <ul>
 <li>
-<p>Refactored the GUI (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/121">#121</a></p>
+<p>Refactored the GUI (Pull request <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/121">#121</a>)</p>
 </li>
 </ul>
 </div>
@@ -90,7 +93,7 @@ The implementation too was challenging as it required multiple new predicate and
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments):  <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/114">#114</a></p>
+<p>PRs reviewed (with non-trivial review comments):  <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/114">#114</a>, <a href="https://github.com/AY1920S1-CS2103T-T09-2/main/pull/81">#81</a></p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other projects (<a href="https://github.com/AY1920S1-CS2103T-F12-1/main/issues/199">#199</a>, <a href="https://github.com/AY1920S1-CS2103T-F12-1/main/issues/198">#198</a>,
@@ -122,7 +125,7 @@ The implementation too was challenging as it required multiple new predicate and
 <div class="sect2">
 <h3 id="suggestion"><a class="link" href="#suggestion">Suggesting ideas: <code>suggest</code></a></h3>
 <div class="sect3">
-<h4 id="suggest-basic-exercises"><a class="link" href="#suggest-basic-exercises">Suggest basic exercises</a></h4>
+<h4 id="suggests-basic-exercises"><a class="link" href="#suggests-basic-exercises">Suggests basic exercises</a></h4>
 <div class="paragraph">
 <p>Recommends exercises from ExerHealth&#8217;s inbuilt database for beginners.</p>
 </div>
@@ -131,7 +134,7 @@ The implementation too was challenging as it required multiple new predicate and
 </div>
 </div>
 <div class="sect3">
-<h4 id="suggest-possible-exercises"><a class="link" href="#suggest-possible-exercises">Suggest possible exercises</a></h4>
+<h4 id="suggests-possible-exercises"><a class="link" href="#suggests-possible-exercises">Suggests possible exercises</a></h4>
 <div class="paragraph">
 <p>Suggests exercises matching specified tags.</p>
 </div>
@@ -145,7 +148,7 @@ The implementation too was challenging as it required multiple new predicate and
 <div class="ulist">
 <ul>
 <li>
-<p>You must choose one of the following operation type: <code>and</code> / <code>or</code> i.e. commands such as <code>suggest s/possible m/Chest m/Legs</code> will fail whereas <code>suggest s/possible o/or m/Chest m/Legs</code> will succeed.</p>
+<p>You must choose one of the following operation types: <code>and</code> / <code>or</code> i.e. commands such as <code>suggest s/possible m/Chest m/Legs</code> will fail whereas <code>suggest s/possible o/or m/Chest m/Legs</code> will succeed.</p>
 </li>
 <li>
 <p>You have to enter at least one property (muscle/custom property) to search for suggestions i.e. commands such as
@@ -156,7 +159,7 @@ whereas <code>suggest s/possible o/or m/Chest</code> will succeed.</p>
 <p>The operation type is optional if there is only one tag provided i.e. commands such as
 <code>suggest s/possible o/and m/Chest</code>, <code>suggest s/possible o/or m/Chest</code> and <code>suggest s/possible m/Chest</code>
 will all achieve the same outcome -
-display all the exercises tagged with "Chest" in the exercise tracker and ExerHealth&#8217;s database.</p>
+display all the exercises tagged with <code>Chest</code> in the exercise tracker and ExerHealth&#8217;s database.</p>
 </li>
 </ul>
 </div>
@@ -182,7 +185,7 @@ Suppose you have created a new custom property and have been tracking a few exer
 <p><code>custom s/r f/Rating p/Number</code></p>
 </li>
 <li>
-<p><code>add t/exercise n/Run d/02/11/2019 c/200 q/10 u/km m/Legs r/8</code></p>
+<p><code>add t/exercise n/Run d/03/11/2019 c/200 q/10 u/km m/Legs r/8</code></p>
 </li>
 <li>
 <p><code>add t/exercise n/Bench Press d/05/11/2019 c/150 q/40 u/kg m/Chest r/8</code></p>
@@ -190,7 +193,7 @@ Suppose you have created a new custom property and have been tracking a few exer
 </ol>
 </div>
 <div class="paragraph">
-<p>Then, the following input will display a list of exercises which are tagged with "Chest" and have a rating of 8.</p>
+<p>Then, the following input will display a list of exercises which are tagged with <code>Chest</code> and have a rating of <code>8</code>.</p>
 </div>
 <div class="paragraph">
 <p><code>suggest s/possible o/and m/Chest r/8</code></p>
@@ -198,6 +201,7 @@ Suppose you have created a new custom property and have been tracking a few exer
 <div class="paragraph">
 <p>Thus the command will display only the exercise named "Bench Press".</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Expected Result:</p>
 </div>
@@ -208,13 +212,7 @@ Suppose you have created a new custom property and have been tracking a few exer
 <div class="title">Figure 1. Exercises with a <code>Chest</code> tag and a rating of <code>8</code> are shown.</div>
 </div>
 <div class="paragraph">
-<p>The input, <code>suggest s/possible o/or m/Chest r/8</code>, however, will display a list of exercises with "Chest" <strong>or</strong> have a rating of 8.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/suggestPossibleBefore2.png" alt="suggestPossibleBefore2">
-</div>
-<div class="title">Figure 2. Before entering the new suggest command</div>
+<p>The input, <code>suggest s/possible o/or m/Chest r/8</code>, however, will display a list of exercises tagged with <code>Chest</code> <strong>or</strong> have a rating of <code>8</code>.</p>
 </div>
 <div class="paragraph">
 <p>Expected Result:</p>
@@ -223,25 +221,25 @@ Suppose you have created a new custom property and have been tracking a few exer
 <div class="content">
 <img src="../images/suggestPossibleAfter2.png" alt="suggestPossibleAfter2">
 </div>
-<div class="title">Figure 3. Exercises with a <code>Chest</code> tag and exercises with a rating of <code>8</code> are shown.</div>
+<div class="title">Figure 2. Exercises with a <code>Chest</code> tag and exercises with a rating of <code>8</code> are shown.</div>
 </div>
 <div class="paragraph">
-<p>As seen on the image above, the two previously added exercises named "Bench Press" and "Run" are displayed because they each have a rating of 8.
-In addition to the tracked exercises, ExerHealth will also display suggestions in its database. Hence the exercise named "Push Ups" is displayed
-as it has a "Chest" muscle tag.</p>
+<p>As shown above, the two previously added exercises, "Bench Press and "Run", are displayed because they each have a rating of <code>8</code>.
+In addition to the tracked exercises, ExerHealth also displays suggestions in its database. Hence it will display the exercise named "Push Ups" as it has a <code>Chest</code> tag.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="duplicates"><a class="link" href="#duplicates">Duplicates</a></h5>
 <div class="paragraph">
-<p>Sometimes, you may track exercises of the same name. Instead of displaying all suggestions of the same name, this function
-display the information of the most recently tracked exercise of that name.</p>
+<p>Sometimes, you may want to track exercises of the same name. Instead of displaying all suggestions of the same name, <code>suggest</code>
+displays the information of the most recently tracked exercise of that name.
+As can be seen below, there are two exercises named "Bench Press".</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/suggestPossibleBefore3.png" alt="suggestPossibleBefore3">
 </div>
-<div class="title">Figure 4. Before entering the new suggest command</div>
+<div class="title">Figure 3. Before entering the new suggest command</div>
 </div>
 <div class="paragraph">
 <p>Expected Result:</p>
@@ -250,24 +248,10 @@ display the information of the most recently tracked exercise of that name.</p>
 <div class="content">
 <img src="../images/suggestPossibleAfter3.png" alt="suggestPossibleAfter3">
 </div>
-<div class="title">Figure 5. Only the latest <code>Bench Press</code> exercise is displayed</div>
+<div class="title">Figure 4. Only the latest <code>Bench Press</code> exercise is displayed</div>
 </div>
 <div class="paragraph">
-<p>As seen on the image above, the tracked exercise named "Bench Press" on "06/11/2019" is displayed instead of the one on "05/11/2019".</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Notes:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Suggestions from the database have dates displayed refer to the last time ExerHealth&#8217;s database was updated.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>As seen from the image above, the information from the "Bench Press" on "06/11/2019" is displayed instead of the one on "05/11/2019" (observe that the calories are different).</p>
 </div>
 </div>
 </div>
@@ -292,14 +276,14 @@ display the information of the most recently tracked exercise of that name.</p>
 <div class="sect3">
 <h4 id="rationale"><a class="link" href="#rationale">Rationale</a></h4>
 <div class="paragraph">
-<p>Beginners now have a plethora of choices and may be overwhelmed when deciding on what exercises to do.
+<p>Beginners now have a plethora of choices, which may overwhelm them when they are deciding on what exercises to do.
 Thus, we decided to provide users with sample exercise routines to reduce the inertia of starting this lifestyle change.
-On other hand, regular gym goers may face a repetitive and mundane exercise routine or may want to experiment with different exercises.
-As such, put it briefly, we decided to give users the ability to discover exercises based on the characteristics they are interested in.</p>
+On the other hand, regular gym goers may face a repetitive and mundane exercise routine or may want to experiment with different exercises.
+As such, to put it briefly, we decided to give users the ability to discover exercises based on the characteristics they are interested in.</p>
 </div>
 <div class="paragraph">
 <p>This feature presents a cohesive function that all users can benefit from.
-This also makes our application well-rounded so that users can better achieve their fitness goals.</p>
+It also makes our application well-rounded so that users can better achieve their fitness goals.</p>
 </div>
 </div>
 <div class="sect3">
@@ -317,28 +301,30 @@ based on <code>Muscle</code> and <code>CustomProperty</code>.</p>
 <p>The <code>SuggestBasic</code> command displays a list of exercises from our database to the user.
 The <code>SuggestPossible</code> command is created by parsing the user&#8217;s inputs to form a <code>Predicate</code> before filtering ExerHealth&#8217;s database and the user&#8217;s tracked exercises.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user enters a suggest possible command:</p>
+<p>The following activity diagram summarizes what happens when a user enters a <code>SuggestPossible</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/SuggestActivityDiagram.png" alt="SuggestActivityDiagram">
 </div>
-<div class="title">Figure 6. Activity diagram showing the workflow of a suggest possible command</div>
+<div class="title">Figure 5. Activity diagram showing the workflow of a <code>SuggestPossible</code> command</div>
 </div>
 <div class="paragraph">
-<p>In detail, when a <code>SuggestPossibleCommand</code> is entered, the <code>Logic</code> component is responsible for parsing the inputs into a <code>Predicate</code>.
-The <code>Predicate</code> is then used to instantiate a <code>SuggestPossibleCommand</code>, and later used to filter a list of <code>Exercise</code> when the command is executed.
+<p>In detail, when a <code>SuggestPossible</code> command is entered, the <code>Logic</code> component is responsible for parsing the inputs into a <code>Predicate</code>.
+The <code>Predicate</code> is then used to instantiate a <code>SuggestPossible</code> command, and later used to filter a list of <code>Exercise</code> when the command is executed.
 The interactions between the multiple objects can be captured using a sequence diagram.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
-<p>The following sequence diagram shows the sequence flow from the when a user enters a valid <code>SuggestPossibleCommand</code>:</p>
+<p>The following sequence diagram shows the sequence flow when a user enters a valid <code>SuggestPossible</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/SuggestSequenceDiagram.png" alt="SuggestSequenceDiagram">
 </div>
-<div class="title">Figure 7. Sequence diagram of a suggest possible command</div>
+<div class="title">Figure 6. Sequence diagram of a <code>SuggestPossibleCommand</code>.</div>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram:</p>
@@ -346,7 +332,7 @@ The interactions between the multiple objects can be captured using a sequence d
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>When the <code>LogicManager</code> receive the <code>execute</code> command, it calls the <code>parseCommand</code> method of <code>ExerciseBookParser</code>.</p>
+<p>When the <code>LogicManager</code> receives the <code>execute</code> command, it calls the <code>parseCommand</code> method of <code>ExerciseBookParser</code>.</p>
 </li>
 <li>
 <p><code>ExerciseBookParser</code> will receive <code>suggest</code> as the command type and instantiate <code>SuggestCommandParser</code> to further parse the command.</p>
@@ -359,10 +345,10 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 <p><code>SuggestCommandParser</code> will instantiate <code>SuggestPossibleCommand</code> with the <code>ExercisePredicate</code> as the constructor parameter.</p>
 </li>
 <li>
-<p>The <code>SuggestPossibleCommand</code> object is then returned to <code>SuggestCommandParser</code>, <code>ExerciseBookParser</code> and lastly back to <code>LogicManager</code> to execute.</p>
+<p>The <code>SuggestPossibleCommand</code> object is then returned to <code>SuggestCommandParser</code>, followed by <code>ExerciseBookParser</code>, and lastly back to <code>LogicManager</code> to execute.</p>
 </li>
 <li>
-<p><code>LogicManager</code> will proceed to call execute <code>SuggestPossibleCommand</code>.</p>
+<p><code>LogicManager</code> will proceed to <code>execute</code> <code>SuggestPossibleCommand</code>.</p>
 </li>
 <li>
 <p><code>SuggestPossibleCommand</code> then calls the <code>updateSuggestedExerciseList</code> method in <code>ModelManager</code>, passing in the predicate to filter the list of suggest exercises.</p>
@@ -372,6 +358,7 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 </li>
 </ol>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>In step 3, the process in which the <code>ExercisePredicate</code> object is created can be explored deeper.</p>
 </div>
@@ -379,7 +366,7 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 <div class="content">
 <img src="../images/SuggestPredicateSequenceDiagram.png" alt="SuggestPredicateSequenceDiagram">
 </div>
-<div class="title">Figure 8. Sequence diagram of how an <code>ExercisePredicate</code> is created</div>
+<div class="title">Figure 7. Sequence diagram of how an <code>ExercisePredicate</code> is created</div>
 </div>
 <div class="paragraph">
 <p>From the sequence diagram above:</p>
@@ -393,7 +380,7 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 <p>Since there were no CustomProperty tags to filter, <code>ParserUtil</code> creates <code>ExercisePredicate</code> with only the <code>musclesPredicate</code> and the boolean <code>isStrict</code>.</p>
 </li>
 <li>
-<p>The resulting <code>ExercisePredicate</code> is then returned to <code>ParserUtil</code> and then <code>SuggestCommandParser</code>.</p>
+<p>The resulting <code>ExercisePredicate</code> is then returned to <code>ParserUtil</code>, followed by <code>SuggestCommandParser</code>.</p>
 </li>
 </ol>
 </div>
@@ -406,12 +393,13 @@ where each contains a <code>Collection</code> of <code>Muscle</code> or <code>Cu
 <div class="content">
 <img src="../images/SuggestCommandClassDiagram.png" alt="SuggestCommandClassDiagram">
 </div>
-<div class="title">Figure 9. Class diagram of the classes behind the suggest possible feature</div>
+<div class="title">Figure 8. Class diagram of the classes behind the suggest possible feature</div>
 </div>
 <div class="paragraph">
 <p>Creating classes such as <code>ExerciseCustomPropertyPredicate</code> and <code>ExerciseMusclePredicate</code>
-allow us to conduct better testing because we can compare the <code>Collection</code> of <code>Muscle</code>/<code>CustomProperty</code> being considered.</p>
+allows us to conduct better testing because we can compare the <code>Collection</code> of <code>Muscle</code>/<code>CustomProperty</code> that is being considered.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
@@ -439,7 +427,7 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="ulist">
 <ul>
 <li>
-<p>Violation of SRP as <code>SuggestPossibleCommand</code>, in addition to updating the model, has to create the predicate.</p>
+<p>Violation of Single Responsibility Principle (SRP) as <code>SuggestPossibleCommand</code> updates the model and creates the predicate.</p>
 </li>
 </ul>
 </div>
@@ -456,7 +444,7 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="ulist">
 <ul>
 <li>
-<p>Adheres to Single Responsibility Principle (SRP) and Separation of Concern (SoC).</p>
+<p>Adheres to SRP and Separation of Concern (SoC).</p>
 </li>
 </ul>
 </div>
@@ -466,7 +454,7 @@ all in one place as it stores the tags, and creates the predicate and filters th
 <div class="ulist">
 <ul>
 <li>
-<p>Increases the complexity of the code as more classes are needed, also increasing the lines of code written.</p>
+<p>Increases the complexity of the code as more classes are needed, and also increases the lines of code written.</p>
 </li>
 </ul>
 </div>
@@ -480,13 +468,4 @@ all in one place as it stores the tags, and creates the predicate and filters th
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 15:07:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 18:18:04 UTC</div></div></div></body></html>
