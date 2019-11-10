@@ -1246,9 +1246,10 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 </ol>
 </div>
 <div class="paragraph">
-<p>The diagram below shows the structure of a <code>ExercisePredicate</code> object.
-A <code>ExercisePredicate</code> contains a <code>list</code> of <code>BasePropertyPredicate</code>,
-where each contains a <code>Collection</code> of <code>Muscle</code> or <code>CustomProperty</code>.</p>
+<p>A <code>SuggestPossibleCommand</code> contains an <code>ExercisePredicate</code> object.
+An <code>ExercisePredicate</code> object contains a <code>list</code> of <code>BasePropertyPredicate</code>,
+where each contains either a <code>Collection</code> of <code>Muscle</code> or <code>CustomProperty</code>.
+The diagram below shows the structure of a <code>ExercisePredicate</code> object.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
@@ -1258,7 +1259,7 @@ where each contains a <code>Collection</code> of <code>Muscle</code> or <code>Cu
 </div>
 <div class="paragraph">
 <p>Creating classes such as <code>ExerciseCustomPropertyPredicate</code> and <code>ExerciseMusclePredicate</code>
-allows us to conduct better testing because we can compare the <code>Collection</code> of <code>Muscle</code>/<code>CustomProperty</code> that is being considered.</p>
+allows us to conduct better testing because we can compare the <code>Collection</code> of <code>Muscle</code>/<code>CustomProperty</code> between different predicates.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -2558,4 +2559,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 15:31:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 15:51:42 UTC</div></div></div></body></html>
