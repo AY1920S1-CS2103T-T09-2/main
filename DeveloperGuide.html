@@ -52,8 +52,10 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">7.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-an-exercise">7.2. Deleting an exercise</a></li>
-<li><a href="#suggest-2">7.3. Suggest</a></li>
-<li><a href="#saving-data">7.4. Saving data</a></li>
+<li><a href="#scheduling-a-regime">7.3. Scheduling a regime</a></li>
+<li><a href="#resolving-scheduling-conflict">7.4. Resolving scheduling conflict</a></li>
+<li><a href="#suggest-2">7.5. Suggest</a></li>
+<li><a href="#saving-data">7.6. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -2164,7 +2166,67 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggest-2"><a class="link" href="#suggest-2">7.3. Suggest</a></h3>
+<h3 id="scheduling-a-regime"><a class="link" href="#scheduling-a-regime">7.3. Scheduling a regime</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Scheduling an exercise regime</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have an exercise regime of name <code>cardio</code>.</p>
+</li>
+<li>
+<p>Test case: <code>schedule n/cardio d/12/12/2019</code> with no other schedule on <code>12/12/2019</code><br>
+Expected: Regime <code>cardio</code> is now scheduled on <code>12/12/2019</code>. Details of schedule should be shown in the center information panel and the left panel should switch to show schedule list.</p>
+</li>
+<li>
+<p>Test case: <code>schedule n/cardio d/12/12/2019</code> with a conflicting schedule on <code>12/12/2019</code><br>
+Expected: Scheduling conflict exist and the resolve window should pop up showing the already scheduled regime on the left panel and the conflicting <code>cardio</code> schedule on the right panel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="resolving-scheduling-conflict"><a class="link" href="#resolving-scheduling-conflict">7.4. Resolving scheduling conflict</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Resolves a scheduling conflict by taking one whole regime</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Resolve window should be shown on scheduling conflict</p>
+</li>
+<li>
+<p>Test case: <code>resolve n/conflicting</code><br>
+Expected: The conflicting schedule on the right panel should be taken as the resolved schedule and the resolve window should close. The conflicting schedule should now be scheduled on the conflicting date. Details of the schedule is shown on the center information panel.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Resolves a scheduling conflict by taking some exercise from both regime</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Resolve window should be shown on scheduling conflict and <code>new cardio</code> should not exist in the user&#8217;s regime list</p>
+</li>
+<li>
+<p>Test case: <code>resolve n/new cardio i/1 r/2</code><br>
+Expected: A new regime is created called <code>new cardio</code> with the exercises from scheduled regime&#8217;s first index and conflicting regime&#8217;s second index. Resolve window should close. The newly made regime is now scheduled on conflicting date. Details of the schedule shown on the center information panel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggest-2"><a class="link" href="#suggest-2">7.5. Suggest</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2247,7 +2309,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">7.4. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">7.6. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2268,4 +2330,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:50:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:54:56 UTC</div></div></div></body></html>
