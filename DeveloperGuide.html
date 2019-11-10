@@ -52,7 +52,8 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">7.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-an-exercise">7.2. Deleting an exercise</a></li>
-<li><a href="#saving-data">7.3. Saving data</a></li>
+<li><a href="#suggest-2">7.3. Suggest</a></li>
+<li><a href="#saving-data">7.4. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -2163,7 +2164,90 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">7.3. Saving data</a></h3>
+<h3 id="suggest-2"><a class="link" href="#suggest-2">7.3. Suggest</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suggest basic exercises</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>suggest s/basic</code>
+Expected: A list of basic exercises displayed on the</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Suggest possible exercises</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is at least an exercise being tracked or in the database tagged with a <code>muscle</code>.<br>
+For example, <code>add t/exercise n/Run d/03/11/2019 c/200 q/10 u/km m/Legs</code>.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>suggest s/possible m/Legs</code><br>
+Expected: This exercise, along with database&#8217;s exercises tagged with <code>Legs</code> are displayed.</p>
+</li>
+<li>
+<p>Test case: <code>suggest s/possible o/and m/Legs</code><br>
+Expected: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>suggest s/possible o/or m/Legs</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Prerequisites: A <code>CustomProperty</code> is created and there are exercises being tracked with <code>CustomProperty</code>.<br>
+For example,</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>custom s/r f/Rating p/Number</code></p>
+</li>
+<li>
+<p><code>add t/exercise n/Run d/03/11/2019 c/200 q/10 u/km m/Legs r/8</code></p>
+</li>
+<li>
+<p><code>add t/exercise n/Bench Press d/05/11/2019 c/150 q/40 u/kg m/Chest r/8</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>suggest s/possible o/and m/Chest r/8</code><br>
+Expected: The previously added exercise <code>Bench Press</code> is displayed.</p>
+</li>
+<li>
+<p>Test case: <code>suggest s/possible o/or m/Chest r/8</code><br>
+   Expected: The previously added exercises <code>Bench Press</code> and <code>Run</code> are displayed. In addition,
+exercises from database that are tagged <code>Chest</code> are also displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>suggest s/possible m/Chest m/Legs</code><br>
+Expected: Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>suggest s/possible o/or</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">7.4. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2184,4 +2268,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 05:12:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:50:10 UTC</div></div></div></body></html>
