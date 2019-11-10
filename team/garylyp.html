@@ -199,14 +199,16 @@ no command to redo.
 <div class="ulist">
 <ul>
 <li>
-<p>Undoing a <code>delete t/regime [i/INDEX]&#8230;&#8203;</code> command that deletes exercise from an existing regime.<br>
-<strong>Initial</strong>:<br></p>
+<p>Undoing a <code>delete t/regime [i/INDEX]&#8230;&#8203;</code> command that deletes exercise from an existing regime.<br></p>
 </li>
 </ul>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p><strong>Initial</strong>:<br></p>
+</div>
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/DeleteExerciseFromRegimeBeforeUndo.png" alt="DeleteExerciseFromRegimeBeforeUndo">
+<img src="../images/DeleteExerciseFromRegimeBeforeUndo.png" alt="DeleteExerciseFromRegimeBeforeUndo" width="85%">
 </div>
 <div class="title">Figure 1. Selecting the 3rd regime</div>
 </div>
@@ -214,9 +216,9 @@ no command to redo.
 <p><strong>Step 1</strong>: <code>delete t/regime n/Level 3 i/5</code><br>
 Deletes the fifth exercise <code>Hiking</code> from the regime <code>Level 3</code><br></p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/DeleteExerciseFromRegimeUndo.png" alt="DeleteExerciseFromRegimeUndo">
+<img src="../images/DeleteExerciseFromRegimeUndo.png" alt="DeleteExerciseFromRegimeUndo" width="85%">
 </div>
 <div class="title">Figure 2. Deleting <code>Hiking</code> from our selected regime</div>
 </div>
@@ -224,9 +226,9 @@ Deletes the fifth exercise <code>Hiking</code> from the regime <code>Level 3</co
 <p><strong>Step 2</strong>: <code>undo</code><br>
 Adds the exercise <code>Hiking</code> back to the regime <code>Level 3</code><br></p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/DeleteExerciseFromRegimeUndoOutcome.png" alt="DeleteExerciseFromRegimeUndoOutcome">
+<img src="../images/DeleteExerciseFromRegimeUndoOutcome.png" alt="DeleteExerciseFromRegimeUndoOutcome" width="85%">
 </div>
 <div class="title">Figure 3. <code>undo</code> reverses the deletion!</div>
 </div>
@@ -363,7 +365,7 @@ and an error message will be displayed to indicate there is no undoable or redoa
 <code>EditCommand</code>. The <code>EventPayload</code> is only initialized when the <code>EditCommand</code> is executed. The <code>EventPayload</code> is
 subsequently used for the initialization of the <code>EditEvent</code>.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/UndoableCommandSequenceDiagram.png" alt="UndoableCommandSequenceDiagram">
 </div>
@@ -374,7 +376,7 @@ subsequently used for the initialization of the <code>EditEvent</code>.</p>
 When the <code>UndoCommand</code> is executed, the <code>EventHistory</code> calls the <code>undo</code> method of the next <code>Event</code> in the undo stack
 (i.e. the <code>EditEvent</code>).</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
@@ -397,9 +399,9 @@ The only commands that implements the <code>UndoableCommand</code> are <code>Add
 </tr>
 </table>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/EventClassDiagram.png" alt="EventClassDiagram">
+<img src="../images/EventClassDiagram.png" alt="EventClassDiagram" width="85%">
 </div>
 <div class="title">Figure 6. The associations between Event, Command and Model</div>
 </div>
@@ -407,9 +409,9 @@ The only commands that implements the <code>UndoableCommand</code> are <code>Add
 <p>The following Activity Diagram summarizes what happens when a user enters undoable commands,
 the undo command and the redo command.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram" width="85%">
 </div>
 <div class="title">Figure 7. The workflow when a user enters an undoable command and performs undo/redo</div>
 </div>
@@ -586,4 +588,4 @@ manage different types of resources that can be altered by commands.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:09:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:57:24 UTC</div></div></div></body></html>

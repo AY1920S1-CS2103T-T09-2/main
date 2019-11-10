@@ -41,7 +41,7 @@
 <li><a href="#uc01-statistics-bar-chart">UC01: Statistics (bar chart)</a></li>
 <li><a href="#uc02-schedule">UC02: Schedule</a></li>
 <li><a href="#uc03-suggest">UC03: Suggest</a></li>
-<li><a href="#uc04-configure-command">UC04: Configure Command</a></li>
+<li><a href="#uc04-custom">UC04: Custom</a></li>
 <li><a href="#uc05-undo">UC05: Undo</a></li>
 <li><a href="#uc06-redo">UC06: Redo</a></li>
 </ul>
@@ -54,6 +54,13 @@
 <li><a href="#deleting-an-exercise">7.2. Deleting an exercise</a></li>
 <li><a href="#deleting-an-exercise-in-regime">7.3. Deleting an exercise in regime</a></li>
 <li><a href="#deleting-a-regime">7.4. Deleting a regime</a></li>
+<li><a href="#scheduling-a-regime">7.5. Scheduling a regime</a></li>
+<li><a href="#resolving-scheduling-conflict">7.6. Resolving scheduling conflict</a></li>
+<li><a href="#suggest-2">7.7. Suggest</a></li>
+<li><a href="#statistic">7.8. Statistic</a></li>
+<li><a href="#adding-a-custom-property">7.9. Adding a custom property</a></li>
+<li><a href="#deleting-a-custom-property">7.10. Deleting a custom property</a></li>
+<li><a href="#saving-data">7.11. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -72,9 +79,9 @@
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
+<img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram" width="85%">
 </div>
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
@@ -153,9 +160,9 @@ The following class plays an important role at the architecture level:</p>
 <div class="paragraph">
 <p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="85%">
 </div>
 <div class="title">Figure 2. Class Diagram of the Logic Component</div>
 </div>
@@ -163,9 +170,9 @@ The following class plays an important role at the architecture level:</p>
 <div class="paragraph">
 <p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete t/exercise i/1</code>.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
+<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram" width="85%">
 </div>
 <div class="title">Figure 3. Component interactions for <code>delete t/exercise i/1</code> command</div>
 </div>
@@ -175,9 +182,9 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/UiClassDiagram.png" alt="UiClassDiagram">
+<img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="85%">
 </div>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
@@ -206,9 +213,9 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
-<div id="fig-LogicClassDiagram" class="imageblock">
+<div id="fig-LogicClassDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="85%">
 </div>
 <div class="title">Figure 5. Structure of the Logic Component</div>
 </div>
@@ -238,9 +245,9 @@ The following class plays an important role at the architecture level:</p>
 <div class="paragraph">
 <p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
+<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram" width="85%">
 </div>
 <div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
 </div>
@@ -259,9 +266,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="85%">
 </div>
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
@@ -302,9 +309,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="85%">
 </div>
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
@@ -457,7 +464,7 @@ and an error message will be displayed to indicate there is no undoable or redoa
 <code>EditCommand</code>. The <code>EventPayload</code> is only initialized when the <code>EditCommand</code> is executed. The <code>EventPayload</code> is
 subsequently used for the initialization of the <code>EditEvent</code>.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/UndoableCommandSequenceDiagram.png" alt="UndoableCommandSequenceDiagram">
 </div>
@@ -468,7 +475,7 @@ subsequently used for the initialization of the <code>EditEvent</code>.</p>
 When the <code>UndoCommand</code> is executed, the <code>EventHistory</code> calls the <code>undo</code> method of the next <code>Event</code> in the undo stack
 (i.e. the <code>EditEvent</code>).</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
@@ -491,9 +498,9 @@ The only commands that implements the <code>UndoableCommand</code> are <code>Add
 </tr>
 </table>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/EventClassDiagram.png" alt="EventClassDiagram">
+<img src="images/EventClassDiagram.png" alt="EventClassDiagram" width="85%">
 </div>
 <div class="title">Figure 11. The associations between Event, Command and Model</div>
 </div>
@@ -501,9 +508,9 @@ The only commands that implements the <code>UndoableCommand</code> are <code>Add
 <p>The following Activity Diagram summarizes what happens when a user enters undoable commands,
 the undo command and the redo command.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram" width="85%">
 </div>
 <div class="title">Figure 12. The workflow when a user enters an undoable command and performs undo/redo</div>
 </div>
@@ -740,9 +747,9 @@ manage different types of resources that can be altered by commands.
 <div class="paragraph">
 <p>Shown below is the class diagram for the implementation of the <code>Resolve</code> feature.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/ScheduleResolveClassDiagram.png" alt="ScheduleResolveClassDiagram">
+<img src="images/ScheduleResolveClassDiagram.png" alt="ScheduleResolveClassDiagram" width="85%">
 </div>
 <div class="title">Figure 13. Class diagram for Resolve Command</div>
 </div>
@@ -785,7 +792,7 @@ The <code>ResolveWindow</code> will block all inputs to <code>MainWindow</code> 
 <div class="paragraph">
 <p>Shown below is the sequence diagram for when a scheduling conflict happens:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/ScheduleConflict.png" alt="ScheduleConflict">
 </div>
@@ -815,9 +822,9 @@ The <code>ResolveWindow</code> will only take one valid <code>resolve</code> com
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user enters a <code>schedule</code> command:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/ScheduleActivityDiagram.png" alt="ScheduleActivityDiagram">
+<img src="images/ScheduleActivityDiagram.png" alt="ScheduleActivityDiagram" width="85%">
 </div>
 <div class="title">Figure 15. Activity diagram for when a user enters a <code>schedule</code> command</div>
 </div>
@@ -980,9 +987,9 @@ is also removed from the prefix set in <code>CliSyntax</code>.</p>
 <div class="paragraph">
 <p>All of the crucial associations mentioned above are summarised in the next class diagram.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/CustomClassDiagram.png" alt="CustomClassDiagram">
+<img src="images/CustomClassDiagram.png" alt="CustomClassDiagram" width="85%">
 </div>
 <div class="title">Figure 16. Class diagram of the associations of <code>PropertyBook</code> and <code>CustomProperty</code></div>
 </div>
@@ -996,7 +1003,7 @@ p/PARAMETER_TYPE</code>. Examples include <code>custom s/r f/Rating p/Number</co
 <p>The following sequence diagram will illustrate how the custom operation works when a custom
 property is <strong>successfully added</strong>.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/EditedCustomAddSequenceDiagram.png" alt="EditedCustomAddSequenceDiagram">
 </div>
@@ -1026,9 +1033,9 @@ will be added to <code>PropertyBook</code>.</p>
 <p>The above steps illustrate the main success scenario. However, not all additions of a custom property will be successful.
 The next activity diagram shows the workflow when a new custom property is defined.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/CustomAddActivityDiagram.png" alt="CustomAddActivityDiagram" width="500">
+<img src="images/CustomAddActivityDiagram.png" alt="CustomAddActivityDiagram" width="85%">
 </div>
 <div class="title">Figure 18. Activity diagram of the workflow when a new custom property is added</div>
 </div>
@@ -1045,9 +1052,10 @@ The next activity diagram shows the workflow when a new custom property is defin
 Alternatively, if the user wishes to remove a custom property just from a single exercise, he/she can choose to enter <code>custom rm/FULL_NAME i/INDEX</code> instead.</p>
 </div>
 <div class="paragraph">
-<p>The next sequence diagram illustrates what happens when a custom property is removed from the <code>PropertyBook</code>.</p>
+<p>The next sequence diagram illustrates what happens when a custom property is removed from the <code>PropertyBook</code>. If a custom property
+is removed from a single exercise instead, only the selected exercise will be updated.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/EditedCustomRemoveSequenceDiagram.png" alt="EditedCustomRemoveSequenceDiagram">
 </div>
@@ -1151,9 +1159,9 @@ The <code>SuggestPossible</code> command is created by parsing the user&#8217;s 
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user enters a <code>SuggestPossible</code> command:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/SuggestActivityDiagram.png" alt="SuggestActivityDiagram">
+<img src="images/SuggestActivityDiagram.png" alt="SuggestActivityDiagram" width="85%">
 </div>
 <div class="title">Figure 20. Activity diagram showing the workflow of a <code>SuggestPossible</code> command</div>
 </div>
@@ -1166,7 +1174,7 @@ The interactions between the multiple objects can be captured using a sequence d
 <div class="paragraph">
 <p>The following sequence diagram shows the sequence flow when a user enters a valid <code>SuggestPossible</code> command:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/SuggestSequenceDiagram.png" alt="SuggestSequenceDiagram">
 </div>
@@ -1208,7 +1216,7 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 <div class="paragraph">
 <p>In step 3, the process in which the <code>ExercisePredicate</code> object is created can be explored deeper.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/SuggestPredicateSequenceDiagram.png" alt="SuggestPredicateSequenceDiagram">
 </div>
@@ -1235,9 +1243,9 @@ to parse the user input to create an <code>ExercisePredicate</code> object (name
 A <code>ExercisePredicate</code> contains a <code>list</code> of <code>BasePropertyPredicate</code>,
 where each contains a <code>Collection</code> of <code>Muscle</code> or <code>CustomProperty</code>.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/SuggestCommandClassDiagram.png" alt="SuggestCommandClassDiagram">
+<img src="images/SuggestCommandClassDiagram.png" alt="SuggestCommandClassDiagram" width="85%">
 </div>
 <div class="title">Figure 23. Class diagram of the classes behind the suggest possible feature</div>
 </div>
@@ -1322,18 +1330,18 @@ all in one place as it stores the tags, and creates the predicate and filters th
 StatsFactory will create Statistic using given parameters.
 The figure below shows the class diagram of statistics:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/StatisticClassDiagram.png" alt="StatisticClassDiagram">
+<img src="images/StatisticClassDiagram.png" alt="StatisticClassDiagram" width="85%">
 </div>
 <div class="title">Figure 24. Class diagram of the classes behind the statistics feature</div>
 </div>
 <div class="paragraph">
 <p>The next figure shows the activity diagram when user enter a <code>stats</code> command:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/StatisticActivityDiagram.png" alt="StatisticActivityDiagram">
+<img src="images/StatisticActivityDiagram.png" alt="StatisticActivityDiagram" width="85%">
 </div>
 <div class="title">Figure 25. Workflow when a user enters a <code>stats</code> command</div>
 </div>
@@ -1367,7 +1375,7 @@ The figure below shows the class diagram of statistics:</p>
 <div class="paragraph">
 <p>Shown below is the sequence diagram when user enters a valid <code>stats</code> command:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/StatisticSequenceDiagram.png" alt="StatisticSequenceDiagram">
 </div>
@@ -1855,7 +1863,7 @@ their respective frequency for the date range</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="uc04-configure-command"><a class="link" href="#uc04-configure-command">UC04: Configure Command</a></h3>
+<h3 id="uc04-custom"><a class="link" href="#uc04-custom">UC04: Custom</a></h3>
 <div class="paragraph">
 <p><strong>System:</strong> ExerHealth</p>
 </div>
@@ -1888,13 +1896,13 @@ for the property</p>
 <div class="ulist None">
 <ul class="None">
 <li>
-<p>1a. ExerHealth detects that the user-defined property is a duplicate
-of another property for exercises</p>
+<p>1a. ExerHealth detects that the <a href="#prefixName">prefix name</a>/full name of the user-defined property is a duplicate
+of another property/parameter for add / edit command.</p>
 <div class="ulist None">
 <ul class="None">
 <li>
-<p>1a1. ExerHealth informs the user that his/her new property is a
-duplicate of a current property.</p>
+<p>1a1. ExerHealth informs the user that the prefix name/full name of his/her new property is a
+duplicate of a current property/parameter for add / edit command.</p>
 <div class="paragraph">
 <p>Use case ends</p>
 </div>
@@ -2216,11 +2224,9 @@ Expected: <code>Power set</code> regime is not deleted as name is case-sensitive
 </li>
 </ol>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>=== Scheduling a regime</p>
 </div>
+<div class="sect2">
+<h3 id="scheduling-a-regime"><a class="link" href="#scheduling-a-regime">7.5. Scheduling a regime</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2243,9 +2249,9 @@ Expected: Scheduling conflict exist and the resolve window should pop up showing
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Resolving scheduling conflict</p>
 </div>
+<div class="sect2">
+<h3 id="resolving-scheduling-conflict"><a class="link" href="#resolving-scheduling-conflict">7.6. Resolving scheduling conflict</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2271,12 +2277,18 @@ Expected: The conflicting schedule on the right panel should be taken as the res
 </li>
 <li>
 <p>Test case: <code>resolve n/new cardio i/1 r/2</code><br>
-   Expected: A new regime is created called <code>new cardio</code> with the exercises from scheduled regime&#8217;s first index and conflicting regime&#8217;s second index. Resolve window should close. The newly made regime is now scheduled on conflicting date. Details of the schedule shown on the center information panel.
-=== Suggest</p>
+Expected: A new regime is created called <code>new cardio</code> with the exercises from scheduled regime&#8217;s first index and conflicting regime&#8217;s second index. Resolve window should close. The newly made regime is now scheduled on conflicting date. Details of the schedule shown on the center information panel.</p>
 </li>
 </ol>
 </div>
 </li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggest-2"><a class="link" href="#suggest-2">7.7. Suggest</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Suggest basic exercises</p>
 <div class="olist loweralpha">
@@ -2355,10 +2367,13 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Statistic
-. Display charts and statistic for completed exercises</p>
 </div>
+<div class="sect2">
+<h3 id="statistic"><a class="link" href="#statistic">7.8. Statistic</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Display charts and statistic for completed exercises</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2379,9 +2394,78 @@ Expected: The chart in the right panel is not updated. Error message shown in th
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>=== Saving data</p>
+</li>
+</ol>
 </div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-custom-property"><a class="link" href="#adding-a-custom-property">7.9. Adding a custom property</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a custom property when app is first launched.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The custom property <code>Remark</code> with the prefix name <code>re</code> must not be created yet. The following test cases should be tried in order.</p>
+</li>
+<li>
+<p>Test case: <code>custom s/re f/Remark p/Text</code><br>
+Expected: The custom property <code>Remark</code> is created for all exercises. The prefix name and full name of the property
+will be displayed in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>custom s/re f/AnotherRemark p/Text</code><br>
+Expected: No custom property is created. An error message will be shown, informing the user that the prefix has been used
+for an existing parameter in add/edit command.</p>
+</li>
+<li>
+<p>Test case: <code>custom s/tt f/Remark p/Text</code><br>
+Expected: No custom property is created. An error message will be shown, informing the user that the name has been used
+by an existing property.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-custom-property"><a class="link" href="#deleting-a-custom-property">7.10. Deleting a custom property</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a custom property.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The custom property <code>Remark</code> with the prefix name <code>re</code> should have been created.
+There should be at least 3 exercises with the custom property <code>Remark</code>, preferably
+the exercises at indices 1 to 3. The following test cases should be tried in order.</p>
+</li>
+<li>
+<p>Test case: <code>custom rm/Remark i/1</code><br>
+Expected: <code>Remark</code> is removed from exercise 1. A message informing the user that <code>Remark</code> has been removed from
+exercise 1 will be shown. The <code>Remark</code> property for exercises 1 and 2 will still be present.</p>
+</li>
+<li>
+<p>Test case: <code>custom rm/Remark</code>
+Expected: <code>Remark</code> is removed from the app. A message informing the user that <code>Remark</code> has been removed will be shown.
+The <code>Remark</code> property is removed from all exercises.</p>
+</li>
+<li>
+<p>Test case: <code>custom rm/Date</code>
+Expected: No custom property is removed. An error message informing the user that <code>Date</code> is not used by
+an custom property will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">7.11. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2402,6 +2486,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:09:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:57:24 UTC</div></div></div></body></html>
