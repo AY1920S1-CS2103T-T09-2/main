@@ -52,10 +52,8 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">7.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-an-exercise">7.2. Deleting an exercise</a></li>
-<li><a href="#scheduling-a-regime">7.3. Scheduling a regime</a></li>
-<li><a href="#resolving-scheduling-conflict">7.4. Resolving scheduling conflict</a></li>
-<li><a href="#suggest-2">7.5. Suggest</a></li>
-<li><a href="#saving-data">7.6. Saving data</a></li>
+<li><a href="#deleting-an-exercise-in-regime">7.3. Deleting an exercise in regime</a></li>
+<li><a href="#deleting-a-regime">7.4. Deleting a regime</a></li>
 </ul>
 </li>
 </ul>
@@ -2156,7 +2154,7 @@ Expected: First exercise is deleted from the list. Details of the deleted exerci
 Expected: No exercise is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
+<p>Other incorrect delete commands to try: <code>delete t/exercise</code>, <code>delete t/exercise i/x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -2166,7 +2164,63 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="scheduling-a-regime"><a class="link" href="#scheduling-a-regime">7.3. Scheduling a regime</a></h3>
+<h3 id="deleting-an-exercise-in-regime"><a class="link" href="#deleting-an-exercise-in-regime">7.3. Deleting an exercise in regime</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an exercise in regime while all regimes are listed.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all regimes using the <code>list</code> command. Regime named <code>Level 1</code> has multiple exercises and is in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete t/regime n/Level 1 i/1</code><br>
+Expected: The first exercise in <code>Level 1</code> regime is deleted.</p>
+</li>
+<li>
+<p>Test case: <code>delete t/regime n/Level 1 i/0</code><br>
+Expected: No exercise is deleted in <code>Level 1</code> regime.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete t/regime</code>, <code>delete t/regime i/x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-regime"><a class="link" href="#deleting-a-regime">7.4. Deleting a regime</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a regime while all regimes are listed.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all regimes using the <code>list</code> command. Regime named <code>Power set</code> is in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete t/regime n/Power set</code><br>
+Expected: The regime named <code>Power set</code> is deleted from the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete t/regime n/power set</code><br>
+Expected: <code>Power set</code> regime is not deleted as name is case-sensitive. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Scheduling a regime</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2189,9 +2243,9 @@ Expected: Scheduling conflict exist and the resolve window should pop up showing
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Resolving scheduling conflict</p>
 </div>
-<div class="sect2">
-<h3 id="resolving-scheduling-conflict"><a class="link" href="#resolving-scheduling-conflict">7.4. Resolving scheduling conflict</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2217,18 +2271,12 @@ Expected: The conflicting schedule on the right panel should be taken as the res
 </li>
 <li>
 <p>Test case: <code>resolve n/new cardio i/1 r/2</code><br>
-Expected: A new regime is created called <code>new cardio</code> with the exercises from scheduled regime&#8217;s first index and conflicting regime&#8217;s second index. Resolve window should close. The newly made regime is now scheduled on conflicting date. Details of the schedule shown on the center information panel.</p>
+   Expected: A new regime is created called <code>new cardio</code> with the exercises from scheduled regime&#8217;s first index and conflicting regime&#8217;s second index. Resolve window should close. The newly made regime is now scheduled on conflicting date. Details of the schedule shown on the center information panel.
+=== Suggest</p>
 </li>
 </ol>
 </div>
 </li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="suggest-2"><a class="link" href="#suggest-2">7.5. Suggest</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
 <li>
 <p>Suggest basic exercises</p>
 <div class="olist loweralpha">
@@ -2307,9 +2355,33 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Statistic
+. Display charts and statistic for completed exercises</p>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">7.6. Saving data</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>stats t/calories h/barchart s/01/11/2019 e/30/11/2019</code><br>
+Expected: The chart in the right panel will be updated to a bar chart. Total and average will be shown below the chart.</p>
+</li>
+<li>
+<p>Test case: <code>stats t/calories h/piechart s/01/11/2019 e/30/11/2019</code><br>
+Expected: The chart in the right panel will be updated to a pie chart. Total and average will be shown below the chart.</p>
+</li>
+<li>
+<p>Test case: <code>stats t/calories h/linechart s/01/11/2019 e/30/11/2019</code><br>
+Expected: The chart in the right panel will be updated to a line chart. Total and average will be shown below the chart.</p>
+</li>
+<li>
+<p>Test case: <code>stats t/calories h/barchart s/01/01/2019 e/02/02/2019</code><br>
+Expected: The chart in the right panel is not updated. Error message shown in the status message.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>=== Saving data</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2330,4 +2402,6 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:54:56 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:09:39 UTC</div></div></div></body></html>
