@@ -22,13 +22,14 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel3">
-<li><a href="#design-considerations">3.1. Design Considerations</a></li>
-<li><a href="#resolve-feature">3.2. Resolve feature</a></li>
-<li><a href="#custom-feature">3.3. Custom feature</a></li>
-<li><a href="#suggest">3.4. Suggest</a></li>
-<li><a href="#statistics">3.5. Statistics</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#implementation-2">3.1. Implementation</a></li>
+<li><a href="#design-considerations">3.2. Design Considerations</a></li>
+<li><a href="#resolve-feature">3.3. Resolve feature</a></li>
+<li><a href="#custom-feature">3.4. Custom feature</a></li>
+<li><a href="#suggest">3.5. Suggest</a></li>
+<li><a href="#statistics">3.6. Statistics</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -360,9 +361,10 @@ Resource Book data consists of Exercise Book, Regime Book and Schedule Book data
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.
-=== Undo/Redo feature
-==== Implementation</p>
+=== Undo/Redo feature</p>
 </div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by the <code>events</code> package consisting of <code>EventHistory</code>, <code>EventFactory</code>,
 <code>EventPayload</code> and the various <code>Event</code> classes.</p>
@@ -514,8 +516,9 @@ the undo command and the redo command.</p>
 </div>
 <div class="title">Figure 12. The workflow when a user enters an undoable command and performs undo/redo</div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -729,15 +732,15 @@ manage different types of resources that can be altered by commands.
 </div>
 </div>
 <div class="sect2">
-<h3 id="resolve-feature"><a class="link" href="#resolve-feature">3.2. Resolve feature</a></h3>
+<h3 id="resolve-feature"><a class="link" href="#resolve-feature">3.3. Resolve feature</a></h3>
 <div class="sect3">
-<h4 id="rationale"><a class="link" href="#rationale">3.2.1. Rationale</a></h4>
+<h4 id="rationale"><a class="link" href="#rationale">3.3.1. Rationale</a></h4>
 <div class="paragraph">
 <p>There are multiple times where if the user wishes to schedule a regime, they find themselves in trouble over which kind of exercise regime they can fit into their schedule. The motivation behind this feature is so that users can customise their own schedules to their own liking. The alternative of an auto scheduler will restrict users from having the regime of their liking be scheduled. Instead of forcing users to adhere to some pre-generated resolution, we allow the users to make their own choice and choose their own exercise regime to be scheduled.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.2. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.3.2. Implementation</a></h4>
 <div class="paragraph">
 <p>The resolve feature is used when there is a scheduling conflict that happens within ExerHealth. This feature will alter the state of the program. The state is known by <code>MainApp</code> and it is either <code>State.IN_CONFLICT</code> or <code>State.NORMAL</code>. Only when the state is <code>State.IN_CONFLICT</code> will <code>resolve</code> commands be allowed.</p>
 </div>
@@ -830,7 +833,7 @@ The <code>ResolveWindow</code> will only take one valid <code>resolve</code> com
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.3. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-signalling-schedule-conflict"><a class="link" href="#aspect-signalling-schedule-conflict">Aspect: Signalling Schedule Conflict</a></h5>
 <div class="ulist">
@@ -901,9 +904,9 @@ The <code>ResolveWindow</code> will only take one valid <code>resolve</code> com
 </div>
 </div>
 <div class="sect2">
-<h3 id="custom-feature"><a class="link" href="#custom-feature">3.3. Custom feature</a></h3>
+<h3 id="custom-feature"><a class="link" href="#custom-feature">3.4. Custom feature</a></h3>
 <div class="sect3">
-<h4 id="rationale-2"><a class="link" href="#rationale-2">3.3.1. Rationale</a></h4>
+<h4 id="rationale-2"><a class="link" href="#rationale-2">3.4.1. Rationale</a></h4>
 <div class="paragraph">
 <p>A quick conversation with a few of our friends revealed that there are many properties which they intend to keep track
 for exercises. However, it is unlikely that we can implement all of these properties for the exercises as there may
@@ -911,7 +914,7 @@ be too much overhead and we can never be certain that we have met all of the use
 </div>
 </div>
 <div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">3.3.2. Overview</a></h4>
+<h4 id="overview"><a class="link" href="#overview">3.4.2. Overview</a></h4>
 <div class="paragraph">
 <p>This feature is facilitated by both <code>PropertyBook</code> and <code>CustomProperty</code>. Whenever a user
 adds a newly defined custom property, a <code>CustomProperty</code> object will be created which is stored in
@@ -920,7 +923,7 @@ clashes in their uses.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.3.3. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.4.3. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>CustomProperty</code> encapsulates a single custom property that the user defines. It contains
 information such as name, prefix and parameter type of the custom property. The parameter type is supported by
@@ -1064,7 +1067,7 @@ is removed from a single exercise instead, only the selected exercise will be up
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.4. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.4. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-code-propertybook-code-design"><a class="link" href="#aspect-code-propertybook-code-design">Aspect: <code>PropertyBook</code> design</a></h5>
 <div class="ulist">
@@ -1126,9 +1129,9 @@ is acting like a singleton and so, a singleton class will be appropriate.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggest"><a class="link" href="#suggest">3.4. Suggest</a></h3>
+<h3 id="suggest"><a class="link" href="#suggest">3.5. Suggest</a></h3>
 <div class="sect3">
-<h4 id="rationale-3"><a class="link" href="#rationale-3">3.4.1. Rationale</a></h4>
+<h4 id="rationale-3"><a class="link" href="#rationale-3">3.5.1. Rationale</a></h4>
 <div class="paragraph">
 <p>Beginners now have a plethora of choices, which may overwhelm them when they are deciding on what exercises to do.
 Thus, we decided to provide users with sample exercise routines to reduce the inertia of starting this lifestyle change.
@@ -1141,7 +1144,7 @@ It also makes our application well-rounded so that users can better achieve thei
 </div>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">3.4.2. Overview</a></h4>
+<h4 id="overview-2"><a class="link" href="#overview-2">3.5.2. Overview</a></h4>
 <div class="paragraph">
 <p>The sample exercise routines are currently implemented in ExerHealth&#8217;s database as a hard-coded set of exercises.
 More importantly, the <code>SuggestPossible</code> command which caters to more experienced gym goers utilises the exercises that the user
@@ -1150,7 +1153,7 @@ based on <code>Muscle</code> and <code>CustomProperty</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.4.3. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.5.3. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>SuggestBasic</code> command displays a list of exercises from our database to the user.
 The <code>SuggestPossible</code> command is created by parsing the user&#8217;s inputs to form a <code>Predicate</code> before filtering ExerHealth&#8217;s database and the user&#8217;s tracked exercises.</p>
@@ -1256,7 +1259,7 @@ allows us to conduct better testing because we can compare the <code>Collection<
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.4. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.4. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-predicate-creation"><a class="link" href="#aspect-implementation-of-predicate-creation">Aspect: Implementation of predicate creation</a></h5>
 <div class="ulist">
@@ -1322,9 +1325,9 @@ all in one place as it stores the tags, and creates the predicate and filters th
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics"><a class="link" href="#statistics">3.5. Statistics</a></h3>
+<h3 id="statistics"><a class="link" href="#statistics">3.6. Statistics</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.5.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Statistics of exercises will be displayed in charts. Supported chart types are Pie Chart, Line Chart and Bar Chart.
 StatsFactory will create Statistic using given parameters.
@@ -1384,14 +1387,14 @@ The figure below shows the class diagram of statistics:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1422,7 +1425,7 @@ The figure below shows the class diagram of statistics:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1513,10 +1516,10 @@ The figure below shows the class diagram of statistics:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 3.6144%;">
-<col style="width: 12.0481%;">
-<col style="width: 36.1445%;">
-<col style="width: 48.193%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+<col style="width: 37.5%;">
 </colgroup>
 <thead>
 <tr>
@@ -2486,4 +2489,4 @@ Expected: <code>ExerHealth</code> will start with an empty exercise book due to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:27:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:35:27 UTC</div></div></div></body></html>
