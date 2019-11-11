@@ -149,10 +149,10 @@ word is capitalised with the other letters in lower case e.g. <code>enD DaTe</co
 <p>The date entered for custom properties with a <code>DATE</code> parameter must follow the same requirements as that of <a href="#addexercise">add</a> command.</p>
 </li>
 <li>
-<p>The text entered for custom properties with a <code>TEXT</code> parameter can contain only alphabets.</p>
+<p>The text entered for custom properties with a <code>TEXT</code> parameter can contain only alphabets and spaces.</p>
 </li>
 <li>
-<p>The number entered for custom properties with a <code>NUMBER</code> parameter must be non-negative.</p>
+<p>The number entered for custom properties with a <code>NUMBER</code> parameter must be a non-negative integer.</p>
 </li>
 <li>
 <p>You need not include the custom properties when adding a new exercise to the app.</p>
@@ -249,7 +249,7 @@ cannot be used.
 <div class="ulist">
 <ul>
 <li>
-<p><code>add t/exercise n/Run d/07/11/2019 c/400 q/2.4 u/km r/5</code></p>
+<p><code>add t/exercise n/Dancing d/07/11/2019 c/400 q/2 u/hours r/5</code></p>
 </li>
 </ul>
 </div>
@@ -301,19 +301,19 @@ wish to.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Before the execution, the <code>Rating</code> property will be present in exercises that have them.</p>
+<p>Before the execution, the <code>Rating</code> property will be present in exercises that have it.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/EditCustomRating.png" alt="EditCustomRating" width="85%">
+<img src="../images/AddCustomRating.png" alt="AddCustomRating" width="85%">
 </div>
-<div class="title">Figure 4. A rating of 4.5 for exercise 6</div>
+<div class="title">Figure 4. A rating of 5 for exercise 6</div>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/EditAnotherCustomRating.png" alt="EditAnotherCustomRating" width="85%">
+<img src="../images/EditAnotherCustomrating.png" alt="EditAnotherCustomrating" width="85%">
 </div>
-<div class="title">Figure 5. A rating of 3.5 for exercise 7</div>
+<div class="title">Figure 5. A rating of 3 for exercise 7</div>
 </div>
 <div class="paragraph">
 <p>After the execution, the <code>Rating</code> property will be removed from all of the exercises and the app
@@ -321,13 +321,13 @@ as illustrated in the next few figures.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/RunRatingRemoved.png" alt="RunRatingRemoved" width="85%">
+<img src="../images/DancingRatingRemoved.png" alt="DancingRatingRemoved" width="85%">
 </div>
 <div class="title">Figure 6. Rating in exercise 6 is removed</div>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/BenchPressRatingRemoved.png" alt="BenchPressRatingRemoved" width="85%">
+<img src="../images/RunningRatingRemoved.png" alt="RunningRatingRemoved" width="85%">
 </div>
 <div class="title">Figure 7. Rating in exercise 7 is also removed</div>
 </div>
@@ -565,7 +565,7 @@ it directly.</p>
 </li>
 <li>
 <p>If the data structure holding the <code>CustomProperty</code> object is to be made static, it means that this information is
-shared among all of the <code>PropertyBook</code> instances if Choice 2 was implemented. Thus, <code>PropertyBook</code>
+shared among all of the <code>PropertyBook</code> instances if Choice 2 is implemented. Thus, <code>PropertyBook</code>
 is acting like a singleton and so, a singleton class will be appropriate.</p>
 </li>
 </ol>
@@ -574,4 +574,4 @@ is acting like a singleton and so, a singleton class will be appropriate.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 05:08:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:25:35 UTC</div></div></div></body></html>
